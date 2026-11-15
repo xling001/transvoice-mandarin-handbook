@@ -135,13 +135,13 @@
       background: var(--bg-surface);
       border-bottom: 1px solid var(--border-hairline);
       z-index: 999;
-      height: 60px;
-      backdrop-filter: blur(8px);
-      -webkit-backdrop-filter: blur(8px);
+      height: 62px;
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
     }
 
     .header-inner {
-      max-width: 1240px;
+      max-width: 1260px;
       margin: 0 auto;
       height: 100%;
       padding: 0 20px;
@@ -181,6 +181,31 @@
       letter-spacing: -0.2px;
     }
 
+    /* Audio wave visualizer animation */
+    .wave-bars {
+      display: inline-flex;
+      align-items: flex-end;
+      gap: 2px;
+      height: 14px;
+      margin-left: 2px;
+    }
+    .wave-bar {
+      width: 2.5px;
+      background: var(--color-primary);
+      border-radius: 1px;
+      animation: wavePulse 1.2s ease-in-out infinite alternate;
+    }
+    .wave-bar:nth-child(1) { height: 6px; animation-delay: 0.1s; }
+    .wave-bar:nth-child(2) { height: 12px; animation-delay: 0.3s; }
+    .wave-bar:nth-child(3) { height: 8px; animation-delay: 0.5s; }
+    .wave-bar:nth-child(4) { height: 14px; animation-delay: 0.2s; }
+    .wave-bar:nth-child(5) { height: 9px; animation-delay: 0.4s; }
+
+    @keyframes wavePulse {
+      0% { transform: scaleY(0.4); opacity: 0.5; }
+      100% { transform: scaleY(1); opacity: 1; }
+    }
+
     .brand-badge {
       font-size: 11px;
       font-weight: 600;
@@ -194,7 +219,7 @@
     .header-right {
       display: flex;
       align-items: center;
-      gap: 10px;
+      gap: 8px;
     }
 
     .action-btn {
@@ -212,6 +237,7 @@
       gap: 6px;
       transition: all 0.15s ease;
       text-decoration: none;
+      font-weight: 500;
     }
 
     .action-btn:hover {
@@ -219,9 +245,20 @@
       border-color: var(--border-strong);
     }
 
+    .app-link-btn {
+      background: linear-gradient(135deg, rgba(108, 92, 231, 0.12), rgba(245, 169, 184, 0.18));
+      border: 1px solid var(--color-primary);
+      color: var(--color-primary);
+      font-weight: 600;
+    }
+    .app-link-btn:hover {
+      background: var(--color-primary);
+      color: #FFFFFF;
+    }
+
     /* Main Layout */
     .main-wrapper {
-      max-width: 1240px;
+      max-width: 1260px;
       margin: 0 auto;
       padding: 24px 20px 80px;
       position: relative;
@@ -230,10 +267,10 @@
     /* Fixed Desktop Sidebar */
     .desktop-sidebar {
       position: fixed;
-      top: 74px;
-      left: max(20px, calc(50% - 620px + 20px));
+      top: 76px;
+      left: max(20px, calc(50% - 630px + 20px));
       width: 290px;
-      height: calc(100vh - 94px);
+      height: calc(100vh - 96px);
       overflow-y: auto;
       background: var(--bg-surface);
       border: 1px solid var(--border-hairline);
@@ -257,6 +294,46 @@
     .content-area-container {
       margin-left: 314px;
       min-height: 80vh;
+    }
+
+    /* Sidebar App Mini Card */
+    .sidebar-app-card {
+      background: var(--color-primary-soft);
+      border: 1px solid var(--border-hairline);
+      border-radius: var(--radius-sm);
+      padding: 10px 12px;
+      text-decoration: none;
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+      transition: all 0.15s ease;
+    }
+    .sidebar-app-card:hover {
+      border-color: var(--color-primary);
+      transform: translateY(-1px);
+    }
+    .sac-top {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .sac-title {
+      font-size: 12.5px;
+      font-weight: 700;
+      color: var(--color-primary);
+    }
+    .sac-badge {
+      font-size: 10px;
+      background: #4EBA87;
+      color: #FFFFFF;
+      padding: 1px 5px;
+      border-radius: 4px;
+      font-weight: 600;
+    }
+    .sac-desc {
+      font-size: 11px;
+      color: var(--text-muted);
+      line-height: 1.35;
     }
 
     /* Search Bar in Sidebar */
@@ -333,31 +410,148 @@
       font-weight: 600;
     }
 
+    /* Subsections in Sidebar */
+    .nav-sub-list {
+      list-style: none;
+      margin-left: 14px;
+      padding-left: 8px;
+      border-left: 2px solid var(--border-hairline);
+      margin-top: 2px;
+      margin-bottom: 4px;
+      display: flex;
+      flex-direction: column;
+      gap: 2px;
+    }
+    .nav-sub-btn {
+      width: 100%;
+      text-align: left;
+      background: none;
+      border: none;
+      padding: 4px 6px;
+      border-radius: 4px;
+      font-size: 12px;
+      color: var(--text-muted);
+      cursor: pointer;
+      line-height: 1.35;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+    }
+    .nav-sub-btn:hover {
+      color: var(--color-primary);
+      background: var(--bg-subtle);
+    }
+
     /* Article Card & Content Area */
     .article-card {
       background: var(--bg-surface);
       border: 1px solid var(--border-hairline);
       border-radius: var(--radius-md);
-      padding: 36px 42px;
+      padding: 38px 44px;
       box-shadow: var(--shadow-sm);
       margin-bottom: 24px;
     }
 
-    /* Breadcrumbs */
+    /* Companion App Hero Banner in Preamble */
+    .companion-banner {
+      background: linear-gradient(135deg, var(--color-primary-soft), var(--bg-subtle));
+      border: 1px solid var(--border-strong);
+      border-left: 5px solid var(--color-primary);
+      border-radius: var(--radius-md);
+      padding: 20px 24px;
+      margin-bottom: 30px;
+      box-shadow: var(--shadow-sm);
+    }
+    .cb-top {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      margin-bottom: 8px;
+    }
+    .cb-tag {
+      font-size: 11px;
+      font-weight: 700;
+      background: #4EBA87;
+      color: #FFFFFF;
+      padding: 2px 8px;
+      border-radius: var(--radius-full);
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+    }
+    .cb-title {
+      font-size: 16.5px;
+      font-weight: 700;
+      color: var(--text-primary);
+      margin: 0;
+    }
+    .cb-desc {
+      font-size: 13.5px;
+      color: var(--text-regular);
+      line-height: 1.6;
+      margin-bottom: 14px;
+    }
+    .cb-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+    .cb-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 8px 16px;
+      border-radius: var(--radius-sm);
+      font-size: 13px;
+      font-weight: 600;
+      text-decoration: none;
+      transition: all 0.15s ease;
+    }
+    .cb-btn.primary {
+      background: var(--color-primary);
+      color: #FFFFFF;
+    }
+    .cb-btn.primary:hover {
+      background: var(--color-primary-hover);
+      transform: translateY(-1px);
+    }
+    .cb-btn.secondary {
+      background: var(--bg-surface);
+      color: var(--text-primary);
+      border: 1px solid var(--border-hairline);
+    }
+    .cb-btn.secondary:hover {
+      background: var(--bg-muted);
+      border-color: var(--border-strong);
+    }
+
+    /* Breadcrumbs & Meta */
+    .article-meta-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 24px;
+      padding-bottom: 12px;
+      border-bottom: 1px solid var(--border-hairline);
+      font-size: 12.5px;
+      color: var(--text-muted);
+    }
     .breadcrumbs {
       display: flex;
       align-items: center;
       gap: 6px;
-      font-size: 12.5px;
-      color: var(--text-muted);
-      margin-bottom: 24px;
-      padding-bottom: 12px;
-      border-bottom: 1px solid var(--border-hairline);
     }
     .breadcrumbs a {
       color: var(--color-primary);
       text-decoration: none;
       cursor: pointer;
+    }
+    .read-stats-pill {
+      font-size: 11.5px;
+      background: var(--bg-subtle);
+      padding: 2px 8px;
+      border-radius: var(--radius-full);
+      color: var(--text-secondary);
     }
 
     /* Typography & Markdown Styles */
@@ -376,7 +570,7 @@
       line-height: 1.35;
       margin-top: 1.8em;
       margin-bottom: 0.6em;
-      scroll-margin-top: 74px;
+      scroll-margin-top: 76px;
     }
 
     .markdown-body h1 {
@@ -420,7 +614,7 @@
 
     .markdown-body blockquote {
       margin: 1.4em 0;
-      padding: 12px 18px;
+      padding: 14px 18px;
       background: var(--bg-subtle);
       border-left: 4px solid var(--color-primary);
       border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
@@ -446,7 +640,7 @@
       width: 100%;
       border-collapse: collapse;
       text-align: left;
-      font-size: 0.93rem;
+      font-size: 0.92rem;
     }
 
     .markdown-body th {
@@ -482,6 +676,7 @@
     }
 
     .markdown-body pre {
+      position: relative;
       background: var(--bg-subtle);
       border: 1px solid var(--border-hairline);
       border-radius: var(--radius-md);
@@ -496,6 +691,32 @@
       border: none;
       color: var(--text-primary);
       font-size: 0.9em;
+    }
+
+    /* Code Block Copy Button */
+    .copy-code-btn {
+      position: absolute;
+      top: 8px;
+      right: 8px;
+      background: var(--bg-surface);
+      border: 1px solid var(--border-hairline);
+      color: var(--text-muted);
+      border-radius: 4px;
+      font-size: 11px;
+      padding: 2px 7px;
+      cursor: pointer;
+      opacity: 0.8;
+      transition: all 0.15s ease;
+    }
+    .copy-code-btn:hover {
+      opacity: 1;
+      color: var(--color-primary);
+      border-color: var(--color-primary);
+    }
+    .copy-code-btn.copied {
+      background: #4EBA87;
+      color: #FFFFFF;
+      border-color: #4EBA87;
     }
 
     .markdown-body hr {
@@ -652,6 +873,9 @@
       .brand-title {
         font-size: 14.5px;
       }
+      .app-btn-text {
+        display: none;
+      }
     }
   </style>
 </head>
@@ -671,10 +895,22 @@
         <a href="#/preamble" class="brand-link" onclick="navigate('preamble')">
           <span style="font-size: 18px;">🎙️</span>
           <span class="brand-title">跨女性嗓音训练知识库</span>
+          <div class="wave-bars" title="现代 TransVoice 声学常模">
+            <span class="wave-bar"></span>
+            <span class="wave-bar"></span>
+            <span class="wave-bar"></span>
+            <span class="wave-bar"></span>
+            <span class="wave-bar"></span>
+          </div>
           <span class="brand-badge">普通话版 v1.4.1</span>
         </a>
       </div>
       <div class="header-right">
+        <!-- Companion App Link -->
+        <a href="https://github.com/xling001/radio-diary" target="_blank" rel="noopener" class="action-btn app-link-btn" title="配套纯本地嗓音练习手账 (Radio Diary)">
+          <span style="font-size: 14px;">📻</span>
+          <span class="app-btn-text">电波日记 App</span>
+        </a>
         <!-- Reading Mode Toggle -->
         <button onclick="toggleFullReadingMode()" class="action-btn" id="full-mode-btn" title="切换全文连续阅读 / 单章精读">
           <span id="full-mode-icon">📖</span>
@@ -689,7 +925,7 @@
           <span id="theme-icon">🌓</span>
         </button>
         <!-- GitHub Link -->
-        <a href="https://github.com/xling001/transvoice-mandarin-handbook" target="_blank" rel="noopener" class="action-btn" title="前往 GitHub 仓库">
+        <a href="https://github.com/xling001/transvoice-mandarin-handbook" target="_blank" rel="noopener" class="action-btn" title="知识库 GitHub 仓库">
           <svg height="16" width="16" viewBox="0 0 16 16" fill="currentColor">
             <path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"/>
           </svg>
@@ -707,9 +943,17 @@
       <span style="font-weight:700; font-size:15px; color:var(--text-primary);">知识库导航</span>
       <button onclick="toggleDrawer(false)" style="background:none; border:none; font-size:18px; color:var(--text-muted); cursor:pointer;">✕</button>
     </div>
+    <!-- Companion App Card for Mobile -->
+    <a href="https://github.com/xling001/radio-diary" target="_blank" rel="noopener" class="sidebar-app-card">
+      <div class="sac-top">
+        <span class="sac-title">📻 电波日记 (Radio Diary)</span>
+        <span class="sac-badge">已开源</span>
+      </div>
+      <span class="sac-desc">面向跨女的纯本地离线声学练习手账</span>
+    </a>
     <div class="search-box">
       <span class="search-icon">🔍</span>
-      <input type="text" class="search-input" id="mobile-search" placeholder="搜索知识点、指标或词汇..." oninput="handleSearch(this.value)">
+      <input type="text" class="search-input" id="mobile-search" placeholder="检索指标、解剖或字词..." oninput="handleSearch(this.value)">
     </div>
     <nav id="mobile-nav-container"></nav>
   </aside>
@@ -718,24 +962,56 @@
   <div class="main-wrapper">
     <!-- Desktop Sidebar -->
     <aside class="desktop-sidebar">
+      <!-- Companion App Card for Desktop -->
+      <a href="https://github.com/xling001/radio-diary" target="_blank" rel="noopener" class="sidebar-app-card" title="查看配套开源应用：电波日记">
+        <div class="sac-top">
+          <span class="sac-title">📻 电波日记 (Radio Diary)</span>
+          <span class="sac-badge">已开源</span>
+        </div>
+        <span class="sac-desc">面向跨女的纯本地离线声学分析手账 →</span>
+      </a>
+
       <div class="search-box">
         <span class="search-icon">🔍</span>
         <input type="text" class="search-input" id="desktop-search" placeholder="检索解剖、声学模型或训练词..." oninput="handleSearch(this.value)">
       </div>
       <nav id="desktop-nav-container" style="flex:1; overflow-y:auto;"></nav>
       <div style="font-size:11.5px; color:var(--text-muted); text-align:center; padding-top:10px; border-top:1px solid var(--border-hairline);">
-        CC BY-NC-SA 4.0 · 跨性别女性社群共创
+        <a href="https://github.com/xling001/transvoice-mandarin-handbook" target="_blank" rel="noopener" style="color:var(--text-muted); text-decoration:none;">GitHub 仓库 ⭐️</a> · CC BY-NC-SA 4.0
       </div>
     </aside>
 
     <!-- Reading Content Area -->
     <main class="content-area-container">
       <div class="article-card">
-        <div class="breadcrumbs" id="breadcrumbs">
-          <a onclick="navigate('preamble')">知识库首页</a>
-          <span>/</span>
-          <span id="breadcrumb-current">导读</span>
+        <div class="article-meta-header">
+          <div class="breadcrumbs" id="breadcrumbs">
+            <a onclick="navigate('preamble')">知识库首页</a>
+            <span>/</span>
+            <span id="breadcrumb-current">导读</span>
+          </div>
+          <div class="read-stats-pill" id="read-stats-pill">⏱️ 约 5 分钟阅读</div>
         </div>
+
+        <!-- Featured App Banner in Preamble -->
+        <div class="companion-banner" id="companion-banner">
+          <div class="cb-top">
+            <span class="cb-tag"><span style="display:inline-block; width:6px; height:6px; background:#fff; border-radius:50%;"></span> 配套实践软件正式开源上线</span>
+          </div>
+          <h3 class="cb-title">📻 电波日记 MtF 版 (Radio Diary)</h3>
+          <p class="cb-desc">面向跨性别女性的纯本地嗓音练习手账 · 零联网离线声学分析 + 外部 AI 导出。基于现代 TransVoice 核心模型与本知识库普通话常模开发，无云端录音留存，全流程守护你的声音安全。</p>
+          <div class="cb-actions">
+            <a href="https://github.com/xling001/radio-diary" target="_blank" rel="noopener" class="cb-btn primary">
+              <span>前往 Radio Diary (GitHub)</span>
+              <span>→</span>
+            </a>
+            <a href="https://github.com/xling001/transvoice-mandarin-handbook" target="_blank" rel="noopener" class="cb-btn secondary">
+              <svg height="14" width="14" viewBox="0 0 16 16" fill="currentColor"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"/></svg>
+              <span>知识库 GitHub 仓库</span>
+            </a>
+          </div>
+        </div>
+
         <article class="markdown-body" id="content-body"></article>
         <div class="chapter-nav-footer" id="chapter-nav-footer"></div>
       </div>
@@ -758,6 +1034,8 @@
   <!-- Application Logic -->
   <script>
     const markedParser = window.marked || marked;
+
+    // Configure marked options
     markedParser.setOptions({
       gfm: true,
       breaks: false,
@@ -772,7 +1050,7 @@
     markedParser.use({ renderer });
 
     // Embedded Sections Data
-    const SECTIONS = [{"id":"preamble","title":"知识库概览与理论基石","group":"导引","content":"# 跨性别女性嗓音训练解剖与声学常模知识库（普通话版）\n\n> **理论基石与参考来源**：\n> 1. **解剖学生理学与生物力学**：西奥多·戴蒙（Theodore Dimon）著，钱倩、陈臻 译《嗓音解剖：供歌手、声乐教练和言语治疗师使用的解剖图册》（*Anatomy of the Voice*）及亚历山大姿态力学体系。\n> 2. **跨性别嗓音现代范式**：SumianVoice / TransVoice-Wiki 开源知识库（Voice Resource Project，基于声学感知与去病理化微行为框架）。\n> 3. **中文社群启蒙与先驱经验**：\n>    - **Aoi 的跨性别嗓音训练指南（Aoi 手册）**（[https://mtf-voice-training.vercel.app/](https://mtf-voice-training.vercel.app/)）：源-滤波器理论通俗阐释、三步提喉力学、水球舌头原理及普通话单韵母共振峰男女对照基线。\n>    - **TransVoice-Wiki 中文翻译项目**（[https://transvoice-wiki.pages.dev/translate/zh_Hans/](https://transvoice-wiki.pages.dev/translate/zh_Hans/)）：音重与声道空间双支柱模型、充实度四象限的中文系统普及。\n> 4. **汉语普通话实验语音学**：普通话五度标记法（Zhao's Pitch Contours）、四声调值与连读变调、送气音对立（VOT）及三套擦音谱重心体系；上海地区成年人普通话元音参考（Huang et al., 2024）。\n> 5. **临床言语病理学（SLP）与性别肯定言语治疗实践**：从声乐技巧转向现代「性别肯定沟通（Gender-Affirming Voice and Communication）」的临床评估逻辑、嗓音卫生安全红线与日常泛化经验。\n\n---","subsections":[]},{"id":"toc","title":"目录与全景大纲","group":"导引","content":"## 目录\n\n- [导言：认知转身——从“硬提音高”走向性别肯定沟通](#导言认知转身从硬提音高走向性别肯定沟通)\n- [第一章 嗓音发生器的解剖学生理学](#第一章-嗓音发生器的解剖学生理学)\n  - [1.1 动力系统：呼吸力学、拮抗支撑与非强迫气流](#11-动力系统呼吸力学拮抗支撑与非强迫气流)\n  - [1.2 振动发生源：喉部软骨框架与 CT/TA 核心协同](#12-振动发生源喉部软骨框架与-ctta-核心协同)\n  - [1.3 容易带来紧绷感的结构：室带（假声带）与喉室](#13-容易带来紧绷感的结构室带假声带与喉室)\n  - [1.4 悬挂与共鸣系统：舌骨悬吊与喉的“自由悬浮”](#14-悬挂与共鸣系统舌骨悬吊与喉的自由悬浮)\n- [第二章 现代 TransVoice 核心声学模型（音重与声道空间）](#第二章-现代-transvoice-核心声学模型音重与声道空间)\n  - [2.1 声音感知的两大底层支柱与对照概览](#21-声音感知的两大底层支柱与对照概览)\n  - [2.2 支柱一：音重（Vocal Weight）——从厚实重击到轻柔流动](#22-支柱一音重vocal-weight从厚实重击到轻柔流动)\n  - [2.3 支柱二：声道空间与共鸣（Vocal Size / Resonance）](#23-支柱二声道空间与共鸣vocal-size--resonance)\n  - [2.4 充实度四象限模型与音色落点辨识](#24-充实度四象限模型与音色落点辨识)\n  - [2.5 微行为（Microbehaviours）与模仿（Mimicry）](#25-微行为microbehaviours与模仿mimicry)\n- [第三章 汉语普通话的特殊声学挑战与本土化适配](#第三章-汉语普通话的特殊声学挑战与本土化适配)\n  - [3.1 英语语调与汉语声调的本质差异](#31-英语语调与汉语声调的本质差异)\n  - [3.2 普通话四声“挤卡陷阱”与托底/浅降策略](#32-普通话四声挤卡陷阱与托底浅降策略)\n  - [3.3 普通话三套擦音与送气音（VOT）微调](#33-普通话三套擦音与送气音vot微调)\n  - [3.4 普通话元音格局（Vowel Space）、单韵母参考与前腔聚焦](#34-普通话元音格局vowel-space单韵母参考与前腔聚焦)\n  - [3.5 调域（Register）与调幅（Range）辨析](#35-调域register与调幅range辨析)\n- [第四章 客观声学指标、有效测量与自我对照](#第四章-客观声学指标有效测量与自我对照)\n  - [4.1 先评估什么：临床三层视角与测量前提](#41-先评估什么临床三层视角与测量前提)\n  - [4.2 核心声学指标解读与 ΔF 深度说明](#42-核心声学指标解读与-δf-深度说明)\n  - [4.3 声学指标参考区间与对照总表](#43-声学指标参考区间与对照总表)\n  - [4.4 最小可检测变化（MDC）与内耳骨传导差异](#44-最小可检测变化mdc与内耳骨传导差异)\n- [第五章 常见疲惫代偿、医学边界与嗓音安全](#第五章-常见疲惫代偿医学边界与嗓音安全)\n  - [5.1 吞咽肌提喉死锁与“无声半打哈欠”](#51-吞咽肌提喉死锁与无声半打哈欠)\n  - [5.2 室带挤压（夹嗓）与“静音轻笑”](#52-室带挤压夹嗓与静音轻笑)\n  - [5.3 纯假声代偿与过度提气的局限](#53-纯假声代偿与过度提气的局限)\n  - [5.4 嗓音手术边界、日常护嗓与临床转诊红线](#54-嗓音手术边界日常护嗓与临床转诊红线)\n- [第六章 普通话渐进训练处方与“第二语言”日常迁移](#第六章-普通话渐进训练处方与第二语言日常迁移)\n  - [6.1 训练前的四件准备：安全、生活目标与学习观](#61-训练前的四件准备安全生活目标与学习观)\n  - [6.2 阶段零：身体释放与喉部自由悬浮（亚历山大感知）](#62-阶段零身体释放与喉部自由悬浮亚历山大感知)\n  - [6.3 阶段一：SOVTE 半遮蔽声道练习与轻音重寻回](#63-阶段一sovte-半遮蔽声道练习与轻音重寻回)\n  - [6.4 阶段二：前鼻音桥接（m→i）与前高元音“衣位”聚焦](#64-阶段二前鼻音桥接mi与前高元音衣位聚焦)\n  - [6.5 阶段三：普通话字词四声滑翔与变调实战](#65-阶段三普通话字词四声滑翔与变调实战)\n  - [6.6 阶段四：持久性攻坚、情境泛化与日常自评](#66-阶段四持久性攻坚情境泛化与日常自评)\n- [致谢与参考开源项目](#致谢与参考开源项目)\n- [附录一：核心术语中英双解对照表](#附录一核心术语中英双解对照表)\n- [附录二：知识库版本演进记录](#附录二知识库版本演进记录)\n\n---","subsections":[]},{"id":"intro","title":"导言：认知转身","group":"导引","content":"## 导言：认知转身——从“硬提音高”走向性别肯定沟通\n\n在跨性别女性（MtF）的嗓音探索里，最容易令人疲惫的误区就是：**“声音女性化 = 硬拔说话音高（Pitch）”**。\n\n大量初学者尝试用力收紧喉咙、强行将基频推上 `220 Hz`，往往反而落入两种困境：\n1. **发声偏硬、声音偏紧（Overfull / Pressed Voice）**：声带过度紧绷碰撞并带动假声带向内挤压，听感像“掐着喉咙”，不仅尖扁生硬，而且几分钟就疲劳干涩；\n2. **纯假声偏空（Underfull / Hollow Falsetto）**：声带边缘离散漏气，虽然频率很高，却缺少柔和稳定的核心凝聚力，进入街道或餐厅等嘈杂环境立刻被环境音淹没。\n\n现代喉部生物力学与临床言语病理学（SLP）已经彻底澄清：**音高（Pitch, $F_0$）只是承载轴，真正主导声音性别感知与表达质感的底层双支柱是「音重（Vocal Weight）」与「声道空间/共鸣（Vocal Size / Resonance）」。** 纵观半个多世纪的实践，嗓音训练走过了三次关键转身：\n\n1. **早期声乐借鉴阶段（1960s–1980s）**：多由声乐老师指导，思路偏向“把女声当高音演唱技巧”，留下了至今仍在流传的误解：**“女声 = 高 + 气”**。\n2. **言语病理学介入（1980s 之后）**：SLP 将嗓音卫生、声带评估与禁忌症排查放回首位——**先保证不把声带练伤，再谈发声技巧**。\n3. **现代“性别肯定嗓音与交流（Gender-Affirming Voice and Communication）”**：近十余年来，领域重心转向由说话者本人定义目标——**真正成熟的，是“如何保护声带练得稳”和“如何让新声音在生活里用得下去”；开放而多元的，是“你想听起来像什么样的自己”**：\n   - 目标由你自主定义（偏柔和女性化、知性中低女声、中性清爽，或在不同场合切换表达）；\n   - 不把单一音色模板或“陌生人必须完全听不出（passing）”设为唯一及格线；\n   - **科学训练顺序**为：**呼吸与喉周放松 $\\longrightarrow$ 共鸣前置与轻音重寻回 $\\longrightarrow$ 音高与普通话声调平移 $\\longrightarrow$ 真实生活情境泛化**。\n\n在汉语普通话中，因为存在**三声低谷、四声急降、轻声依附**以及**平翘舌擦音、送气音对立**，若直接生搬英文教材的“句尾上扬 + 硬提音高”，极易产生反问误会与降调挤卡。本文档正是为这一本土化课题建立的一套严谨、安全、以客观指标为尺、兼顾性别感知参照的暖心指南。\n\n---","subsections":[]},{"id":"ch1","title":"第一章 发生器解剖生理学","group":"正文","content":"## 第一章 嗓音发生器的解剖学生理学\n\n> 参考著作：《嗓音解剖：供歌手、声乐教练和言语治疗师使用的解剖图册》（Theodore Dimon 著，钱倩、陈臻 译）\n\n> 💡 **30 秒体感速览（不用背解剖名词，先记住这三个日常开关）：**\n> 1. **动力开关（1.1）**：吸气不耸肩，说话时像轻叹一口气一样，用温和均匀的气流托住声音；\n> 2. **松紧开关（1.2 & 1.3）**：靠“静音轻笑”或“半打哈欠”让喉咙内部保持敞开不憋闷，依靠声带自然拉薄拉长来调高音调，不用蛮力往里挤；\n> 3. **空间开关（1.4）**：千万别用吞咽动作硬把喉结往上顶；只需让舌面前部像发“衣（/i/）”那样轻贴上腭前上方，喉位会随舌骨自然、轻松地微升。\n\n人体发声遵循“源—滤波器（Source-Filter）”协同机制，由三大系统自下而上配合完成：\n\n```\n        ┌──────────────────────────────────────────────────────┐\n        │  声道共鸣滤波器 (Vocal Tract Filter)                  │\n        │  咽腔 (Pharynx) + 口腔 (Oral Cavity) + 唇齿形状      │\n        │  决定：声道空间聚焦 (Vocal Size / ΔF / 共鸣峰分布)   │\n        └──────────────────────────▲───────────────────────────┘\n                                   │ (声门波脉冲源 声源激励)\n        ┌──────────────────────────┴───────────────────────────┐\n        │  喉部振动发生器 (Laryngeal Oscillator)                │\n        │  真声带 (True Vocal Folds)                           │\n        │  核心协同：CT (拉伸/减重) vs TA (加厚/增重)          │\n        │  决定：基频音高 (F0) 与 音重 (Vocal Weight / H1-H2)  │\n        └──────────────────────────▲───────────────────────────┘\n                                   │ (次声门气压 Psub)\n        ┌──────────────────────────┴───────────────────────────┐\n        │  呼吸动力系统 (Power Supply)                          │\n        │  肺 (Lungs) + 膈肌 (Diaphragm) + 肋间/腹壁肌群       │\n        │  决定：气流平稳度、呼气支撑与声门动态平衡            │\n        └──────────────────────────────────────────────────────┘\n```\n\n| 发声子系统 | 对应解剖结构 | 核心功能 | 在本体系中对应的关键观察项 |\n| :--- | :--- | :--- | :--- |\n| **动力系统** | 肺、膈肌、肋间肌、腹壁肌 | 提供平稳温和的气流与次声门压（$P_{\\text{sub}}$） | 呼吸稳不稳、句尾是否突然断气 |\n| **振动发生源** | 喉部软骨与真声带（CT / TA 协同） | 声带周期开闭、决定振动频率与厚度 | 基频音高（$F_0$）、音重（$H_1 - H_2$） |\n| **共鸣滤波器** | 咽腔、口腔、唇齿形状（Vocal Tract） | 放大或衰减特定泛音、塑造明暗质感 | 前腔共鸣（$\\Delta F$）、元音 $F_1/F_2/F_3$ |\n\n---\n\n### 1.1 动力系统：呼吸力学、拮抗支撑与非强迫气流\n\n发声并不是靠肺把空气“用力推出来”，而是平稳气流经过声门时产生的伯努利吸合与黏膜波动。\n\n* **吸气避免耸肩**：耸肩吸气会拉紧斜方肌与胸锁乳突肌等颈部浅表肌肉，直接把喉部骨架扯紧。理想状态是安静吸气时肋骨下缘与腹部自然微胀。\n* **什么叫真正的“发声支撑（Support / Appoggio）”**：《嗓音解剖》指出，健康的支撑不是用力收腹憋气，而是**吸气肌群与呼气肌群的动态拮抗平衡**——呼气说话时，肋间外肌与膈肌不立刻彻底塌陷，而是维持轻柔的扩展张力，像稳稳松开拉满的气球口一样，向声门下提供平缓稳定的次声门压（$P_{\\text{sub}}$）。\n* **气流太猛为什么反而“夹嗓子”**：如果瞬间猛冲出一大股气流（过高 $P_{\\text{sub}}$），声带为了不被吹散，会本能地死死夹紧对抗高气压，造成干硬紧绷感；而温和适中的气流则能支撑声带形成顺畅的**流动发声（Flow Phonation）**。\n\n---\n\n### 1.2 振动发生源：喉部软骨框架与 CT/TA 核心协同\n\n#### 1.2.1 喉部软骨框架\n\n```\n                     [舌骨 Hyoid Bone]\n                            │\n               (甲状舌骨膜 / 甲状舌骨肌悬吊)\n                            │\n                    ┌───────▼───────┐\n                    │  甲状软骨板    │ (前角即喉结所处位置)\n                    │ (Thyroid Cart)│\n                    └───┬───────┬───┘\n     杓状软骨 (后侧)    │       │\n    [Arytenoids] ◄──────┴───────┴────── (真声带：前端固定于前连合，后端连至声带突)\n         │  ▲\n         │  │ 环杓关节 (滑移与旋转：控制声门开合)\n         ▼  │\n    ┌───────────────────────────────┐\n    │          环状软骨             │ (基底环形稳固底座)\n    │      (Cricoid Cartilage)      │\n    └───────────────────────────────┘\n```\n\n* **甲状软骨（Thyroid Cartilage）**：前方形似盾牌，左右两板正中汇聚成前角（喉结位置）；两条真声带前端固定于前角内侧的**前连合（Anterior Commissure）**。\n* **环状软骨（Cricoid Cartilage）**：位于下方，形如印章戒指，后部宽大，是整个喉部的稳固底座。\n* **杓状软骨（Arytenoid Cartilages）**：成对坐落于环状软骨后上方，其前侧的**声带突（Vocal Process）**连接真声带后端，外侧的**肌突（Muscular Process）**附着控制声门开闭的肌群。\n\n#### 1.2.2 一对核心控制肌：环甲肌（CT）与甲杓肌（TA）\n\n```\n             ┌──────────────────────────────────────┐\n             │ 环甲肌 (Cricothyroid, CT)             │\n             │ 动作：让甲状软骨轻柔向前下方微倾      │\n             │ 效果：声带拉长、变薄、边缘轻量振动    │\n             │ 声音变化：音高变高、音重变轻          │\n             └──────────────────▲───────────────────┘\n                                │ (动态拮抗平衡)\n             ┌──────────────────▼───────────────────┐\n             │ 甲杓肌 / 声带肌 (TA / Vocalis)        │\n             │ 动作：拉近杓状软骨与甲状软骨、增厚肌体│\n             │ 效果：声带变短、变厚、闭合时间更长    │\n             │ 声音变化：偏低沉胸声、音重变厚实      │\n             └──────────────────────────────────────┘\n```\n\n* **生物力学分工**：\n  - **环甲肌（CT）**收缩时，甲状软骨前角向前下方微微倾斜，将声带**拉长、拉紧并使有效振动边缘变薄**——这是音高抬升与轻柔音重（女性及柔和中性发声常用生理态）的核心驱动。\n  - **甲杓肌（TA / 声带肌）**构成声带本体肌质，收缩时使声带缩短、肌体增厚且闭合时间延长——是浑厚低频胸声（成年男声常见发声基线）的主导发力模式。\n* **习惯调整的核心**：嗓音轻柔化练习不是跟肌肉硬碰硬，而是逐步减少 TA 的习惯性过度用力，唤醒 CT 轻柔拉薄声带边缘，让振动集中到柔软的表层黏膜上。\n\n#### 1.2.3 声门开闭微调肌（LCA / IA / PCA）\n* **侧环杓肌（LCA）**：拉动杓状软骨向内旋转，负责闭合声门前 2/3 的膜部区域。\n* **杓间肌（IA）**：横跨两杓状软骨之间，负责拉近并闭合后 1/3 的软骨部声门。\n  - 若 IA 张力较弱，声门后部会留出小三角缝隙——**后裂隙（Posterior Chink）**（少许后裂隙会增添柔和气感，过宽则会变成虚弱漏气声）；\n  - 若 LCA 与 IA 过度强力紧锁，则形成干硬的声门硬撞击（Pressed Voice）。\n* **后环杓肌（PCA）**：喉部**唯一负责外展打开声门**的肌肉，保障平静呼吸与清辅音（如 `/s/`、`p/t/k`）时的气道通畅。\n\n---\n\n### 1.3 容易带来紧绷感的结构：室带（假声带）与喉室\n\n```\n              ┌─────────────────────────┐\n              │   室带 (假声带 FVF)     │ ◄── 剧烈内收时会压迫声带、引发紧绷沙哑\n              ├─────────────────────────┤\n              │      喉室 (Ventricle)   │ ◄── 舒适发声时应保持充盈开放\n              ├─────────────────────────┤\n              │   真声带 (True VF)      │ ◄── 健康振动发声源\n              └─────────────────────────┘\n```\n\n* **它的本来作用**：室带（假声带，FVF）位于真声带上方，原本是人体气道的**防呛保护阀**（咳嗽、搬重物憋气时会本能往中间挤紧）。\n* **为什么练习时会挤卡**：当练习者急着抬高音调、但声带的 CT 拉伸协调还没跟上时，大脑会误调动假声带往里靠拢“帮忙用力”。这会压缩喉室空间、压住真声带自由振动，使声音干哑憋闷、喉咙发紧。\n* **舒适状态**：发声时室带应当保持向两侧自然展宽退开（**室带外展撤回，FVF Retraction**），比如“静音轻笑”瞬间感受到的喉内开阔感。\n\n---\n\n### 1.4 悬挂与共鸣系统：舌骨悬吊与喉的“自由悬浮”\n\n整个喉部并非焊死在脖子上，而是通过肌腱和软组织**悬挂在舌骨（Hyoid Bone）下方**，像风铃一样在上下悬吊肌群的平衡中保持弹性悬浮：\n\n```\n                          [颅底 / 乳突 / 茎突]\n                                 │\n                            (茎突舌骨肌)\n                                 ▼\n         [下颌骨] ──(二腹肌/颏舌骨肌)──► [ 舌 骨 ] ◄──(甲状舌骨肌)──┐\n                                         │                        │\n                                   (胸骨舌骨肌)               [甲状软骨]\n                                         │                        │\n                                         ▼                  (胸骨甲状肌)\n                                     [ 胸 骨 ] ◄──────────────────┘\n```\n\n* **舌骨上肌群**（二腹肌、茎突舌骨肌、下颌舌骨肌、颏舌骨肌）连接下颌与颅底，将舌骨向上前拉高建立支点；**甲状舌骨肌**再像做“引体向上”一样，把甲状软骨轻柔拉向舌骨。\n* **舌骨下肌群**（胸骨舌骨肌、胸骨甲状肌、肩胛舌骨肌）连接下方胸骨；在健康抬升或共鸣调整时，下拉肌群必须保持松软不“拔河”。\n* **水球舌头原理与舌骨十字路口**：舌头是一个充满肌纤维与液体的“肌肉静水骨骼”（如同水球），体积恒定——捏住一头，另一头必鼓起。若舌根紧绷后缩（舌骨舌肌发力），不仅会直接堵塞咽腔、压凹舌面中段，还会顺带把舌骨往下拽，让喉位想轻升却失去了上方支点。\n* **重要力学法则**：\n  - 单靠绷紧下巴底下的肌肉“死命提喉”是无效的，反而会触发吞咽反射锁死室带；\n  - **健康的喉位微升与前腔聚焦，是“舌根变薄放松 + 舌面前推轻贴硬腭（/i/ 位） + 环甲肌轻柔调节”的联动副产品**——此时脖子表面依然松软，能轻松左右转头。\n\n---","subsections":[{"level":3,"text":"1.1 动力系统：呼吸力学、拮抗支撑与非强迫气流"},{"level":3,"text":"1.2 振动发生源：喉部软骨框架与 CT/TA 核心协同"},{"level":4,"text":"1.2.1 喉部软骨框架"},{"level":4,"text":"1.2.2 一对核心控制肌：环甲肌（CT）与甲杓肌（TA）"},{"level":4,"text":"1.2.3 声门开闭微调肌（LCA / IA / PCA）"},{"level":3,"text":"1.3 容易带来紧绷感的结构：室带（假声带）与喉室"},{"level":3,"text":"1.4 悬挂与共鸣系统：舌骨悬吊与喉的“自由悬浮”"}]},{"id":"ch2","title":"第二章 现代核心声学模型","group":"正文","content":"## 第二章 现代 TransVoice 核心声学模型（音重与声道空间）\n\n> 参考开源项目：SumianVoice / TransVoice-Wiki\n\n现代跨性别声学共识早已不再单看音高（Hz），而是建立起**「音重（Vocal Weight）+ 声道空间/共鸣（Vocal Size / Resonance）」双核心感知体系**。\n\n---\n\n### 2.1 声音感知的两大底层支柱与对照概览\n\n人耳之所以会在几百毫秒内对声音产生性别与质感印象，本质上是听觉在无意识地解码说话者的**声带振动厚度**与**声道共鸣腔大小**。本体系采用“客观物理区间为先 + 二级性别感知对照补充”的方式标注范围，既帮助你明确自己处于什么位置、和性别表达有什么联系，也不设刻板“及格分”：\n\n| 维度 | 生理决定因素 | 偏宽厚区间 | 中性过渡带 | 偏轻亮聚焦区间 | 本体系对应核心观察与怎么调 |\n| :--- | :--- | :--- | :--- | :--- | :--- |\n| **音重 (Vocal Weight)** | 声带闭合相比例与边缘振动厚薄 | **厚实音重区**<br>（男声胸声日常常见范围，$H_1-H_2$ 约 $-4.0\\sim -1.2\\text{ dB}$） | **适中过渡区**<br>（闭合力逐步放轻带，$-1.2\\sim -0.5\\text{ dB}$） | **轻柔流动音重区**<br>（女声轻盈发声常见范围，$H_1-H_2$ 约 $-0.5\\sim +3.5\\text{ dB}$，柔和语流可达 $+6.0\\text{ dB}$） | 看 **$H_1 - H_2$**：不要憋气硬撞，也别只剩漏气；试着轻哼叹气过渡成流畅轻音 |\n| **声道空间 (Vocal Size)** | 咽腔、口腔有效长度与舌唇位置 | **宽敞后腔区**<br>（男声共鸣常见范围，`/i/` 上 $\\Delta F$ 约 $950\\sim 1080\\text{ Hz}$，$F_2$ 约 $1750\\sim 2150\\text{ Hz}$） | **中性明朗过渡带**<br>（等效声道过渡，$\\Delta F$ 约 $1080\\sim 1180\\text{ Hz}$） | **紧凑前腔聚焦区**<br>（女声共鸣常见范围，`/i/` 上 $\\Delta F$ 约 $1180\\sim 1300\\text{ Hz}$，$F_2$ 约 $2300\\sim 2750\\text{ Hz}$） | 看 **$\\Delta F$（衣音）与 $F_1/F_2/F_3$**：舌面轻贴硬腭前部、嘴角微展，避免噘嘴与喉根后缩 |\n| **基频音高 ($F_0$)** | 声带长度、张力与每秒振动次数 | **低音区**<br>（男声日常常见范围，$< 145\\text{ Hz}$，典型 $95\\sim 140\\text{ Hz}$） | **中音过渡区**<br>（$145\\sim 175\\text{ Hz}$，中性表达与柔和偏低女声交汇带） | **高音区**<br>（$> 175\\text{ Hz}$；顺女日常多见 $180\\sim 230\\text{ Hz}$；跨女训练与临床实测稳定区间多在 $165\\sim 210\\text{ Hz}$ 上下） | 看 **中位 $F_0$ 与托底线**：先调好共鸣与轻音重，音高顺势平稳带入舒适区间即可 |\n\n> **关键认知（为什么双支柱比单纯飙高音管用）**：\n> - 当具备**紧凑前腔聚焦 + 轻柔流动音重**时，即使说话中位音高落在 **160～175 Hz** 的中音过渡区，听众也常常自然感知为温和亲切的女声表达；\n> - 相反，如果保持着厚重的声带碰撞与宽敞后腔共鸣，哪怕硬生生把音高喊到 **220 Hz 以上**，也会显得吃力、别扭或像尖硬的卡通声。\n\n---\n\n### 2.2 支柱一：音重（Vocal Weight）——从厚实重击到轻柔流动\n\n音重描述的是声带每次振动中**闭合相占整个周期的比例与参与振动的肌体厚度**，在频谱上直接反映为第一谐波（基波 $H_1$）与第二谐波（$H_2$）的能量消长：\n\n```\n【厚实音重区 Heavy Weight】（男声胸声或压嗓常见）\n  声带闭合厚实，闭合相占比较大\n  时域波形：声门气流脉冲突然切断、下降较陡\n  频域特征：高次谐波能量较强，H1 相对偏弱 ──► H1 - H2 偏向负值（约 -4.0 ~ -1.2 dB）\n\n【轻柔音重区 Light Weight】（女声轻盈发声与柔和中性表达常用）\n  声带边缘轻薄接触，气流平稳舒展 (Flow Phonation)\n  时域波形：声门气流脉冲平缓对称\n  频域特征：基频 H1 能量充沛柔和，高次谐波衰减温和 ──► H1 - H2 处于近零或健康的微正值（约 -0.5 ~ +3.5 dB）\n```\n\n练习中最容易把下面三个概念与“轻音重”混淆：\n\n1. **轻音重 $\\neq$ 小声说话（降音量）**：\n   音重是指“声带贴得多轻薄”，音量是指“呼出声学能量的大小”。轻音重完全应当拥有清晰的日常社交响度（1 米距离约 60～65 dB SPL）。自检很简单：**“隔着一扇半开的门，对方能听清我在说什么吗？”** 听不清，多半是把“减音重”误做成了压低音量。\n2. **轻音重 $\\neq$ 漏气气声（Breathiness）**：\n   气声是因为声门后部留着缝隙让气流白白漏出去，听感发虚、说久了嗓子干且在吵闹环境里完全听不清；健康的轻音重是**声带依然完整合拢发声，只是接触面积很薄很轻巧**。\n3. **轻音重 $\\neq$ 纯假声（M2 / Falsetto）**：\n   纯假声在特定高音下很轻，但与日常中音说话机制脱节，容易断音、缺质感且难以长时间维持。\n\n---\n\n### 2.3 支柱二：声道空间与共鸣（Vocal Size / Resonance）\n\n声波经过喉咙到嘴唇的管道时，管腔形状决定了哪些频段的泛音会被放大。管腔有效空间较宽长时，低频回声充沛（声音厚大，常见于男声自然基线）；管腔有效空间较小且靠前时，中高频泛音丰富（声音清亮紧凑，常见于女声共鸣基线）。\n\n* **注：关于术语规范**：TransVoice-Wiki 建议直接使用可测量的**共振峰（$F_1, F_2, F_3$）**与**共鸣间距（$\\Delta F$）**来理解声道变化，而不再沿用早期模糊的 “R1 / R2” 黑话。\n* **三个安全有效、不用挤嗓子的前腔聚焦动作**：\n  1. **舌面前抬（微靠近硬腭）**：像准备轻发汉语“衣（/i/）”那样让舌面柔和向上抬起，这是抬高第二共振峰 $F_2$ 最核心、最不费力的杠杆；\n  2. **唇角微展（Slight Smile）**：脸颊轻松带一点微微笑意，避免不自觉噘嘴拉长口腔前端（噘嘴会直接压低 $F_2$ 与 $F_3$）；\n  3. **口咽轻拢而非夹咽壁**：允许上咽腔轻微集中，但下咽和喉头周围始终保持松软，不向里死扣。\n\n---\n\n### 2.4 充实度四象限模型与音色落点辨识\n\n将**音重（横轴：轻 $\\leftrightarrow$ 重）**与**声道空间（纵轴：紧凑前腔 $\\leftrightarrow$ 宽敞后腔）**组合，能清楚看出不同声学组合为什么呈现出截然不同的听觉与性别感知质感：\n\n```\n                 紧凑前腔聚焦 (Small Size · 高 ΔF / 高 F2 · 常见女声聚焦方向)\n                                       ▲\n                                       │\n          [左上] 饱满平衡 (Full)       │   [右上] 偏紧过满 (Overfull / Pressed)\n          轻柔音重 + 紧凑前腔          │   厚实音重 + 前腔偏紧\n          ► 清亮、温润、松弛不费力     │   ► 干硬、扁尖、极易疲惫的挤卡声\n            （日常女声常见理想落点）   │\n  轻音重 (Light) ──────────────────────┼────────────────────── 重音重 (Heavy)\n   H1-H2 近零或正值                    │                    H1-H2 偏负\n                                       │\n          [左下] 空洞偏暗 (Hollow)     │   [右下] 低沉厚重 (Overheavy)\n          轻柔音重 + 宽敞后腔          │   厚实音重 + 宽敞后腔\n          ► 轻柔叹气感、偏闷或空灵     │   ► 浑厚胸声\n            （常用于过渡探索中段）     │     （典型男声日常基线组合）\n                                       │\n                                       ▼\n                 宽敞后腔空间 (Large Size · 低 ΔF / 低 F2 · 常见男声空间基线)\n```\n\n* **怎么用这张图指导自己调整（而不焦虑）**：\n  * > **界面方向小提示**：此处沿用 TransVoice-Wiki 原版象限排布（左轻右重、上紧凑下宽敞）；而在本 App 的分析页象限图中，为了配合「往上偏紧、往下轻柔，往左深沉、往右明亮」的直觉阅读习惯，理想绿框区位于**右下角（更明亮 + 更轻柔）**，读图时留意对应文字标注即可，两者本质完全一致。\n  * 如果你在 **左下（空洞偏暗）**：说明声带其实已经够轻省了，不用再继续减音重，下一步只需让舌位稍微靠前、微笑带开嘴角，音色自然会明朗起来；\n  * 如果你在 **右上（偏紧过满）**：说明空间收进去了，但声带或室带跟着使了蛮力，需要优先做“静音轻笑”和闭口哼鸣，先把音重放轻；\n  * 如果你在 **右下（低沉厚重）**：这是原本最省力的肌肉惯性基线，建议按第六章的顺序先减音重、再挪前共鸣，最后才柔和带入音高。\n\n---\n\n### 2.5 微行为（Microbehaviours）与模仿（Mimicry）\n\n临床言语治疗师越来越重视一个事实：**真实沟通里的“非技术细节”，对整体性别印象与声音自然度的影响，常常大过几个赫兹的音高差。**\n* **微行为**：起音是不是轻轻送出而不是一声磕撞（硬起音）、句尾是轻巧收气还是向下重砸、轻笑（“呵呵/嘻嘻”）、温和叹气、语气词（“呀、呢、哦、好呀”）衔接是否舒展。\n* **模仿与跟读（Mimicry & Shadowing）**：大脑学说话靠的是“听觉—运动”直接连线，而不是一边做数学题一边控制肌肉。挑选一位让你听着觉得舒服、嗓音又不费力的说话范例，模仿她的语气节奏与轻重落点，往往比死盯着频谱仪进步更快。\n\n---","subsections":[{"level":3,"text":"2.1 声音感知的两大底层支柱与对照概览"},{"level":3,"text":"2.2 支柱一：音重（Vocal Weight）——从厚实重击到轻柔流动"},{"level":3,"text":"2.3 支柱二：声道空间与共鸣（Vocal Size / Resonance）"},{"level":3,"text":"2.4 充实度四象限模型与音色落点辨识"},{"level":3,"text":"2.5 微行为（Microbehaviours）与模仿（Mimicry）"}]},{"id":"ch3","title":"第三章 普通话声学与调控","group":"正文","content":"## 第三章 汉语普通话的特殊声学挑战与本土化适配\n\n---\n\n### 3.1 英语语调与汉语声调的本质差异\n\n英文是非声调语言，可以把整个句子当作一条柔缓飘动的波浪线，甚至用句尾上扬（Uptalk）增加亲切感。\n**汉语普通话则是严格的字调语言，每个字都有固定的声调轮廓**：\n1. 盲目在普通话陈述句结尾加“句尾上扬”，会把「好的。」直接听成疑惑或反问「好的？」；\n2. 普通话陈述句的自然结束方式，是在最后一个字后部做**温和轻微的下倾并平缓收气**；\n3. 最容易把声音瞬间打回原声粗重基线的位置，恰恰集中在**三声（上声）低谷**与**四声（去声）急降**，以及句尾的**轻声**——只要在这几个位置跌破低音线并触发厚重声带碰撞，哪怕前面几个字音高够高，听众的整体性别印象也会立刻被句尾拉回厚实胸声。\n\n---\n\n### 3.2 普通话四声“挤卡陷阱”与托底/浅降策略\n\n采用赵元任五度标记法（1 最低 $\\rightarrow$ 5 最高）解析四声发音陷阱：\n\n```\n五度值\n 5 ─── 阴平 (55 高平) ───┐              ┌── 去声 (51 起点)\n                         │              │\n 4 ─────────────── 阳平 (35 升点) ──────┤\n                         │              │\n 3 ────── 阳平 (35 起点) ┘              │\n                                        │\n 2 ─── 上声 (214 起点) ──┐              │\n                         │              │\n 1 ────────────── 上声谷底 (防跌区) ────┴── 去声终点 (软着陆区)\n```\n\n| 声调 | 调值特点 | 常见用力或失守陷阱 | 普通话科学破局要领 |\n| :--- | :--- | :--- | :--- |\n| **阴平（一声）** | 55 高平调 | 为撑住高音音量而夹紧声带 | 保持柔和气流巡航，体积轻、边缘微震 |\n| **阳平（二声）** | 35 中升调 | 上升时下巴前伸、脖子发僵 | 用 CT 轻柔拉伸顺滑往上推，保持肩颈松软 |\n| **上声（三声）** | 单字 214；语流绝大多数读 **半上（211）** | 拼命压低音高，跌进 `< 145 Hz` 低音区甚至气泡音（Vocal Fry） | **软上声高位托底**：把低谷稳稳托在安全底线（**150～165 Hz**，恰位于中音过渡区之上，既保证四声字调落差清楚，又不跌回男声胸声底线），**用稍微减弱音量替代拼命向下压喉** |\n| **去声（四声）** | 51 全降调 | 在 5 度起点一声硬撞（硬起音），摔到 1 度时狠狠刹车 | **高位浅降 + 软着陆**：日常温和说话只需走到 **53 或 52** 即可，起音前留半丝温和气流，末尾轻收不砸底 |\n| **轻声（零声）** | 无独立调值，随前字尾音变化 | 把轻声（如“好的、去了”）当作短促低重音往下砸 | **羽毛悬停法**：CT 保持基础微张力不彻底塌掉，依附前字尾音像羽毛点水般**音短、气柔、位置不掉**带过 |\n\n---\n\n### 3.3 普通话三套擦音与送气音（VOT）微调\n\n#### 3.3.1 三套独立擦音严禁混为一谈\n普通话清擦音按舌位分成三套彼此独立、不能混测的系统：\n1. **舌尖前平舌音**：`z, c, s`（气流经上下齿背与门牙微缝摩擦，位置最靠前）；\n2. **舌面前音**：`j, q, x`（舌面前部与硬腭形成窄缝）；\n3. **舌尖后翘舌音**：`zh, ch, sh, r`（其中 `r` 为浊音，带声带振动，不入清擦音统计）。\n\n> **测量注意**：三类擦音的物理频谱重心各有不同。如果在一整段连续朗读中把平舌音和翘舌音混在一起算中位数，得出的数值没有任何生理或调音指导意义。测试擦音聚焦度时，必须使用单独的平舌清音素材。\n\n#### 3.3.2 擦音分档参考、舌叶化改良与防错动作\n\n| 擦音类别 | 客观谱重心参考区间 | 代表例字 | 声学机制、性别感知关联与注意事项 |\n| :--- | :--- | :--- | :--- |\n| **平舌 `/s/`** | **偏厚靠后区**：`4.5～6.0 kHz`<br>（常见男声或舌位偏后分布）<br>**清脆靠前区**：`6.0～8.5 kHz`<br>（常见女声齿龈前置分布，核心约 `7.0～7.8 kHz`） | **丝、四** | 舌尖前切缘轻贴近齿背、气流过牙缝，**本 App 核心测试基准素材**；超过 `9.0 kHz` 则易显尖刺 |\n| **舌面 `/x/`** | **`6.0～8.0 kHz`** | **西、小** | 舌面前部与硬腭形成狭窄通道，高频能量天然高度集中，可作为日常前腔明亮感线索 |\n| **翘舌 `/sh/`** | **`4.5～5.5 kHz`** | **诗、是** | 舌叶化改良后保持适度清晰，**切忌刻意往 `/s/` 的 `6.5 kHz` 以上强推**，否则听起来会变成“平翘舌不分（大舌头）” |\n| **浊通音 `/r/`** | *不适用* | **日、热** | 带声带振动的浊擦音/通音，不计入清擦音谱重心统计 |\n\n* **防舌根后倒（舌叶化改良）**：发 `zh, ch, sh` 时避免舌尖大幅往喉咙方向卷曲（后卷会带动舌根后倒压窄下咽空间，让音色发暗），改用**舌叶（舌尖后方那片舌面）轻靠近上齿龈后缘**，保持喉室与下咽开阔通畅。\n* **防呆测量动作——纯漏气蛇音 `[s───]`（掐掉韵母）**：\n  测量 `/s/` 谱重心时，不要念带出嗓音的完整汉字“丝”，而要只发最开头的**纯气流声**（像轮胎慢漏气或小蛇吐信 `s───`）：**手摸喉结必须完全零震动**，上下门牙留出 1～2 毫米细缝让气流均匀吹出，绝不可死咬牙关。\n\n#### 3.3.3 送气音对立（VOT）提升声音明澈度\n普通话塞音与塞擦音区分不送气与送气（送气起始时间 VOT 可达 `60～100 ms`）。许多练习者总觉得声音发闷沉重，往往是因为送气音气流吐放不充分：\n* 对比感知组：**怕 / 爸**、**他 / 大**、**看 / 干**、**次 / 字**、**唱 / 丈**、**去 / 句**。\n* 让送气声母在唇齿前方送出一股干净轻快的小气流，能立刻提升吐字的清爽通透感。\n\n---\n\n### 3.4 普通话元音格局（Vowel Space）、单韵母参考与前腔聚焦\n\n#### 3.4.1 普通话六大单韵母共振峰参考基线\n为了既保持客观声学参照，又能清晰看懂具体数值在性别感知与空间前移上的位置，下面列出**普通话六大单韵母 `a / o / e / i / u / ü` 的参考频率带**（源自 Aoi 手册基线与上海普通话成人实验测算交叉校准，与本 App `formants.js` 模型一致）：\n\n| 普通话单韵母 | 宽声道基线（成年男声常见参考，Hz） | 紧凑前腔基线（成年女声常见参考，Hz） | 调整与观察要点 |\n| :--- | :--- | :--- | :--- |\n| **啊 `/a/`** | $F_1$: 710–750<br>$F_2$: 1200–1350<br>$F_3$: 2400–2600 | $F_1$: 880–950<br>$F_2$: 1400–1500<br>$F_3$: 2700–2900 | 口型自然纵开并带一点面颊微扬，避免把嘴巴张大到喉根往后压 |\n| **喔 `/o/`** | $F_1$: 400–450<br>$F_2$: 680–850<br>$F_3$: 2300–2700 | $F_1$: 450–500<br>$F_2$: 760–950<br>$F_3$: 2300–2800 | 少用力噘嘴，靠舌体协调成音（注：`o` 与 `u` 在 $F_1/F_2$ 上高度重叠，无法仅靠二维图强分） |\n| **饿 `/e/` (`[ɤ]`)** | $F_1$: 470–520<br>$F_2$: 1100–1350<br>$F_3$: 2400–2600 | $F_1$: 550–650<br>$F_2$: 1300–1700<br>$F_3$: 2800–3100 | 保持喉咙放松与前腔清醒，勿让舌根塌入咽后壁 |\n| **衣 `/i/`** | $F_1$: 300–360<br>$F_2$: 1750–2150<br>$F_3$: 2700–3100 | $F_1$: 350–440<br>$F_2$: 2300–2750<br>$F_3$: 3100–3400 | **前腔聚焦第一锚点**：舌面前部柔和靠向硬腭，嘴角微展，尽量抬明 $F_2$ 与保持高 $F_3$ |\n| **乌 `/u/`** | $F_1$: 350–440<br>$F_2$: 700–1000<br>$F_3$: 2300–2500 | $F_1$: 400–490<br>$F_2$: 750–1100<br>$F_3$: 2600–2800 | 保持微笑平展微敛唇形，避免把嘴唇往前嘟成大圆筒压低共鸣 |\n| **迂 `/ü/` (`[y]`)** | $F_1$: 320–380<br>$F_2$: 1600–1800<br>$F_3$: 2200–2400 | $F_1$: 350–420<br>$F_2$: 2000–2300<br>$F_3$: 2600–2900 | 适度收圆前唇，注意圆唇本身会天然拉低 $F_3$ |\n\n#### 3.4.2 关键发音要领与常见防破功细节\n1. **后高元音 `/u/, /o/` 与低元音 `/a/` 的“口咽轻拢（Oropharyngeal Narrowing）”原则**：\n   - 发 `/u/` 和 `/o/` 时尽量避免用力前噘拉长声道，采用微展微笑唇形靠舌体配合；发 `/a/` 时配合面颊轻扬，切忌把嘴张到下咽紧绷；\n   - **正确做法是“舌根适度前移 + 软腭微抬”**，让上咽腔轻拢聚音而下咽通畅；**切忌主动向内死夹咽后壁**，死夹下咽会立即诱发室带挤压，使声音发干发哑。\n2. **后鼻音（`-ng`）防破功——“韵腹前置 + 浅挂后鼻音”**：\n   - 普通话含有大量后鼻音韵母（如 *ang, eng, ing, ong*）。许多练习者单念前元音很清亮，但一遇到后鼻音，软腭突然塌陷、舌根猛力后倒贴向咽后壁，仿佛把字整个“吞”进喉咙，导致共鸣瞬间崩塌变沉。\n   - **破局要领**：**前 80% 时长专注稳住前腔元音韵腹**（例如念 *ang* 时，先把面颊微扬的 `a` 发清透）；**最后 20% 时长再让软腭微降、舌面中后部极其轻柔地轻触即走**，浅浅挂上鼻音就松开，不让舌根沉入咽底。\n3. **为什么发“衣（/i/）”有时会被普通二维软件误判成“迂（/ü/）”？**：\n   - 在尚未把口腔空间收得很紧凑时，发不圆唇 `/i/` 的 $F_2$ 常落在 `2100～2300 Hz`——正好落入紧凑前移基线里 `/ü/` 的位置。但物理上两者有明确区分：圆唇 `/ü/` 因前唇管伸长，$F_3$ 显著较低（通常 `≤ 2600 Hz`），而不圆唇 `/i/` 始终保持较高的 $F_3$（`≥ 2700 Hz`）。本 App 已内置 **$F_3$ 圆唇解耦保护**，避免“衣”音被误认。\n4. **舌尖元音（`zi/ci/si` 的 `[ɿ]` 与 `zhi/chi/shi` 的 `[ʅ]`）及儿化音**：\n   - 拼音同样写作 `i`，但它们实际是舌尖元音（$F_1 \\approx 300\\sim 400\\text{ Hz}$，$F_2 \\approx 1300\\sim 1800\\text{ Hz}$），与标准 `/i/` 完全不同，无法按前高元音标准强行对齐。\n5. **基频对共振峰估测的微弱牵引**：\n   - 当基频升高时，谐波间距变宽，LPC 计算出的 $F_1$ 容易受最近谐波影响产生约 `10%～16%` 的漂移。比较元音图或 $F_1/F_2$ 变化时，尽量在相近音高下观察，不把纯粹抬高基频带来的数值漂移误当成口腔共鸣变化。\n\n---\n\n### 3.5 调域（Register）与调幅（Range）辨析\n\n* **调域（Register / Level）**：整段话的基础音高水平（由 $F_0$ 中位数代表）。调整方向是**柔和地将舒适说话基线从低音区（男声日常常见范围，`< 145 Hz`）平移入中音过渡区（`145～175 Hz`，配合前置轻音重可呈柔和女声或中性感）或高音区（女声日常常见范围，`175～220 Hz`）**。\n* **调幅（Range / `spanSt`）**：一句话内最高音与最低音的起伏宽度（本 App 用剔除句尾淡出的 P10–P90 半音差计算）。\n  * **常见误区**：误以为“起伏越大越像女声”，故意忽高忽低夸张说话（`spanSt` 超过 `12～14` 半音），听感反而生硬造作。\n  * **日常参考**：普通话日常舒适交谈的调幅通常在 **3.0～6.0 半音**（稍长的故事朗读约 **5.0～8.0 半音**）。自然生动即可，绝不需要刻意夸张起伏。\n\n---","subsections":[{"level":3,"text":"3.1 英语语调与汉语声调的本质差异"},{"level":3,"text":"3.2 普通话四声“挤卡陷阱”与托底/浅降策略"},{"level":3,"text":"3.3 普通话三套擦音与送气音（VOT）微调"},{"level":4,"text":"3.3.1 三套独立擦音严禁混为一谈"},{"level":4,"text":"3.3.2 擦音分档参考、舌叶化改良与防错动作"},{"level":4,"text":"3.3.3 送气音对立（VOT）提升声音明澈度"},{"level":3,"text":"3.4 普通话元音格局（Vowel Space）、单韵母参考与前腔聚焦"},{"level":4,"text":"3.4.1 普通话六大单韵母共振峰参考基线"},{"level":4,"text":"3.4.2 关键发音要领与常见防破功细节"},{"level":3,"text":"3.5 调域（Register）与调幅（Range）辨析"}]},{"id":"ch4","title":"第四章 客观指标与常模对照","group":"正文","content":"## 第四章 客观声学指标、有效测量与自我对照\n\n---\n\n### 4.1 先评估什么：临床三层视角与测量前提\n\n在专业言语病理学（SLP）临床实践中，评估声音改变有**三层先后次序**：\n\n| 评估层级 | 测什么 / 看什么 | 在本工具与日常练习里的位置 | 核心原则 |\n| :--- | :--- | :--- | :--- |\n| **第 1 层：嗓音功能与声学线索** | 有没有紧绷挤卡风险？音高、音重、共鸣落在什么位置？ | **本 App 主要辅助这一层**（提供客观离线读数与风险提醒） | 安全第一，只供参照与自身对比 |\n| **第 2 层：真实环境听者感知** | 在电话里、嘈杂点单时，别人听到的是什么质感？ | 靠**隔天回听真实情境录音**与真实交际反馈补充 | 软件没有人的耳朵，测得出 Hz 测不出“好不好听” |\n| **第 3 层：自我生活体验** | 说话累不累？这声音像不像自己、用不用得出去？ | 靠记录页的**体感印章**与每周主观自评感受 | **最核心的一层**——“在练习室好看但生活里用不出”，不算有效 |\n\n#### 测之前先检查：什么才算一次有效测量？\n1. **硬件环境第一律**：安静房间、**同一台手机、同一麦克风距离（15～20 cm）、接近的说话音量**。换设备或进空旷带回声的浴室，所有数值都会改变，不能直接纵向比较。\n2. **用对测试动作**：\n\n| 想要看的指标 | 最稳妥的测试素材 | 为什么不能乱用别的动作 |\n| :--- | :--- | :--- |\n| **日常音高 $F_0$ 与调幅** | 自然朗读普通话短文 $\\ge 20$ 秒，或连贯日常说话 | 单独一声叹气、笑声或 $<1.5$ 秒单字样本量太少 |\n| **共鸣间距 $\\Delta F$ 与 Twang** | **平稳长发前高元音「衣——（/i/）」3 秒** | 闭口哼鸣、`/u/`、`啊` 或整句混合朗读都会被唇形拉低或混淆，无有效可比性 |\n| **发声轻重 $H_1 - H_2$** | **平稳长发「啊——（/a/）」3 秒**或正常语句 | 在较低音区发 `/i/` 时，$2F_0$ 常撞上低 $F_1$（污染守卫触发），改用 `/a/` 最清晰 |\n| **微扰 Jitter / Shimmer** | 单一元音平稳发 2 秒以上 | 语流中的换气停顿、抑扬顿挫会天然拉高微扰数值，长音与语流不可混用标准 |\n| **擦音清脆度 `/s/`** | **纯漏气蛇音 `[s───]` 2～3 秒**（手摸喉结零震动） | 带上韵母元音、咬紧牙关或混合翘舌字都会污染重心频率 |\n\n> 🍵 **10 秒双单音每日体检法**：每天只需录一次平稳的 **「衣——（3秒）」+「啊——（3秒）」**，即可无痛核对当天的共鸣聚焦度、声带轻重与稳定性，不用每次都做大段测试。\n\n---\n\n### 4.2 核心声学指标解读与 ΔF 深度说明\n\n为了先建立整体地图，本工具将客观声学指标划分为三大观测层：\n\n| 时频 / 基频层 | 声带质感 / 声门状态层 | 声道空间 / 共鸣层 |\n| :--- | :--- | :--- |\n| • $F_0$ 基频中位数<br>• 托底达成率<br>• 语流音高起伏 (`spanSt`) | • $H_1 - H_2$ 声门开商与音重<br>• 倍频弱帧率 (`Halving`)<br>• 周期微扰 (`Jitter`)<br>• 振幅微扰 (`Shimmer`)<br>• 倒谱突出度 (`CPP`，仅内部降噪置信度用) | • $\\Delta F$ 共鸣间距（仅 `/i/` 有效）<br>• $F_1 / F_2 / F_3$ 元音空间重心<br>• 擦音谱重心 (`/s/`)<br>• 咽腔挤压比 (`Twang`，仅 `/i/` 输出)<br>• 线下辅助：`MPT` 与 `s/a` 协调比 |\n\n每项指标均以**客观声学特征为首选描述**，同时以括号注明其在**性别感知与声音表达**上的参考位置：\n\n#### 1. 共鸣间距 $\\Delta F$ 与等效声道长度 $L$（重点澄清）\n* **它测什么**：把口腔和咽腔当作一根共鸣管，$\\Delta F$ 衡量各个共振峰平均间隔有多宽——**数字越高，等效声道越短紧凑，音色越靠前清亮；数字越低，共鸣空间越宽深厚实**。\n* **常用参考区间（基于普通话前高元音 `/i/` 测量）**：\n  - **宽敞后腔区间（成年男声常见共鸣范围）**：约 **$950 \\sim 1080\\text{ Hz}$**（对应等效声道长约 $16.2 \\sim 18.4\\text{ cm}$）；\n  - **中性明朗过渡带**：约 **$1080 \\sim 1180\\text{ Hz}$**（等效声道约 $14.8 \\sim 16.2\\text{ cm}$）；\n  - **紧凑前腔聚焦区（成年女声常见共鸣范围）**：约 **$1180 \\sim 1300\\text{ Hz}$**（等效声道约 $13.5 \\sim 14.8\\text{ cm}$）；\n  - 在本 App 的客观分档中，`< 1050 Hz` 表示共鸣偏向宽敞后置，`1050 ~ 1250 Hz` 表示进入中性偏明亮聚焦带，`> 1250 Hz` 则处于紧凑清亮的前高聚焦区。\n* **怎么往目标靠**：不是死命抬喉结！主要是让**舌面前部像发 `/i/` 一样轻贴上腭、嘴角微微展开不前撅、保持颈肩松软**。很多练习者通过这两步就能把 `/i/` 的 $\\Delta F$ 温和抬高 `80～150 Hz`。\n* **物理原理与反焦虑边界**：按均匀闭-开管声道模型，$\\Delta F = \\frac{c}{2L}$（$c \\approx 35000\\text{ cm/s}$），软件通过 $F_1/0.5, F_2/1.5, F_3/2.5, F_4/3.5$ 综合估测（与合成真值误差约 $-1.3\\% \\sim +1.8\\%$）。圆唇元音（如 `/u/`、`/o/`）会人为拉长管口把数值拉低，因此**本 App 规定只在稳定的 `/i/`（衣）元音上解读 $\\Delta F$**；且每个人原本的头颈骨骼尺寸不同，不必强求冲上 `1300 Hz` 以上，**在同一设备下看自己 `/i/` 的数值比自身历史基线稳步提升，远比跟别人比数字重要**。\n\n#### 2. 基频音高 $F_0$ 与安全托底线（Floor Target）\n* **它测什么**：声带每秒振动多少次，决定了声音听起来高还是低。\n* **常见参考区间**：\n  - **低音区（成年男声日常常见范围）**：**$< 145\\text{ Hz}$**（常见 $95\\sim 140\\text{ Hz}$）；\n  - **中音过渡区（中性表达与柔和偏低女声交汇带）**：**$145 \\sim 175\\text{ Hz}$**（若前腔聚焦良好且音重较轻，常给人温和自然的女性交流感）；\n  - **高音区（$> 175\\text{ Hz}$）**：顺性别女性日常多见 **$180\\sim 230\\text{ Hz}$**，而跨女嗓音训练与临床实测的稳定区间多在 **$165\\sim 210\\text{ Hz}$** 上下。\n  - > **来源注记**：国际综述与文献中英语顺女日常基频多为 `180～220 Hz`（Leung et al., 2018 等），普通话因四声高平/升调牵引通常略高，常见引用可达 `230 Hz`；而国内跨女训练临床研究（Chen et al., 2026）与声带手术后的平均稳定基频实测多落在 `165～210 Hz` 附近——一旦越过 `165～175 Hz` 感知分水岭并配合前腔共鸣与轻音重，听感就已自然柔和，不必强冲 `220 Hz` 以上。\n* **怎么调整与上限提醒**：先找准轻音重和前腔共鸣，再把说话基线托在个人托底线（App 可选 `150 / 155 / 160 / 165 Hz`，默认 `160 Hz`）之上。**不建议追求冲上 `240 Hz` 以上**：音高越高越消耗声带边缘张力，只要保持 **85% 以上的有声帧稳在托底线之上**、不砸出粗沉气泡音，听感就会稳妥自然。\n\n#### 3. 发声轻重 / 声门开商 $H_1 - H_2$\n* **它测什么**：第一谐波（基频）与第二谐波的能量差，反映声带贴合得有多“紧厚”还是“轻柔”。\n* **常见参考区间**：\n  - **厚实偏紧区间（典型男声胸声或压嗓常见）**：**$< -1.2\\text{ dB}$**（未调整的厚重胸声常见于 $-4.0 \\sim -1.2\\text{ dB}$）；\n  - **轻柔流动核心区（常见女声轻盈发声范围）**：**$-0.5 \\sim +3.5\\text{ dB}$**（声带边缘轻柔合拢、声音流动清澈；App 总区间以 $-1.2 \\sim +3.5\\text{ dB}$ 视作平衡轻盈带）；\n  - **偏柔和或渐偏气声区间**：**$+3.5 \\sim +8.0\\text{ dB}$**（部分人在发 `/a/` 或放松语流时也会落在这里，但若音量明显变小、感觉发虚喘气，说明有些漏气了，需回到完整闭合的轻音重）。\n* **怎么调整**：偏紧（$<-1.2\\text{ dB}$）时做静音轻笑或吸管吹泡退回柔松；偏虚（$>+4.5\\text{ dB}$ 且音量小）时，用温和的闭口哼鸣 `m───` 找回前腔饱满微震后再开口说话。\n* **为什么发低音 `/i/` 或闭口哼鸣时容易“未测出 $H_1-H_2$”？**\n  - 发 `/i/` 时第一共振峰 $F_1$ 只有 `280～350 Hz`，在较低音高下会把第二谐波 $2F_0$ 或基频 $F_0$ 人为共振放大，使测出的 $H_1 - H_2$ 失真偏低（实测常比 `/a/` 低 `2～4 dB`）。本 App 内置共振峰防污染守卫（当 $|2F_0 - F_1| < 120\\text{ Hz}$ 或 $|F_0 - F_1| < 120\\text{ Hz}$ 时自动剔除污染帧）；\n  - 此外，闭口哼鸣时口唇封闭、气流由鼻腔旁路分流，会让 $H_1-H_2$ 呈现虚高，本 App 也会在识别到纯闭口哼鸣时主动拒出 $H_1-H_2$ 结论。遇到这两种情况均属正常物理保护——改发一段稳稳的 **「啊（/a/）」** 即可准确测出声带轻重。\n\n#### 4. 咽腔挤压比（Twang / Pharyngeal Strain Index）\n* 在本 App 中，该指标专门测量高频咽腔共鸣带（$2.2\\sim 4.2\\text{ kHz}$）与中频元音核心区（$0.4\\sim 1.5\\text{ kHz}$）的能量比，且**仅在明确发「衣（/i/）」音时输出**（其他元音会因唇形遮挡天然衰减至 $-20\\sim -30\\text{ dB}$，参考意义不大）。\n* **在 `/i/` 上**：`< 0 dB` 为宽敞通透；`0 ~ +2.0 dB` 为适度集中明亮度（有助于清晰明亮的女性感表达）；若 **`> +2.0 dB` 且 $F_0 > 195\\text{ Hz}$**，需留意是否伴随喉咙上抬挤压出的尖扁音色（高音挤嗓倾向），可做半打哈欠舒缓。\n\n#### 5. 稳定性与纯净度指标（Jitter / Shimmer / HNR / 倍频比 / 气息比）\n* **周期微扰（Jitter）与振幅微扰（Shimmer）**：\n  - **稳态长元音参考**：`/a/` 的 Jitter $\\le 1.1\\%$，`/i/` 因低 $F_1$ 耦合略高可放宽至 $\\le 1.7\\%$；稳态长元音 Shimmer $\\le 4.5\\%$。\n  - **连续说话参考**：正常普通话连读有声调高低与重音切换，**语流 Jitter $\\le 2.8\\%$、语流 Shimmer $\\le 8.0\\%$** 均为自然日常波动，不可拿长音标准去吓唬自己。\n  - **算法尺度提醒**：本 App 使用 `25 ms` 离散分帧估测，长音本底微扰噪声约 `0.5%`，测量读数约为专业电脑软件（如 Praat 连续 PointProcess）的 **2～3 倍**（例如本 App 测得 `1.0%`，在 Praat 里大约对应 `0.4%` 的健康水平），**切勿跨工具直接硬套医院报告门限（1.04%）**。\n* **谐噪比（HNR）**：`< 9.0 dB` 提示背景噪声大或气声偏明显；`9.0~14.0 dB` 适中；`≥ 14.0 dB` 表示声带振动相对纯净清澈。\n* **倍频弱帧率（Pitch Halving）**：自相关 $2\\tau$ 异常帧占比。持续发长音 `/i/` 时通常 `< 5%`；若长音出现 `≥ 12%`，提示声带振动可能混入假声破裂或室带挤压，可做轻笑舒缓。\n* **内部置信指标（CPP）与线下手工自测（MPT / `s/a` 比）**：\n  - 倒谱峰值突出度（CPP）仅作底层信噪判断，不直接暴露给用户制造数字焦虑；\n  - 若线下想自测气息是否漏气，可用秒表做 **「`s / a` 协调比」**：分别深吸一口气后持续发最长清擦音 `[s───]` 与最长浊元音 `[a───]` 的秒数之比（注：英语临床文献用的是带声擦音 `s/z` 比 `1.0～1.4`；普通话没有 `/z/`，绝对不可拿英文 `s/z` 标准直接生套普通话 `s/a`）。\n\n---\n\n### 4.3 声学指标参考区间与对照总表\n\n> **全系统口径对齐声明**：本表与代码库 `core/index.js (ALGO_VERSION 0.5.0)`、`metrics/kbNorms.js (KB_VERSION 1.3.0+)` 及 `metrics/gating.js` 保持同步。\n\n| 指标 | 一句话含义 | 偏厚重/低值区（常见男声参考） | 轻亮聚焦/高值区（常见女声参考） | 本 App 测量口径与温和参照带 | 怎么调整（行动线索） |\n| :--- | :--- | :--- | :--- | :--- | :--- |\n| **中位音高 $F_0$** | 说话基础音高 | **低音区**：$< 145\\text{ Hz}$<br>（典型 $95\\sim 140$） | **高音区**：$> 175\\text{ Hz}$<br>（顺女多见 $180\\sim 230$；跨女实测多在 $165\\sim 210$ 上下） | YIN 算法，有声置信度 $\\ge 0.60$；**$145\\sim 175\\text{ Hz}$ 为中音过渡区** | 先稳共鸣与轻音重，再把基线平缓带到托底线（默认 `160 Hz`）之上，不必硬飙超高音 |\n| **托底达成率** | 不掉回低沉音的比例 | 句尾常跌破 `145 Hz` | 多稳定在 `160 Hz` 以上 | 有声帧高于个人托底线（`150/155/160/165 Hz`）的时间比，**推荐 $\\ge 85\\%$** | 练三声与句尾四声/轻声时“轻收不砸底” |\n| **音高起伏 `spanSt`** | 说话高低跨度 | — | 日常 `3～6 ST`<br>（长句朗读 `5～8 ST`） | P10–P90 半音差（剔除句尾淡出）：`<3.0 ST` 较平缓，`3.0～6.0 ST` 自然连贯 | 不必夸张拉大调幅，重在三四声不要突兀摔断 |\n| **开商 $H_1 - H_2$** | 声带贴合轻重 | **厚实音重**：$-4.0 \\sim -1.2\\text{ dB}$<br>（偏厚实/紧） | **轻柔音重**：$-0.5 \\sim +3.5\\text{ dB}$<br>（柔流语流可达 $+6.0\\text{ dB}$） | FFT 差值（带 $F_1$ 防污染守卫）：`<-1.2 dB` 偏紧；`-1.2~+3.5 dB` 轻柔适中；`>+3.5 dB` 渐偏气声 | 偏紧做轻笑/吸管放松；太虚漏气用 `m───` 找回温和闭合 |\n| **共鸣间距 $\\Delta F$** | 等效声道长短（**仅限 `/i/`**） | **宽敞后腔**：$950 \\sim 1080\\text{ Hz}$<br>（长约 $16.2\\sim 18.4\\text{ cm}$） | **紧凑前腔**：$1180 \\sim 1300\\text{ Hz}$<br>（长约 $13.5\\sim 14.8\\text{ cm}$） | **仅在稳态「衣 `/i/`」有效**：`<1050 Hz` 偏宽后，`1050~1250 Hz` 中性偏明亮，`>1250 Hz` 紧凑聚焦 | 舌面微抬贴近硬腭 + 嘴角微笑展开；只和自己的 `/i/` 历史记录比 |\n| **Twang 挤压比** | 咽腔高频集中度（**仅限 `/i/`**） | 随元音而异 | `/i/` 下约 `0 ~ +2.0 dB` 适度集中 | $10\\log_{10}(E_{2.2\\text{k}\\sim 4.2\\text{k}} / E_{0.4\\text{k}\\sim 1.5\\text{k}})$：仅主导元音为 `/i/` 时输出；`> +2.0 dB` 且高音易显紧尖 | 保持上咽温和收拢但下咽和喉头松开，若发尖立即做半打哈欠释放 |\n| **擦音重心 `/s/`** | 清擦音靠前清脆度 | **偏厚靠后**：$4.5 \\sim 6.0\\text{ kHz}$ | **清脆靠前**：$6.0 \\sim 8.5\\text{ kHz}$<br>（核心约 $7.0\\sim 7.8\\text{ kHz}$） | **纯漏气蛇音 `[s───]`** 频谱重心：`<5.5 kHz` 偏厚后，`6.0~8.5 kHz` 清晰靠前 | 舌尖前切缘轻贴近齿背、门牙留微缝吹气、嘴角不撅起 |\n| **倍频弱帧率** | 振动副谐波比例 | — | 长音 `/i/` 通常 `< 5%` | 自相关 $2\\tau$ 异常帧占比（连续语流天然高于长音）；长音 `≥ 12%` 提示边缘不稳或室带介入 | 持续发长音若偏高，做“静音轻笑”退回松弛 |\n| **Jitter / Shimmer** | 周期/振幅稳不稳 | 与声带状态相关 | 长音稳定较低 | 长音 `/a/` Jitter `≤ 1.1%`（`/i/` `≤ 1.7%`），Shimmer `≤ 4.5%`；**语流 `≤ 2.8% / 8.0%`** | 喝温水润喉、保持呼吸平稳支撑；勿用长音标准套连续语流 |\n| **谐噪比 HNR** | 声音清澈度 | — | — | `<9.0 dB` 带气息/环境噪声，`9.0~14.0 dB` 适中，`≥ 14.0 dB` 清澈 | 安静环境下保持适中音量（勿压成耳语） |\n| **气流协调（`MPT` / `s/a`）** | 呼吸支持与声门闭合持续力 | — | — | 线下秒表自测：深吸气最长 `[s───]` 与 `[a───]` 时长；不可用英文 `s/z` 标准硬套中文 `s/a` | 观察自身纵向气量续航是否稳步延长、不憋气不泄气 |\n\n---\n\n### 4.4 最小可检测变化（MDC）与内耳骨传导差异\n\n#### 4.4.1 为什么差了 5 Hz 算“没变”（MDC 保护）\n人每次开口本来就有自然生理波动与麦克风误差。为了避免用户为“今天 $F_0$ 掉了 4 Hz”或“$\\Delta F$ 降了 8 Hz”陷入无意义焦虑，本 App 内置了**最小可检测变化（MDC）门槛**——两次录音差值**小于**下表幅度时，视为波动正常而非进步或退步：\n\n| 指标 | 最小可检测变化门槛（MDC） |\n| :--- | :--- |\n| 中位基频 $F_0$ | $\\pm 12\\text{ Hz}$ |\n| 低位 P10 / 高位 P90 | $\\pm 10\\text{ Hz}$ / $\\pm 12\\text{ Hz}$ |\n| 音高起伏 `spanSt` | $\\pm 1.5\\text{ 半音}$ |\n| 谐噪比 HNR / 轻重 $H_1-H_2$ | $\\pm 1.5\\text{ dB}$ / $\\pm 1.2\\text{ dB}$ |\n| 共鸣间距 $\\Delta F$（同在 `/i/` 下） | $\\pm 25\\text{ Hz}$ |\n\n#### 4.4.2 内耳骨传导带来的感知错觉\n几乎所有探索者遇到的第一道心理关卡，就是**“自己听自己，和录音放出来完全是两个声音”**：\n\n```\n              ┌──────────────────────────────────────────────┐\n              │               骨传导效应 (Bone Conduction)   │\n              │  颅骨、下颌骨对低频 (<300Hz) 具有较强传导放大 │\n              │  自身内耳听到的声音总是更低沉、浑厚、宏大     │\n              └──────────────────────▲───────────────────────┘\n                                     │\n           [人脑的主观自我审判] ─────┴───── [外耳空气传导实测]\n                                           │\n                                           ▼\n              ┌──────────────────────────────────────────────┐\n              │             空气传导 (Air Conduction)         │\n              │  外界他人与麦克风实际接收到的声波             │\n              │  低频衰减，中高频细节、共鸣峰与摩擦音展露无遗│\n              └──────────────────────────────────────────────┘\n```\n\n* **常见落差**：自己听着觉得“好空、好细、不像自己”，回放录音却刚刚好自然清润；或者自己觉得已经很细柔了，回放却仍然带有厚实低频。\n* **应对方法**：不要只靠说话当下的内耳听觉自我评判，改用 **「录完隔半分钟用外放回听 + 观察颈肩喉咙是否轻松」** 做双校准。\n\n---","subsections":[{"level":3,"text":"4.1 先评估什么：临床三层视角与测量前提"},{"level":4,"text":"测之前先检查：什么才算一次有效测量？"},{"level":3,"text":"4.2 核心声学指标解读与 ΔF 深度说明"},{"level":4,"text":"1. 共鸣间距 $\\Delta F$ 与等效声道长度 $L$（重点澄清）"},{"level":4,"text":"2. 基频音高 $F_0$ 与安全托底线（Floor Target）"},{"level":4,"text":"3. 发声轻重 / 声门开商 $H_1 - H_2$"},{"level":4,"text":"4. 咽腔挤压比（Twang / Pharyngeal Strain Index）"},{"level":4,"text":"5. 稳定性与纯净度指标（Jitter / Shimmer / HNR / 倍频比 / 气息比）"},{"level":3,"text":"4.3 声学指标参考区间与对照总表"},{"level":3,"text":"4.4 最小可检测变化（MDC）与内耳骨传导差异"},{"level":4,"text":"4.4.1 为什么差了 5 Hz 算“没变”（MDC 保护）"},{"level":4,"text":"4.4.2 内耳骨传导带来的感知错觉"}]},{"id":"ch5","title":"第五章 疲惫代偿与安全红线","group":"正文","content":"## 第五章 常见疲惫代偿、医学边界与嗓音安全\n\n以下四种情况最容易让人越练越累或走弯路，出现时优先**停下来舒缓**，而不是硬顶着继续练。\n\n---\n\n### 5.1 吞咽肌提喉死锁与“无声半打哈欠”\n\n* **发生原因**：误以为“练共鸣就是手动抬高喉结”，用吞咽发力把喉结死死卡在上方说话。\n* **身体信号**：脖子前侧和下巴底下摸起来发硬，说话几分钟就发酸，头部左右转动不自如。\n* **立刻舒缓动作——无声半打哈欠（Silent Half-yawn）**：停止发声，用鼻子慢慢吸气，做一个嘴不张大、无声的深呼吸打哈欠动作，感受喉头清凉自然回落，轻轻左右摇头松开颈肌。\n\n---\n\n### 5.2 室带挤压（夹嗓）与“静音轻笑”\n\n* **发生原因**：拔高音高时真声带还没适应变薄，假声带本能往中间挤过来撑场面。\n* **声学与体感线索**：嗓子眼有明显卡顿紧缩感，听起来干硬发扁，$H_1 - H_2$ 常跌到 **$-1.2\\text{ dB}$ 以下**。\n* **立刻舒缓动作——静音轻笑（Silent Giggle）**：极轻柔地做无声笑口型，心里默想微笑的“呵呵呵”，感受喉咙内部向四周温和撑开、变宽凉爽的那一瞬间——保持这个喉内展宽感去发短音节。\n\n---\n\n### 5.3 纯假声代偿与过度提气的局限\n\n* **纯假声（M2 / Falsetto）代偿**：应急可以上去，但日常说话一加快语速或情绪起伏就容易“破音、断声”，长久使用也会让发声控制变得脱节。\n* **过度提气（气声替代轻音重）**：早期常见的“女声就是加气”误区，会导致越说越气短、声带黏膜被干燥气流反复吹干，且在马路或餐厅里别人根本听不见，一急之下反而被迫再次吼嗓子代偿。\n\n---\n\n### 5.4 嗓音手术边界、日常护嗓与临床转诊红线\n\n#### 日常温润呵护（嗓音卫生三原则）\n* **充分饮水润膜**：声带每秒高速振动上百次，黏膜弹性高度依赖内部水分补给，练声前后建议少量多次饮用温水；\n* **温和蒸汽舒缓**：干燥季节或空调房内可借助温热蒸汽轻吸湿润喉腔（饮水本身不直接流经声带表面，水蒸气才能直接润泽声带表面黏膜）；\n* **主动嗓音休息（Vocal Rest）**：一旦感到脖子发酸、嗓音干痒发毛，立即停练休息 15～30 分钟，绝不“带疲硬冲”。\n\n#### 嗓音手术的真实定位\n声带女性化手术（如声带前连合缩短、声带激光调整等）在医学上确实存在，但临床 SLP 的普遍共识是：**手术通常排在规范行为训练之后评估，而且术后依然需要配合发声康复训练来调整共鸣、音重与说话习惯——目前不存在“做完手术就完全不用练”的方案。**\n\n#### ⚠️ 临床转诊红线（Red Flags）——命中立即停练并就医\n嗓音练习的第一原则永远是**舒适、无痛、不嘶哑**。出现以下任何一条，立即停止所有练习，尽早前往**三甲医院耳鼻咽喉科 / 嗓音门诊**做电子喉镜或频闪喉镜检查：\n1. **声音嘶哑（Hoarseness）或明显沙哑感持续超过 2 周**（不论喉咙疼不疼，必须排查声带小结、声带息肉、声带囊肿、接触性肉芽肿或黏膜水肿）；\n2. 发声时出现针刺样锐痛、烧灼感或吞咽剧烈疼痛；\n3. 咳痰带血丝、无故突然完全失声或发声持续中断。\n\n> **国内就诊实用沟通提示**：国内许多三甲医院的耳鼻喉科嗓音门诊与康复科言语治疗室都能检查声带健康状况。就诊时无需担心医生是否熟悉跨性别训练，直接表达：**“我在做嗓音调整练习，想请医生帮我查一下声带形态与闭合状况，排除器质性问题。”** 一次基础检查就能让你安心很多。\n\n*免责声明：本文档与本 App 仅供自我语音感知训练与声学参考，不构成医疗诊断，也不能替代专业医生或言语治疗师的面对面评估。*\n\n---","subsections":[{"level":3,"text":"5.1 吞咽肌提喉死锁与“无声半打哈欠”"},{"level":3,"text":"5.2 室带挤压（夹嗓）与“静音轻笑”"},{"level":3,"text":"5.3 纯假声代偿与过度提气的局限"},{"level":3,"text":"5.4 嗓音手术边界、日常护嗓与临床转诊红线"},{"level":4,"text":"日常温润呵护（嗓音卫生三原则）"},{"level":4,"text":"嗓音手术的真实定位"},{"level":4,"text":"⚠️ 临床转诊红线（Red Flags）——命中立即停练并就医"}]},{"id":"ch6","title":"第六章 普通话渐进训练处方","group":"正文","content":"## 第六章 普通话渐进训练处方与“第二语言”日常迁移\n\n> **训练优先顺序**：\n> 呼吸放松与身体释放 $\\longrightarrow$ 共鸣前置与轻音重寻回 $\\longrightarrow$ 音高与语调平移 $\\longrightarrow$ 日常生活情境泛化。  \n> **给初学者的黄金忠告**：首周练习请彻底放下对音高（Hz）的执念，专注于观察身体放松、轻音重与前腔聚焦感。\n\n```\n【阶段零】身体释放与喉部悬浮（2~3 分钟） ──► 松开下颌与肩颈，找回自由弹性\n    │\n【阶段一】SOVTE 半遮蔽声道               ──► 借温和背压找回“轻音重”与流动气流\n    │\n【阶段二】闭唇微麻音桥接 (m → i)         ──► 顺滑过渡到“衣”位，建立前腔聚焦\n    │\n【阶段三】普通话四声与变调实战           ──► 攻克半上托底与软去声、羽毛轻声\n    │\n【阶段四】情境迁移与生活微行为           ──► 电话/点单泛化，打磨笑、叹、语气词\n```\n\n---\n\n### 6.1 训练前的四件准备：安全、生活目标与学习观\n\n在开始练词句之前，先花 1 分钟理清四件事，能少走 80% 的弯路：\n1. **先做安全摸底**：你目前喉咙疼、哑、干吗？有慢性咽炎、反流或做过嗓音相关治疗吗？有不适先休息或看医生；\n2. **先想生活场合，再想参数**：你最想先在哪些地方用上喜欢的声音？（比如接外卖电话、游戏语音、线下面对面点单、和朋友聊天）。目标清楚，才不会为了冰冷的指标数值焦头烂额；\n3. **每次只改一个变量**：同一周里不要同时狂拉音高、猛收共鸣又加速说话——**每次只练稳一件事（例如本周只关注轻音重，或只练半上声托底）**；\n4. **把新声音当成“第二语言 / 新口音”来学**：为什么练习时很好听，一遇到生气、赶时间、打电话接起第一句就瞬间退回原声？这不是你“失败了”，而是**一边想技术一边应对压力，大脑认知负荷超载**。就像学一门新外语或新口音一样，先在低压力小场景里练到不假思索，再允许自己根据不同场合切换不同状态，完全不必强迫自己 24 小时死守同一个模板。\n\n---\n\n### 6.2 阶段零：身体释放与喉部自由悬浮（亚历山大感知）\n\n* **时长**：每次练习前 `2～3 分钟`。\n* **动作 1 · 下颌自然微垂（Jaw Drop）**：双手轻扶耳垂下方的下颌关节，让下巴靠重力微微垂松，感受两颊咬肌软化松弛。\n* **动作 2 · 轻柔叹息与软腭微展**：鼻吸口呼，轻轻发出一声无声的长叹，感受喉咙深处像含着一口温水一样开阔温润。\n\n---\n\n### 6.3 阶段一：SOVTE 半遮蔽声道练习与轻音重寻回\n\n半遮蔽声道练习（SOVTE）通过在嘴唇前端制造温和声波阻抗，使声波反射并在声门上方建立保护性的**微背压（Supraglottal Back-pressure）**，自然引导声带边缘轻柔合拢，消除 TA 肌厚重碰撞：\n\n* **三种实操方式（任选其一或交替进行）**：\n  1. **闭唇微麻音 `[m───]`（含水轻哼）**：从头到尾双唇自然轻闭（绝不张口发“恩～”，也不要鼻孔猛喷气叹“哼～”）；像刚喝了一口好喝的热汤，闭着嘴平稳发出 `m───`，直到上下嘴唇与鼻梁前端出现微微发麻的痒感；\n  2. **唇颤音（Lip Trill / 嘟唇吹泡）**：双唇放松，用平稳气流带动嘴唇轻柔颤动并做小跨度滑音；\n  3. **细吸管吹水泡（Water Bubbling）**：细吸管插入浅水杯（水深 2～3 厘米），温和吹出均匀小水泡并伴随轻哼滑音。\n* **核心感知重点**：做轻柔的小幅度滑音，**感受胸口震动的明显减弱与鼻梁、唇周前震感的增加**，体会声带像羽毛般轻盈触碰的状态。\n\n---\n\n### 6.4 阶段二：前鼻音桥接（m→i）与前高元音“衣位”聚焦\n\n闭口 `/m/` 哼鸣天然自带半遮蔽背压，是滑入前高元音 `/i/` 最安全不挤嗓的桥梁：\n\n1. **第一步**：双唇轻闭，先发稳 2 秒温和的闭唇微麻音 `m───`，锁定鼻梁前与上牙龈后方的集中微震感；\n2. **第二步**：保持面部微震位置完全不变，嘴角像浅笑一样向两侧平展打开，双唇自然分开一条微缝，声音不断线地无缝滑入长音 **「衣——（/i/）」** 持续 3 秒；\n3. **第三步（前腔泛化）**：找稳「衣」音那股清透且喉咙轻松的口腔前感后，尝试保持同样的口腔前聚位置，轻轻做 **“衣—啊—衣—啊”** 的交替过渡，把前腔感带向开元音。\n* **物理边界提醒**：如 4.2 节所述，低音区发 `/i/` 时常触发 $F_1$ 防污染守卫而暂时不显示 $H_1-H_2$ 数值，属正常物理保护，此时只需单录一段平稳长音 **「啊（/a/）」** 即可观察声带轻重。\n\n---\n\n### 6.5 阶段三：普通话字词四声滑翔与变调实战\n\n带着前面找好的前腔感与轻音重，把注意力专门放在汉语最容易坠音、卡喉的声调组合上：\n\n1. **模块 A · 平滑气流入门（阴平 + 阴平 / 阳平）**：\n   - 词表：*今天、春天、分清、依稀、资源、鲜明、飘扬、光芒*\n   - 要领：气流如微风不断线，字头轻起不磕碰。\n2. **模块 B · 三声“半上（211）高位托底”专项**：\n   - 音系说明：两个三声相连时前字会自动变为阳平（35），且单字三声放在词尾容易顺势砸入谷底；因此专门选用**前字三声 + 后字非三声**的高频词，练习日常最常见的半上（211）轨道；\n   - 词表：*美丽、雨滴、海洋、温暖、雪花、姐姐、早安、喜欢、抹茶、晚风、暖阳*\n   - 要领：遇到第一个三声字时**绝不用力往低处砸**，稍微减小一点音量，在你的托底线（约 `150～165 Hz`）上方轻巧掠过即回弹。\n3. **模块 C · 四声“软去声浅降”与“羽毛轻声”专项**：\n   - 四声浅降词表：*就是、见面、灿烂、半夏、漂亮、细腻*\n   - 四声 + 轻声词表：*去吧、是的、喜欢、月亮、明白*\n   - 要领：去声字开头预先带出一丝轻气流（软起音不硬撞），做 **53 / 52** 的温和浅降到舒适中音位置即可；尾字轻声像羽毛轻点水面，**音短气柔、位置不坍塌**。\n\n---\n\n### 6.6 阶段四：持久性攻坚、情境泛化与日常自评\n\n当字词顺畅后，重点不再是继续背指标，而是把能力迁移进真实生活：\n\n* **微任务 1 · 模拟社交情境跟读**：\n  - 点餐：*“你好，麻烦帮我做一杯温燕麦拿铁，少冰，谢谢~”*\n  - 拿外卖/快递：*“喂，您好，麻烦帮我放在门口鞋柜上就好，辛苦了~”*\n  - 日常问路/打招呼：*“不好意思请问一下，最近的地铁口是往前走对吗？”*\n* **微任务 2 · 隔天回听与情境标记**：\n  - 录下这几段模拟对话并标记环境（如“安静室内”、“嘈杂街道”、“电话通话”）；\n  - **隔天再回听**（避开当下的心理偏见），不挑剔微小瑕疵，重点感受整体听感是否温和舒展、有无挤嗓痕迹。\n* **微行为 3 · 非言语微习惯的自然软化**：\n  - **叹气**：告别深沉往下掉的“唉……”，改为短促轻盈、由中高位滑落的小气声微呼；\n  - **轻笑**：改由面颊与前腔带出轻巧小连笑（“嘻嘻 / 呵呵”），微小的笑声往往比单独元音更决定第一印象；\n  - **清嗓**：坚决改掉“咳吭”猛撞声带的习惯，改为喝一小口温水，或无声轻轻哈一口气并做吞咽动作。\n* **每周温柔自问（不计分版的 TVQ-MtF 自我觉察思维）**：\n  不需要打分求和，每周只需轻声自问这四个问题：\n  1. 这周在现实沟通或电话里，被称呼和交流时感觉自在吗？\n  2. 在想开口点单、说话时，是否还会因担心声音而回避？\n  3. 连续聊天超过半小时后，脖子和嗓子累不累、干不干？\n  4. 隔天回听录音时，这声音听起来像你喜欢且接纳的自己吗？\n* **风格只是选项，不是标准答案**：清甜、温润、知性或清爽中性，各自都有独特魅力；只要喉咙舒适、自己喜欢、日常沟通自在，就是最适合你的好声音。\n\n---","subsections":[{"level":3,"text":"6.1 训练前的四件准备：安全、生活目标与学习观"},{"level":3,"text":"6.2 阶段零：身体释放与喉部自由悬浮（亚历山大感知）"},{"level":3,"text":"6.3 阶段一：SOVTE 半遮蔽声道练习与轻音重寻回"},{"level":3,"text":"6.4 阶段二：前鼻音桥接（m→i）与前高元音“衣位”聚焦"},{"level":3,"text":"6.5 阶段三：普通话字词四声滑翔与变调实战"},{"level":3,"text":"6.6 阶段四：持久性攻坚、情境泛化与日常自评"}]},{"id":"ack","title":"致谢与参考开源项目","group":"附录","content":"## 致谢与参考开源项目\n\n本知识库凝聚了国内外跨性别社群与言语康复领域先驱者的无私探索与分享，谨致以最诚挚的谢意：\n\n1. **Aoi 的跨性别嗓音训练指南（Aoi 手册）**（[https://mtf-voice-training.vercel.app/](https://mtf-voice-training.vercel.app/)）：为中文跨性别社群系统阐释了源-滤波器理论、三步提喉与水球舌头力学安全边界、以及普通话单韵母男女共振峰对照基线，为无数练习者推开了科学认识声音的大门。\n2. **TransVoice-Wiki 中文翻译项目**（[https://transvoice-wiki.pages.dev/translate/zh_Hans/](https://transvoice-wiki.pages.dev/translate/zh_Hans/)，原开源仓 [SumianVoice/TransVoice-Wiki](https://github.com/SumianVoice/TransVoice-Wiki)）：将现代音重（Weight）与声道空间（Size）双支柱模型、四象限充实度网格、去病理化与微行为框架引入中文语境，彻底走出了“唯音高论”的僵化格局。\n3. **Koenami**（[https://github.com/transnavi/koenami](https://github.com/transnavi/koenami)）：开创了现代前端实时音频 DSP 门控体系与“以真实声音为锚点、温和无恐吓”的去焦虑交互哲学。\n4. **Simple Voice Tools for Trans**（[https://github.com/theforeveriris/simple-voice-tools-for-trans](https://github.com/theforeveriris/simple-voice-tools-for-trans)）：开源了前端 YIN 基频提取、Levinson-Durbin LPC 与 Durand-Kerner 共振峰求根的规范算法实现。\n\n---","subsections":[]},{"id":"app1","title":"附录一：核心术语中英双解","group":"附录","content":"## 附录一：核心术语中英双解对照表\n\n| 中文术语 | 英文术语 | 一句话定义与含义 |\n| :--- | :--- | :--- |\n| **音重** | Vocal Weight | 声带闭合相占比与振动参与厚度。重=厚实有力；轻=薄而舒展流动。 |\n| **声道空间 / 共鸣** | Vocal Size / Resonance | 声门上方咽腔、口腔容积与前腔聚焦度，主要体现在 $\\Delta F$ 与 $F_1/F_2/F_3$ 上。 |\n| **共鸣间距** | Formant Dispersion ($\\Delta F$) | 多个共振峰按闭-开管模型折算出的平均频率间隔，与等效声道长度成反比（仅限 `/i/` 测定）。 |\n| **基频** | Fundamental Frequency ($F_0$) | 声带每秒完整振动次数（Hz），主管音高高低感受。 |\n| **声门开商与 $H_1-H_2$** | Open Quotient (OQ) | 单周期内声门张开的时间比例，与基波/二倍频分贝差 $H_1-H_2$ 强正相关。 |\n| **喉咽挤压比** | Twang / Pharyngeal Strain | $2.2\\sim 4.2\\text{ kHz}$ 与 $0.4\\sim 1.5\\text{ kHz}$ 能量比（仅限 `/i/`），观测集中度或高音挤尖倾向。 |\n| **流动发声** | Flow Phonation | 温和气流与适中声带闭合达到最佳平衡、省力通透的发声模式。 |\n| **偏紧 / 夹嗓发声** | Pressed Voice | 声带及室带过度用力内收撞击的干硬疲惫发声状态。 |\n| **室带（假声带）** | False Vocal Folds (FVF) | 真声带上方的保护性褶襞，舒适发声时应保持向两侧自然展宽退开（Retraction）。 |\n| **环甲肌 / 甲杓肌** | CT / TA Muscles | CT 拉长变薄声带（提音高、减音重）；TA 增厚缩短声带（降音高、增厚实感）。 |\n| **半遮蔽声道练习** | SOVTE | 闭唇哼鸣、唇颤、吸管吹泡等通过声门上微背压帮声带温和闭合的科学练习法。 |\n| **微行为** | Microbehaviours | 语言交流中深植于潜意识的起音、尾音、拟声与语气衔接微习惯。 |\n| **软上声高位托底** | Tone Floating | 汉语三声降调时靠微张力保持在托底线（150～165 Hz）之上、轻掠不砸进粗沉气泡音的技术。 |\n| **舌叶化发音** | Laminal Articulation | 用舌叶替代过度后卷的舌尖发翘舌音，防止舌根后倒压窄下咽空间。 |\n| **口咽轻拢** | Oropharyngeal Narrowing | 舌根适度前移与软腭微抬带来的上咽腔聚焦改良，坚决反对主动向内死夹下咽壁。 |\n| **羽毛悬停法** | Feather Hovering | 普通话轻声不塌位置、依附前字尾音短促轻柔带过的调节要领。 |\n| **纯漏气蛇音** | Unvoiced Snake Hiss | 测试 `/s/` 重心专用动作：只吹纯气流 `[s───]`，门牙留微缝，手摸喉结零震动。 |\n| **闭唇微麻音** | Closed-Lip Hum | 闭口哼鸣 `[m───]`：双唇自然轻闭，直至鼻梁唇周微麻再顺滑开口过渡。 |\n| **调域 vs 调幅** | Register vs Range | 调域为全段说话基频整体基线水平；调幅为单句内高低起伏跨度（`spanSt`）。 |\n| **s/a 协调比** | s/a Ratio | 普通话本土化气流协调测试：持续清音 `/s/` 与浊音 `/a/` 时长之比，不可硬套英文 `s/z` 常模。 |\n| **最小可检测变化** | MDC | 区分“真实改变”与“设备/生理正常波动”的差值保护门槛。 |\n| **性别肯定言语治疗** | Gender-Affirming Voice Care | 由练习者自主定义目标、优先保障声带安全并支持生活多场合落地的现代康复理念。 |\n\n---","subsections":[]},{"id":"app2","title":"附录二：知识库版本演进记录","group":"附录","content":"## 附录二：知识库版本演进记录\n\n> 注：原历史归档本 [37-跨性别女性嗓音训练解剖与声学常模知识库(普通话版).md](./37-跨性别女性嗓音训练解剖与声学常模知识库(普通话版).md) 完整保留作为参考对照。\n\n| 知识库版本 | 对应 `ALGO_VERSION` | 修订日期 | 核心变更要领 |\n| :--- | :--- | :--- | :--- |\n| **v1.0.0** | `0.1.0` | 2026-11-09 | 建立普通话解剖与声学常模框架，定义五指标体系初版。 |\n| **v1.1.0** | `0.8.0` | 2026-11-11 | 去病理化措辞全面审查；确立普通话四声滑翔与软上声高位托底；引入 YIN 与 LPC 共振峰提取。 |\n| **v1.2.0** | `1.0.9` | 2026-11-12 | 对齐合成真值与实测口径；补齐汉语音系细节与门诊视角；增设开源致谢。 |\n| **v1.3.0** | `1.0.9` | 2026-11-12 | 确立全系统常模对齐表；增补防呆动作描写与 10 秒双单音体检；规范舌尖元音与半上训练词表。 |\n| **v1.4.0** | `0.4.1` | 2026-11-15 | 1. **确立“客观指标首选 + 性别感知二级括号解释”折中范式**：避免激进抹除性别感知对应，兼顾科学客观与可读性；<br>2. **融入性别肯定言语治疗（GAVT）临床视角**：增设三次认知转身、三层评估视角、喉科就诊话术、第二语言学习观与 MDC 波动保护；<br>3. **对齐 $F_3$ 圆唇解耦与单韵母参考**：增补普通话六元音男女基线参考（含 Huang et al., 2024）与 `/i/`/`/ü/` 物理判别；<br>4. **结构去重与补遗润色**：恢复源-滤波器/软骨/舌骨悬吊/音重/骨传导框图，补全舌头水球原理、口咽轻拢、后鼻音 `-ng` 防破功、擦音四行分档、日常护嗓三原则，并将第六章舒展拆分为独立阶段与双附录。 |\n| **v1.4.1** | `0.5.0` | 2026-11-16 | 编辑校对与 `0.5.0` 代码口径同步：更新 `F1_GUARD_HZ` 为 `120 Hz` 并补充闭口哼鸣 `H1-H2` 拒出保护说明；补充 2.4 节原版四象限与 App 内置象限朝向的阅读对照提示；统一中文术语与测量时长细节。 |","subsections":[]}];
+    const SECTIONS = [{"id":"preamble","title":"知识库概览与理论基石","group":"导引","content":"# 跨性别女性嗓音训练解剖与声学常模知识库（普通话版）\n\n> **理论基石与参考来源**：\n> 1. **解剖学生理学与生物力学**：西奥多·戴蒙（Theodore Dimon）著，钱倩、陈臻 译《嗓音解剖：供歌手、声乐教练和言语治疗师使用的解剖图册》（*Anatomy of the Voice*）及亚历山大姿态力学体系。\n> 2. **跨性别嗓音现代范式**：SumianVoice / TransVoice-Wiki 开源知识库（Voice Resource Project，基于声学感知与去病理化微行为框架）。\n> 3. **中文社群启蒙与先驱经验**：\n>    - **Aoi 的跨性别嗓音训练指南（Aoi 手册）**（[https://mtf-voice-training.vercel.app/](https://mtf-voice-training.vercel.app/)）：源-滤波器理论通俗阐释、三步提喉力学、水球舌头原理及普通话单韵母共振峰男女对照基线。\n>    - **TransVoice-Wiki 中文翻译项目**（[https://transvoice-wiki.pages.dev/translate/zh_Hans/](https://transvoice-wiki.pages.dev/translate/zh_Hans/)）：音重与声道空间双支柱模型、充实度四象限的中文系统普及。\n> 4. **汉语普通话实验语音学**：普通话五度标记法（Zhao's Pitch Contours）、四声调值与连读变调、送气音对立（VOT）及三套擦音谱重心体系；上海地区成年人普通话元音参考（Huang et al., 2024）。\n> 5. **临床言语病理学（SLP）与性别肯定言语治疗实践**：从声乐技巧转向现代「性别肯定沟通（Gender-Affirming Voice and Communication）」的临床评估逻辑、嗓音卫生安全红线与日常泛化经验。\n\n---","subsections":[],"charCount":799,"readMinutes":3},{"id":"toc","title":"目录与全景大纲","group":"导引","content":"## 目录\n\n- [导言：认知转身——从“硬提音高”走向性别肯定沟通](#导言认知转身从硬提音高走向性别肯定沟通)\n- [第一章 嗓音发生器的解剖学生理学](#第一章-嗓音发生器的解剖学生理学)\n  - [1.1 动力系统：呼吸力学、拮抗支撑与非强迫气流](#11-动力系统呼吸力学拮抗支撑与非强迫气流)\n  - [1.2 振动发生源：喉部软骨框架与 CT/TA 核心协同](#12-振动发生源喉部软骨框架与-ctta-核心协同)\n  - [1.3 容易带来紧绷感的结构：室带（假声带）与喉室](#13-容易带来紧绷感的结构室带假声带与喉室)\n  - [1.4 悬挂与共鸣系统：舌骨悬吊与喉的“自由悬浮”](#14-悬挂与共鸣系统舌骨悬吊与喉的自由悬浮)\n- [第二章 现代 TransVoice 核心声学模型（音重与声道空间）](#第二章-现代-transvoice-核心声学模型音重与声道空间)\n  - [2.1 声音感知的两大底层支柱与对照概览](#21-声音感知的两大底层支柱与对照概览)\n  - [2.2 支柱一：音重（Vocal Weight）——从厚实重击到轻柔流动](#22-支柱一音重vocal-weight从厚实重击到轻柔流动)\n  - [2.3 支柱二：声道空间与共鸣（Vocal Size / Resonance）](#23-支柱二声道空间与共鸣vocal-size--resonance)\n  - [2.4 充实度四象限模型与音色落点辨识](#24-充实度四象限模型与音色落点辨识)\n  - [2.5 微行为（Microbehaviours）与模仿（Mimicry）](#25-微行为microbehaviours与模仿mimicry)\n- [第三章 汉语普通话的特殊声学挑战与本土化适配](#第三章-汉语普通话的特殊声学挑战与本土化适配)\n  - [3.1 英语语调与汉语声调的本质差异](#31-英语语调与汉语声调的本质差异)\n  - [3.2 普通话四声“挤卡陷阱”与托底/浅降策略](#32-普通话四声挤卡陷阱与托底浅降策略)\n  - [3.3 普通话三套擦音与送气音（VOT）微调](#33-普通话三套擦音与送气音vot微调)\n  - [3.4 普通话元音格局（Vowel Space）、单韵母参考与前腔聚焦](#34-普通话元音格局vowel-space单韵母参考与前腔聚焦)\n  - [3.5 调域（Register）与调幅（Range）辨析](#35-调域register与调幅range辨析)\n- [第四章 客观声学指标、有效测量与自我对照](#第四章-客观声学指标有效测量与自我对照)\n  - [4.1 先评估什么：临床三层视角与测量前提](#41-先评估什么临床三层视角与测量前提)\n  - [4.2 核心声学指标解读与 ΔF 深度说明](#42-核心声学指标解读与-δf-深度说明)\n  - [4.3 声学指标参考区间与对照总表](#43-声学指标参考区间与对照总表)\n  - [4.4 最小可检测变化（MDC）与内耳骨传导差异](#44-最小可检测变化mdc与内耳骨传导差异)\n- [第五章 常见疲惫代偿、医学边界与嗓音安全](#第五章-常见疲惫代偿医学边界与嗓音安全)\n  - [5.1 吞咽肌提喉死锁与“无声半打哈欠”](#51-吞咽肌提喉死锁与无声半打哈欠)\n  - [5.2 室带挤压（夹嗓）与“静音轻笑”](#52-室带挤压夹嗓与静音轻笑)\n  - [5.3 纯假声代偿与过度提气的局限](#53-纯假声代偿与过度提气的局限)\n  - [5.4 嗓音手术边界、日常护嗓与临床转诊红线](#54-嗓音手术边界日常护嗓与临床转诊红线)\n- [第六章 普通话渐进训练处方与“第二语言”日常迁移](#第六章-普通话渐进训练处方与第二语言日常迁移)\n  - [6.1 训练前的四件准备：安全、生活目标与学习观](#61-训练前的四件准备安全生活目标与学习观)\n  - [6.2 阶段零：身体释放与喉部自由悬浮（亚历山大感知）](#62-阶段零身体释放与喉部自由悬浮亚历山大感知)\n  - [6.3 阶段一：SOVTE 半遮蔽声道练习与轻音重寻回](#63-阶段一sovte-半遮蔽声道练习与轻音重寻回)\n  - [6.4 阶段二：前鼻音桥接（m→i）与前高元音“衣位”聚焦](#64-阶段二前鼻音桥接mi与前高元音衣位聚焦)\n  - [6.5 阶段三：普通话字词四声滑翔与变调实战](#65-阶段三普通话字词四声滑翔与变调实战)\n  - [6.6 阶段四：持久性攻坚、情境泛化与日常自评](#66-阶段四持久性攻坚情境泛化与日常自评)\n- [致谢与参考开源项目](#致谢与参考开源项目)\n- [附录一：核心术语中英双解对照表](#附录一核心术语中英双解对照表)\n- [附录二：知识库版本演进记录](#附录二知识库版本演进记录)\n\n---","subsections":[],"charCount":1862,"readMinutes":6},{"id":"intro","title":"导言：认知转身","group":"导引","content":"## 导言：认知转身——从“硬提音高”走向性别肯定沟通\n\n在跨性别女性（MtF）的嗓音探索里，最容易令人疲惫的误区就是：**“声音女性化 = 硬拔说话音高（Pitch）”**。\n\n大量初学者尝试用力收紧喉咙、强行将基频推上 `220 Hz`，往往反而落入两种困境：\n1. **发声偏硬、声音偏紧（Overfull / Pressed Voice）**：声带过度紧绷碰撞并带动假声带向内挤压，听感像“掐着喉咙”，不仅尖扁生硬，而且几分钟就疲劳干涩；\n2. **纯假声偏空（Underfull / Hollow Falsetto）**：声带边缘离散漏气，虽然频率很高，却缺少柔和稳定的核心凝聚力，进入街道或餐厅等嘈杂环境立刻被环境音淹没。\n\n现代喉部生物力学与临床言语病理学（SLP）已经彻底澄清：**音高（Pitch, $F_0$）只是承载轴，真正主导声音性别感知与表达质感的底层双支柱是「音重（Vocal Weight）」与「声道空间/共鸣（Vocal Size / Resonance）」。** 纵观半个多世纪的实践，嗓音训练走过了三次关键转身：\n\n1. **早期声乐借鉴阶段（1960s–1980s）**：多由声乐老师指导，思路偏向“把女声当高音演唱技巧”，留下了至今仍在流传的误解：**“女声 = 高 + 气”**。\n2. **言语病理学介入（1980s 之后）**：SLP 将嗓音卫生、声带评估与禁忌症排查放回首位——**先保证不把声带练伤，再谈发声技巧**。\n3. **现代“性别肯定嗓音与交流（Gender-Affirming Voice and Communication）”**：近十余年来，领域重心转向由说话者本人定义目标——**真正成熟的，是“如何保护声带练得稳”和“如何让新声音在生活里用得下去”；开放而多元的，是“你想听起来像什么样的自己”**：\n   - 目标由你自主定义（偏柔和女性化、知性中低女声、中性清爽，或在不同场合切换表达）；\n   - 不把单一音色模板或“陌生人必须完全听不出（passing）”设为唯一及格线；\n   - **科学训练顺序**为：**呼吸与喉周放松 $\\longrightarrow$ 共鸣前置与轻音重寻回 $\\longrightarrow$ 音高与普通话声调平移 $\\longrightarrow$ 真实生活情境泛化**。\n\n在汉语普通话中，因为存在**三声低谷、四声急降、轻声依附**以及**平翘舌擦音、送气音对立**，若直接生搬英文教材的“句尾上扬 + 硬提音高”，极易产生反问误会与降调挤卡。本文档正是为这一本土化课题建立的一套严谨、安全、以客观指标为尺、兼顾性别感知参照的暖心指南。\n\n---","subsections":[],"charCount":1059,"readMinutes":4},{"id":"ch1","title":"第一章 发生器解剖生理学","group":"正文","content":"## 第一章 嗓音发生器的解剖学生理学\n\n> 参考著作：《嗓音解剖：供歌手、声乐教练和言语治疗师使用的解剖图册》（Theodore Dimon 著，钱倩、陈臻 译）\n\n> 💡 **30 秒体感速览（不用背解剖名词，先记住这三个日常开关）：**\n> 1. **动力开关（1.1）**：吸气不耸肩，说话时像轻叹一口气一样，用温和均匀的气流托住声音；\n> 2. **松紧开关（1.2 & 1.3）**：靠“静音轻笑”或“半打哈欠”让喉咙内部保持敞开不憋闷，依靠声带自然拉薄拉长来调高音调，不用蛮力往里挤；\n> 3. **空间开关（1.4）**：千万别用吞咽动作硬把喉结往上顶；只需让舌面前部像发“衣（/i/）”那样轻贴上腭前上方，喉位会随舌骨自然、轻松地微升。\n\n人体发声遵循“源—滤波器（Source-Filter）”协同机制，由三大系统自下而上配合完成：\n\n```\n        ┌──────────────────────────────────────────────────────┐\n        │  声道共鸣滤波器 (Vocal Tract Filter)                  │\n        │  咽腔 (Pharynx) + 口腔 (Oral Cavity) + 唇齿形状      │\n        │  决定：声道空间聚焦 (Vocal Size / ΔF / 共鸣峰分布)   │\n        └──────────────────────────▲───────────────────────────┘\n                                   │ (声门波脉冲源 声源激励)\n        ┌──────────────────────────┴───────────────────────────┐\n        │  喉部振动发生器 (Laryngeal Oscillator)                │\n        │  真声带 (True Vocal Folds)                           │\n        │  核心协同：CT (拉伸/减重) vs TA (加厚/增重)          │\n        │  决定：基频音高 (F0) 与 音重 (Vocal Weight / H1-H2)  │\n        └──────────────────────────▲───────────────────────────┘\n                                   │ (次声门气压 Psub)\n        ┌──────────────────────────┴───────────────────────────┐\n        │  呼吸动力系统 (Power Supply)                          │\n        │  肺 (Lungs) + 膈肌 (Diaphragm) + 肋间/腹壁肌群       │\n        │  决定：气流平稳度、呼气支撑与声门动态平衡            │\n        └──────────────────────────────────────────────────────┘\n```\n\n| 发声子系统 | 对应解剖结构 | 核心功能 | 在本体系中对应的关键观察项 |\n| :--- | :--- | :--- | :--- |\n| **动力系统** | 肺、膈肌、肋间肌、腹壁肌 | 提供平稳温和的气流与次声门压（$P_{\\text{sub}}$） | 呼吸稳不稳、句尾是否突然断气 |\n| **振动发生源** | 喉部软骨与真声带（CT / TA 协同） | 声带周期开闭、决定振动频率与厚度 | 基频音高（$F_0$）、音重（$H_1 - H_2$） |\n| **共鸣滤波器** | 咽腔、口腔、唇齿形状（Vocal Tract） | 放大或衰减特定泛音、塑造明暗质感 | 前腔共鸣（$\\Delta F$）、元音 $F_1/F_2/F_3$ |\n\n---\n\n### 1.1 动力系统：呼吸力学、拮抗支撑与非强迫气流\n\n发声并不是靠肺把空气“用力推出来”，而是平稳气流经过声门时产生的伯努利吸合与黏膜波动。\n\n* **吸气避免耸肩**：耸肩吸气会拉紧斜方肌与胸锁乳突肌等颈部浅表肌肉，直接把喉部骨架扯紧。理想状态是安静吸气时肋骨下缘与腹部自然微胀。\n* **什么叫真正的“发声支撑（Support / Appoggio）”**：《嗓音解剖》指出，健康的支撑不是用力收腹憋气，而是**吸气肌群与呼气肌群的动态拮抗平衡**——呼气说话时，肋间外肌与膈肌不立刻彻底塌陷，而是维持轻柔的扩展张力，像稳稳松开拉满的气球口一样，向声门下提供平缓稳定的次声门压（$P_{\\text{sub}}$）。\n* **气流太猛为什么反而“夹嗓子”**：如果瞬间猛冲出一大股气流（过高 $P_{\\text{sub}}$），声带为了不被吹散，会本能地死死夹紧对抗高气压，造成干硬紧绷感；而温和适中的气流则能支撑声带形成顺畅的**流动发声（Flow Phonation）**。\n\n---\n\n### 1.2 振动发生源：喉部软骨框架与 CT/TA 核心协同\n\n#### 1.2.1 喉部软骨框架\n\n```\n                     [舌骨 Hyoid Bone]\n                            │\n               (甲状舌骨膜 / 甲状舌骨肌悬吊)\n                            │\n                    ┌───────▼───────┐\n                    │  甲状软骨板    │ (前角即喉结所处位置)\n                    │ (Thyroid Cart)│\n                    └───┬───────┬───┘\n     杓状软骨 (后侧)    │       │\n    [Arytenoids] ◄──────┴───────┴────── (真声带：前端固定于前连合，后端连至声带突)\n         │  ▲\n         │  │ 环杓关节 (滑移与旋转：控制声门开合)\n         ▼  │\n    ┌───────────────────────────────┐\n    │          环状软骨             │ (基底环形稳固底座)\n    │      (Cricoid Cartilage)      │\n    └───────────────────────────────┘\n```\n\n* **甲状软骨（Thyroid Cartilage）**：前方形似盾牌，左右两板正中汇聚成前角（喉结位置）；两条真声带前端固定于前角内侧的**前连合（Anterior Commissure）**。\n* **环状软骨（Cricoid Cartilage）**：位于下方，形如印章戒指，后部宽大，是整个喉部的稳固底座。\n* **杓状软骨（Arytenoid Cartilages）**：成对坐落于环状软骨后上方，其前侧的**声带突（Vocal Process）**连接真声带后端，外侧的**肌突（Muscular Process）**附着控制声门开闭的肌群。\n\n#### 1.2.2 一对核心控制肌：环甲肌（CT）与甲杓肌（TA）\n\n```\n             ┌──────────────────────────────────────┐\n             │ 环甲肌 (Cricothyroid, CT)             │\n             │ 动作：让甲状软骨轻柔向前下方微倾      │\n             │ 效果：声带拉长、变薄、边缘轻量振动    │\n             │ 声音变化：音高变高、音重变轻          │\n             └──────────────────▲───────────────────┘\n                                │ (动态拮抗平衡)\n             ┌──────────────────▼───────────────────┐\n             │ 甲杓肌 / 声带肌 (TA / Vocalis)        │\n             │ 动作：拉近杓状软骨与甲状软骨、增厚肌体│\n             │ 效果：声带变短、变厚、闭合时间更长    │\n             │ 声音变化：偏低沉胸声、音重变厚实      │\n             └──────────────────────────────────────┘\n```\n\n* **生物力学分工**：\n  - **环甲肌（CT）**收缩时，甲状软骨前角向前下方微微倾斜，将声带**拉长、拉紧并使有效振动边缘变薄**——这是音高抬升与轻柔音重（女性及柔和中性发声常用生理态）的核心驱动。\n  - **甲杓肌（TA / 声带肌）**构成声带本体肌质，收缩时使声带缩短、肌体增厚且闭合时间延长——是浑厚低频胸声（成年男声常见发声基线）的主导发力模式。\n* **习惯调整的核心**：嗓音轻柔化练习不是跟肌肉硬碰硬，而是逐步减少 TA 的习惯性过度用力，唤醒 CT 轻柔拉薄声带边缘，让振动集中到柔软的表层黏膜上。\n\n#### 1.2.3 声门开闭微调肌（LCA / IA / PCA）\n* **侧环杓肌（LCA）**：拉动杓状软骨向内旋转，负责闭合声门前 2/3 的膜部区域。\n* **杓间肌（IA）**：横跨两杓状软骨之间，负责拉近并闭合后 1/3 的软骨部声门。\n  - 若 IA 张力较弱，声门后部会留出小三角缝隙——**后裂隙（Posterior Chink）**（少许后裂隙会增添柔和气感，过宽则会变成虚弱漏气声）；\n  - 若 LCA 与 IA 过度强力紧锁，则形成干硬的声门硬撞击（Pressed Voice）。\n* **后环杓肌（PCA）**：喉部**唯一负责外展打开声门**的肌肉，保障平静呼吸与清辅音（如 `/s/`、`p/t/k`）时的气道通畅。\n\n---\n\n### 1.3 容易带来紧绷感的结构：室带（假声带）与喉室\n\n```\n              ┌─────────────────────────┐\n              │   室带 (假声带 FVF)     │ ◄── 剧烈内收时会压迫声带、引发紧绷沙哑\n              ├─────────────────────────┤\n              │      喉室 (Ventricle)   │ ◄── 舒适发声时应保持充盈开放\n              ├─────────────────────────┤\n              │   真声带 (True VF)      │ ◄── 健康振动发声源\n              └─────────────────────────┘\n```\n\n* **它的本来作用**：室带（假声带，FVF）位于真声带上方，原本是人体气道的**防呛保护阀**（咳嗽、搬重物憋气时会本能往中间挤紧）。\n* **为什么练习时会挤卡**：当练习者急着抬高音调、但声带的 CT 拉伸协调还没跟上时，大脑会误调动假声带往里靠拢“帮忙用力”。这会压缩喉室空间、压住真声带自由振动，使声音干哑憋闷、喉咙发紧。\n* **舒适状态**：发声时室带应当保持向两侧自然展宽退开（**室带外展撤回，FVF Retraction**），比如“静音轻笑”瞬间感受到的喉内开阔感。\n\n---\n\n### 1.4 悬挂与共鸣系统：舌骨悬吊与喉的“自由悬浮”\n\n整个喉部并非焊死在脖子上，而是通过肌腱和软组织**悬挂在舌骨（Hyoid Bone）下方**，像风铃一样在上下悬吊肌群的平衡中保持弹性悬浮：\n\n```\n                          [颅底 / 乳突 / 茎突]\n                                 │\n                            (茎突舌骨肌)\n                                 ▼\n         [下颌骨] ──(二腹肌/颏舌骨肌)──► [ 舌 骨 ] ◄──(甲状舌骨肌)──┐\n                                         │                        │\n                                   (胸骨舌骨肌)               [甲状软骨]\n                                         │                        │\n                                         ▼                  (胸骨甲状肌)\n                                     [ 胸 骨 ] ◄──────────────────┘\n```\n\n* **舌骨上肌群**（二腹肌、茎突舌骨肌、下颌舌骨肌、颏舌骨肌）连接下颌与颅底，将舌骨向上前拉高建立支点；**甲状舌骨肌**再像做“引体向上”一样，把甲状软骨轻柔拉向舌骨。\n* **舌骨下肌群**（胸骨舌骨肌、胸骨甲状肌、肩胛舌骨肌）连接下方胸骨；在健康抬升或共鸣调整时，下拉肌群必须保持松软不“拔河”。\n* **水球舌头原理与舌骨十字路口**：舌头是一个充满肌纤维与液体的“肌肉静水骨骼”（如同水球），体积恒定——捏住一头，另一头必鼓起。若舌根紧绷后缩（舌骨舌肌发力），不仅会直接堵塞咽腔、压凹舌面中段，还会顺带把舌骨往下拽，让喉位想轻升却失去了上方支点。\n* **重要力学法则**：\n  - 单靠绷紧下巴底下的肌肉“死命提喉”是无效的，反而会触发吞咽反射锁死室带；\n  - **健康的喉位微升与前腔聚焦，是“舌根变薄放松 + 舌面前推轻贴硬腭（/i/ 位） + 环甲肌轻柔调节”的联动副产品**——此时脖子表面依然松软，能轻松左右转头。\n\n---","subsections":[{"level":3,"title":"1.1 动力系统：呼吸力学、拮抗支撑与非强迫气流","anchorId":"1_1"},{"level":3,"title":"1.2 振动发生源：喉部软骨框架与 CT/TA 核心协同","anchorId":"1_2"},{"level":4,"title":"1.2.1 喉部软骨框架","anchorId":"1_2_1"},{"level":4,"title":"1.2.2 一对核心控制肌：环甲肌（CT）与甲杓肌（TA）","anchorId":"1_2_2"},{"level":4,"title":"1.2.3 声门开闭微调肌（LCA / IA / PCA）","anchorId":"1_2_3"},{"level":3,"title":"1.3 容易带来紧绷感的结构：室带（假声带）与喉室","anchorId":"1_3"},{"level":3,"title":"1.4 悬挂与共鸣系统：舌骨悬吊与喉的“自由悬浮”","anchorId":"1_4"}],"charCount":4298,"readMinutes":14},{"id":"ch2","title":"第二章 现代核心声学模型","group":"正文","content":"## 第二章 现代 TransVoice 核心声学模型（音重与声道空间）\n\n> 参考开源项目：SumianVoice / TransVoice-Wiki\n\n现代跨性别声学共识早已不再单看音高（Hz），而是建立起**「音重（Vocal Weight）+ 声道空间/共鸣（Vocal Size / Resonance）」双核心感知体系**。\n\n---\n\n### 2.1 声音感知的两大底层支柱与对照概览\n\n人耳之所以会在几百毫秒内对声音产生性别与质感印象，本质上是听觉在无意识地解码说话者的**声带振动厚度**与**声道共鸣腔大小**。本体系采用“客观物理区间为先 + 二级性别感知对照补充”的方式标注范围，既帮助你明确自己处于什么位置、和性别表达有什么联系，也不设刻板“及格分”：\n\n| 维度 | 生理决定因素 | 偏宽厚区间 | 中性过渡带 | 偏轻亮聚焦区间 | 本体系对应核心观察与怎么调 |\n| :--- | :--- | :--- | :--- | :--- | :--- |\n| **音重 (Vocal Weight)** | 声带闭合相比例与边缘振动厚薄 | **厚实音重区**<br>（男声胸声日常常见范围，$H_1-H_2$ 约 $-4.0\\sim -1.2\\text{ dB}$） | **适中过渡区**<br>（闭合力逐步放轻带，$-1.2\\sim -0.5\\text{ dB}$） | **轻柔流动音重区**<br>（女声轻盈发声常见范围，$H_1-H_2$ 约 $-0.5\\sim +3.5\\text{ dB}$，柔和语流可达 $+6.0\\text{ dB}$） | 看 **$H_1 - H_2$**：不要憋气硬撞，也别只剩漏气；试着轻哼叹气过渡成流畅轻音 |\n| **声道空间 (Vocal Size)** | 咽腔、口腔有效长度与舌唇位置 | **宽敞后腔区**<br>（男声共鸣常见范围，`/i/` 上 $\\Delta F$ 约 $950\\sim 1080\\text{ Hz}$，$F_2$ 约 $1750\\sim 2150\\text{ Hz}$） | **中性明朗过渡带**<br>（等效声道过渡，$\\Delta F$ 约 $1080\\sim 1180\\text{ Hz}$） | **紧凑前腔聚焦区**<br>（女声共鸣常见范围，`/i/` 上 $\\Delta F$ 约 $1180\\sim 1300\\text{ Hz}$，$F_2$ 约 $2300\\sim 2750\\text{ Hz}$） | 看 **$\\Delta F$（衣音）与 $F_1/F_2/F_3$**：舌面轻贴硬腭前部、嘴角微展，避免噘嘴与喉根后缩 |\n| **基频音高 ($F_0$)** | 声带长度、张力与每秒振动次数 | **低音区**<br>（男声日常常见范围，$< 145\\text{ Hz}$，典型 $95\\sim 140\\text{ Hz}$） | **中音过渡区**<br>（$145\\sim 175\\text{ Hz}$，中性表达与柔和偏低女声交汇带） | **高音区**<br>（$> 175\\text{ Hz}$；顺女日常多见 $180\\sim 230\\text{ Hz}$；跨女训练与临床实测稳定区间多在 $165\\sim 210\\text{ Hz}$ 上下） | 看 **中位 $F_0$ 与托底线**：先调好共鸣与轻音重，音高顺势平稳带入舒适区间即可 |\n\n> **关键认知（为什么双支柱比单纯飙高音管用）**：\n> - 当具备**紧凑前腔聚焦 + 轻柔流动音重**时，即使说话中位音高落在 **160～175 Hz** 的中音过渡区，听众也常常自然感知为温和亲切的女声表达；\n> - 相反，如果保持着厚重的声带碰撞与宽敞后腔共鸣，哪怕硬生生把音高喊到 **220 Hz 以上**，也会显得吃力、别扭或像尖硬的卡通声。\n\n---\n\n### 2.2 支柱一：音重（Vocal Weight）——从厚实重击到轻柔流动\n\n音重描述的是声带每次振动中**闭合相占整个周期的比例与参与振动的肌体厚度**，在频谱上直接反映为第一谐波（基波 $H_1$）与第二谐波（$H_2$）的能量消长：\n\n```\n【厚实音重区 Heavy Weight】（男声胸声或压嗓常见）\n  声带闭合厚实，闭合相占比较大\n  时域波形：声门气流脉冲突然切断、下降较陡\n  频域特征：高次谐波能量较强，H1 相对偏弱 ──► H1 - H2 偏向负值（约 -4.0 ~ -1.2 dB）\n\n【轻柔音重区 Light Weight】（女声轻盈发声与柔和中性表达常用）\n  声带边缘轻薄接触，气流平稳舒展 (Flow Phonation)\n  时域波形：声门气流脉冲平缓对称\n  频域特征：基频 H1 能量充沛柔和，高次谐波衰减温和 ──► H1 - H2 处于近零或健康的微正值（约 -0.5 ~ +3.5 dB）\n```\n\n练习中最容易把下面三个概念与“轻音重”混淆：\n\n1. **轻音重 $\\neq$ 小声说话（降音量）**：\n   音重是指“声带贴得多轻薄”，音量是指“呼出声学能量的大小”。轻音重完全应当拥有清晰的日常社交响度（1 米距离约 60～65 dB SPL）。自检很简单：**“隔着一扇半开的门，对方能听清我在说什么吗？”** 听不清，多半是把“减音重”误做成了压低音量。\n2. **轻音重 $\\neq$ 漏气气声（Breathiness）**：\n   气声是因为声门后部留着缝隙让气流白白漏出去，听感发虚、说久了嗓子干且在吵闹环境里完全听不清；健康的轻音重是**声带依然完整合拢发声，只是接触面积很薄很轻巧**。\n3. **轻音重 $\\neq$ 纯假声（M2 / Falsetto）**：\n   纯假声在特定高音下很轻，但与日常中音说话机制脱节，容易断音、缺质感且难以长时间维持。\n\n---\n\n### 2.3 支柱二：声道空间与共鸣（Vocal Size / Resonance）\n\n声波经过喉咙到嘴唇的管道时，管腔形状决定了哪些频段的泛音会被放大。管腔有效空间较宽长时，低频回声充沛（声音厚大，常见于男声自然基线）；管腔有效空间较小且靠前时，中高频泛音丰富（声音清亮紧凑，常见于女声共鸣基线）。\n\n* **注：关于术语规范**：TransVoice-Wiki 建议直接使用可测量的**共振峰（$F_1, F_2, F_3$）**与**共鸣间距（$\\Delta F$）**来理解声道变化，而不再沿用早期模糊的 “R1 / R2” 黑话。\n* **三个安全有效、不用挤嗓子的前腔聚焦动作**：\n  1. **舌面前抬（微靠近硬腭）**：像准备轻发汉语“衣（/i/）”那样让舌面柔和向上抬起，这是抬高第二共振峰 $F_2$ 最核心、最不费力的杠杆；\n  2. **唇角微展（Slight Smile）**：脸颊轻松带一点微微笑意，避免不自觉噘嘴拉长口腔前端（噘嘴会直接压低 $F_2$ 与 $F_3$）；\n  3. **口咽轻拢而非夹咽壁**：允许上咽腔轻微集中，但下咽和喉头周围始终保持松软，不向里死扣。\n\n---\n\n### 2.4 充实度四象限模型与音色落点辨识\n\n将**音重（横轴：轻 $\\leftrightarrow$ 重）**与**声道空间（纵轴：紧凑前腔 $\\leftrightarrow$ 宽敞后腔）**组合，能清楚看出不同声学组合为什么呈现出截然不同的听觉与性别感知质感：\n\n```\n                 紧凑前腔聚焦 (Small Size · 高 ΔF / 高 F2 · 常见女声聚焦方向)\n                                       ▲\n                                       │\n          [左上] 饱满平衡 (Full)       │   [右上] 偏紧过满 (Overfull / Pressed)\n          轻柔音重 + 紧凑前腔          │   厚实音重 + 前腔偏紧\n          ► 清亮、温润、松弛不费力     │   ► 干硬、扁尖、极易疲惫的挤卡声\n            （日常女声常见理想落点）   │\n  轻音重 (Light) ──────────────────────┼────────────────────── 重音重 (Heavy)\n   H1-H2 近零或正值                    │                    H1-H2 偏负\n                                       │\n          [左下] 空洞偏暗 (Hollow)     │   [右下] 低沉厚重 (Overheavy)\n          轻柔音重 + 宽敞后腔          │   厚实音重 + 宽敞后腔\n          ► 轻柔叹气感、偏闷或空灵     │   ► 浑厚胸声\n            （常用于过渡探索中段）     │     （典型男声日常基线组合）\n                                       │\n                                       ▼\n                 宽敞后腔空间 (Large Size · 低 ΔF / 低 F2 · 常见男声空间基线)\n```\n\n* **怎么用这张图指导自己调整（而不焦虑）**：\n  * > **界面方向小提示**：此处沿用 TransVoice-Wiki 原版象限排布（左轻右重、上紧凑下宽敞）；而在本 App 的分析页象限图中，为了配合「往上偏紧、往下轻柔，往左深沉、往右明亮」的直觉阅读习惯，理想绿框区位于**右下角（更明亮 + 更轻柔）**，读图时留意对应文字标注即可，两者本质完全一致。\n  * 如果你在 **左下（空洞偏暗）**：说明声带其实已经够轻省了，不用再继续减音重，下一步只需让舌位稍微靠前、微笑带开嘴角，音色自然会明朗起来；\n  * 如果你在 **右上（偏紧过满）**：说明空间收进去了，但声带或室带跟着使了蛮力，需要优先做“静音轻笑”和闭口哼鸣，先把音重放轻；\n  * 如果你在 **右下（低沉厚重）**：这是原本最省力的肌肉惯性基线，建议按第六章的顺序先减音重、再挪前共鸣，最后才柔和带入音高。\n\n---\n\n### 2.5 微行为（Microbehaviours）与模仿（Mimicry）\n\n临床言语治疗师越来越重视一个事实：**真实沟通里的“非技术细节”，对整体性别印象与声音自然度的影响，常常大过几个赫兹的音高差。**\n* **微行为**：起音是不是轻轻送出而不是一声磕撞（硬起音）、句尾是轻巧收气还是向下重砸、轻笑（“呵呵/嘻嘻”）、温和叹气、语气词（“呀、呢、哦、好呀”）衔接是否舒展。\n* **模仿与跟读（Mimicry & Shadowing）**：大脑学说话靠的是“听觉—运动”直接连线，而不是一边做数学题一边控制肌肉。挑选一位让你听着觉得舒服、嗓音又不费力的说话范例，模仿她的语气节奏与轻重落点，往往比死盯着频谱仪进步更快。\n\n---","subsections":[{"level":3,"title":"2.1 声音感知的两大底层支柱与对照概览","anchorId":"2_1"},{"level":3,"title":"2.2 支柱一：音重（Vocal Weight）——从厚实重击到轻柔流动","anchorId":"2_2"},{"level":3,"title":"2.3 支柱二：声道空间与共鸣（Vocal Size / Resonance）","anchorId":"2_3"},{"level":3,"title":"2.4 充实度四象限模型与音色落点辨识","anchorId":"2_4"},{"level":3,"title":"2.5 微行为（Microbehaviours）与模仿（Mimicry）","anchorId":"2_5"}],"charCount":3813,"readMinutes":13},{"id":"ch3","title":"第三章 普通话声学与调控","group":"正文","content":"## 第三章 汉语普通话的特殊声学挑战与本土化适配\n\n---\n\n### 3.1 英语语调与汉语声调的本质差异\n\n英文是非声调语言，可以把整个句子当作一条柔缓飘动的波浪线，甚至用句尾上扬（Uptalk）增加亲切感。\n**汉语普通话则是严格的字调语言，每个字都有固定的声调轮廓**：\n1. 盲目在普通话陈述句结尾加“句尾上扬”，会把「好的。」直接听成疑惑或反问「好的？」；\n2. 普通话陈述句的自然结束方式，是在最后一个字后部做**温和轻微的下倾并平缓收气**；\n3. 最容易把声音瞬间打回原声粗重基线的位置，恰恰集中在**三声（上声）低谷**与**四声（去声）急降**，以及句尾的**轻声**——只要在这几个位置跌破低音线并触发厚重声带碰撞，哪怕前面几个字音高够高，听众的整体性别印象也会立刻被句尾拉回厚实胸声。\n\n---\n\n### 3.2 普通话四声“挤卡陷阱”与托底/浅降策略\n\n采用赵元任五度标记法（1 最低 $\\rightarrow$ 5 最高）解析四声发音陷阱：\n\n```\n五度值\n 5 ─── 阴平 (55 高平) ───┐              ┌── 去声 (51 起点)\n                         │              │\n 4 ─────────────── 阳平 (35 升点) ──────┤\n                         │              │\n 3 ────── 阳平 (35 起点) ┘              │\n                                        │\n 2 ─── 上声 (214 起点) ──┐              │\n                         │              │\n 1 ────────────── 上声谷底 (防跌区) ────┴── 去声终点 (软着陆区)\n```\n\n| 声调 | 调值特点 | 常见用力或失守陷阱 | 普通话科学破局要领 |\n| :--- | :--- | :--- | :--- |\n| **阴平（一声）** | 55 高平调 | 为撑住高音音量而夹紧声带 | 保持柔和气流巡航，体积轻、边缘微震 |\n| **阳平（二声）** | 35 中升调 | 上升时下巴前伸、脖子发僵 | 用 CT 轻柔拉伸顺滑往上推，保持肩颈松软 |\n| **上声（三声）** | 单字 214；语流绝大多数读 **半上（211）** | 拼命压低音高，跌进 `< 145 Hz` 低音区甚至气泡音（Vocal Fry） | **软上声高位托底**：把低谷稳稳托在安全底线（**150～165 Hz**，恰位于中音过渡区之上，既保证四声字调落差清楚，又不跌回男声胸声底线），**用稍微减弱音量替代拼命向下压喉** |\n| **去声（四声）** | 51 全降调 | 在 5 度起点一声硬撞（硬起音），摔到 1 度时狠狠刹车 | **高位浅降 + 软着陆**：日常温和说话只需走到 **53 或 52** 即可，起音前留半丝温和气流，末尾轻收不砸底 |\n| **轻声（零声）** | 无独立调值，随前字尾音变化 | 把轻声（如“好的、去了”）当作短促低重音往下砸 | **羽毛悬停法**：CT 保持基础微张力不彻底塌掉，依附前字尾音像羽毛点水般**音短、气柔、位置不掉**带过 |\n\n---\n\n### 3.3 普通话三套擦音与送气音（VOT）微调\n\n#### 3.3.1 三套独立擦音严禁混为一谈\n普通话清擦音按舌位分成三套彼此独立、不能混测的系统：\n1. **舌尖前平舌音**：`z, c, s`（气流经上下齿背与门牙微缝摩擦，位置最靠前）；\n2. **舌面前音**：`j, q, x`（舌面前部与硬腭形成窄缝）；\n3. **舌尖后翘舌音**：`zh, ch, sh, r`（其中 `r` 为浊音，带声带振动，不入清擦音统计）。\n\n> **测量注意**：三类擦音的物理频谱重心各有不同。如果在一整段连续朗读中把平舌音和翘舌音混在一起算中位数，得出的数值没有任何生理或调音指导意义。测试擦音聚焦度时，必须使用单独的平舌清音素材。\n\n#### 3.3.2 擦音分档参考、舌叶化改良与防错动作\n\n| 擦音类别 | 客观谱重心参考区间 | 代表例字 | 声学机制、性别感知关联与注意事项 |\n| :--- | :--- | :--- | :--- |\n| **平舌 `/s/`** | **偏厚靠后区**：`4.5～6.0 kHz`<br>（常见男声或舌位偏后分布）<br>**清脆靠前区**：`6.0～8.5 kHz`<br>（常见女声齿龈前置分布，核心约 `7.0～7.8 kHz`） | **丝、四** | 舌尖前切缘轻贴近齿背、气流过牙缝，**本 App 核心测试基准素材**；超过 `9.0 kHz` 则易显尖刺 |\n| **舌面 `/x/`** | **`6.0～8.0 kHz`** | **西、小** | 舌面前部与硬腭形成狭窄通道，高频能量天然高度集中，可作为日常前腔明亮感线索 |\n| **翘舌 `/sh/`** | **`4.5～5.5 kHz`** | **诗、是** | 舌叶化改良后保持适度清晰，**切忌刻意往 `/s/` 的 `6.5 kHz` 以上强推**，否则听起来会变成“平翘舌不分（大舌头）” |\n| **浊通音 `/r/`** | *不适用* | **日、热** | 带声带振动的浊擦音/通音，不计入清擦音谱重心统计 |\n\n* **防舌根后倒（舌叶化改良）**：发 `zh, ch, sh` 时避免舌尖大幅往喉咙方向卷曲（后卷会带动舌根后倒压窄下咽空间，让音色发暗），改用**舌叶（舌尖后方那片舌面）轻靠近上齿龈后缘**，保持喉室与下咽开阔通畅。\n* **防呆测量动作——纯漏气蛇音 `[s───]`（掐掉韵母）**：\n  测量 `/s/` 谱重心时，不要念带出嗓音的完整汉字“丝”，而要只发最开头的**纯气流声**（像轮胎慢漏气或小蛇吐信 `s───`）：**手摸喉结必须完全零震动**，上下门牙留出 1～2 毫米细缝让气流均匀吹出，绝不可死咬牙关。\n\n#### 3.3.3 送气音对立（VOT）提升声音明澈度\n普通话塞音与塞擦音区分不送气与送气（送气起始时间 VOT 可达 `60～100 ms`）。许多练习者总觉得声音发闷沉重，往往是因为送气音气流吐放不充分：\n* 对比感知组：**怕 / 爸**、**他 / 大**、**看 / 干**、**次 / 字**、**唱 / 丈**、**去 / 句**。\n* 让送气声母在唇齿前方送出一股干净轻快的小气流，能立刻提升吐字的清爽通透感。\n\n---\n\n### 3.4 普通话元音格局（Vowel Space）、单韵母参考与前腔聚焦\n\n#### 3.4.1 普通话六大单韵母共振峰参考基线\n为了既保持客观声学参照，又能清晰看懂具体数值在性别感知与空间前移上的位置，下面列出**普通话六大单韵母 `a / o / e / i / u / ü` 的参考频率带**（源自 Aoi 手册基线与上海普通话成人实验测算交叉校准，与本 App `formants.js` 模型一致）：\n\n| 普通话单韵母 | 宽声道基线（成年男声常见参考，Hz） | 紧凑前腔基线（成年女声常见参考，Hz） | 调整与观察要点 |\n| :--- | :--- | :--- | :--- |\n| **啊 `/a/`** | $F_1$: 710–750<br>$F_2$: 1200–1350<br>$F_3$: 2400–2600 | $F_1$: 880–950<br>$F_2$: 1400–1500<br>$F_3$: 2700–2900 | 口型自然纵开并带一点面颊微扬，避免把嘴巴张大到喉根往后压 |\n| **喔 `/o/`** | $F_1$: 400–450<br>$F_2$: 680–850<br>$F_3$: 2300–2700 | $F_1$: 450–500<br>$F_2$: 760–950<br>$F_3$: 2300–2800 | 少用力噘嘴，靠舌体协调成音（注：`o` 与 `u` 在 $F_1/F_2$ 上高度重叠，无法仅靠二维图强分） |\n| **饿 `/e/` (`[ɤ]`)** | $F_1$: 470–520<br>$F_2$: 1100–1350<br>$F_3$: 2400–2600 | $F_1$: 550–650<br>$F_2$: 1300–1700<br>$F_3$: 2800–3100 | 保持喉咙放松与前腔清醒，勿让舌根塌入咽后壁 |\n| **衣 `/i/`** | $F_1$: 300–360<br>$F_2$: 1750–2150<br>$F_3$: 2700–3100 | $F_1$: 350–440<br>$F_2$: 2300–2750<br>$F_3$: 3100–3400 | **前腔聚焦第一锚点**：舌面前部柔和靠向硬腭，嘴角微展，尽量抬明 $F_2$ 与保持高 $F_3$ |\n| **乌 `/u/`** | $F_1$: 350–440<br>$F_2$: 700–1000<br>$F_3$: 2300–2500 | $F_1$: 400–490<br>$F_2$: 750–1100<br>$F_3$: 2600–2800 | 保持微笑平展微敛唇形，避免把嘴唇往前嘟成大圆筒压低共鸣 |\n| **迂 `/ü/` (`[y]`)** | $F_1$: 320–380<br>$F_2$: 1600–1800<br>$F_3$: 2200–2400 | $F_1$: 350–420<br>$F_2$: 2000–2300<br>$F_3$: 2600–2900 | 适度收圆前唇，注意圆唇本身会天然拉低 $F_3$ |\n\n#### 3.4.2 关键发音要领与常见防破功细节\n1. **后高元音 `/u/, /o/` 与低元音 `/a/` 的“口咽轻拢（Oropharyngeal Narrowing）”原则**：\n   - 发 `/u/` 和 `/o/` 时尽量避免用力前噘拉长声道，采用微展微笑唇形靠舌体配合；发 `/a/` 时配合面颊轻扬，切忌把嘴张到下咽紧绷；\n   - **正确做法是“舌根适度前移 + 软腭微抬”**，让上咽腔轻拢聚音而下咽通畅；**切忌主动向内死夹咽后壁**，死夹下咽会立即诱发室带挤压，使声音发干发哑。\n2. **后鼻音（`-ng`）防破功——“韵腹前置 + 浅挂后鼻音”**：\n   - 普通话含有大量后鼻音韵母（如 *ang, eng, ing, ong*）。许多练习者单念前元音很清亮，但一遇到后鼻音，软腭突然塌陷、舌根猛力后倒贴向咽后壁，仿佛把字整个“吞”进喉咙，导致共鸣瞬间崩塌变沉。\n   - **破局要领**：**前 80% 时长专注稳住前腔元音韵腹**（例如念 *ang* 时，先把面颊微扬的 `a` 发清透）；**最后 20% 时长再让软腭微降、舌面中后部极其轻柔地轻触即走**，浅浅挂上鼻音就松开，不让舌根沉入咽底。\n3. **为什么发“衣（/i/）”有时会被普通二维软件误判成“迂（/ü/）”？**：\n   - 在尚未把口腔空间收得很紧凑时，发不圆唇 `/i/` 的 $F_2$ 常落在 `2100～2300 Hz`——正好落入紧凑前移基线里 `/ü/` 的位置。但物理上两者有明确区分：圆唇 `/ü/` 因前唇管伸长，$F_3$ 显著较低（通常 `≤ 2600 Hz`），而不圆唇 `/i/` 始终保持较高的 $F_3$（`≥ 2700 Hz`）。本 App 已内置 **$F_3$ 圆唇解耦保护**，避免“衣”音被误认。\n4. **舌尖元音（`zi/ci/si` 的 `[ɿ]` 与 `zhi/chi/shi` 的 `[ʅ]`）及儿化音**：\n   - 拼音同样写作 `i`，但它们实际是舌尖元音（$F_1 \\approx 300\\sim 400\\text{ Hz}$，$F_2 \\approx 1300\\sim 1800\\text{ Hz}$），与标准 `/i/` 完全不同，无法按前高元音标准强行对齐。\n5. **基频对共振峰估测的微弱牵引**：\n   - 当基频升高时，谐波间距变宽，LPC 计算出的 $F_1$ 容易受最近谐波影响产生约 `10%～16%` 的漂移。比较元音图或 $F_1/F_2$ 变化时，尽量在相近音高下观察，不把纯粹抬高基频带来的数值漂移误当成口腔共鸣变化。\n\n---\n\n### 3.5 调域（Register）与调幅（Range）辨析\n\n* **调域（Register / Level）**：整段话的基础音高水平（由 $F_0$ 中位数代表）。调整方向是**柔和地将舒适说话基线从低音区（男声日常常见范围，`< 145 Hz`）平移入中音过渡区（`145～175 Hz`，配合前置轻音重可呈柔和女声或中性感）或高音区（女声日常常见范围，`175～220 Hz`）**。\n* **调幅（Range / `spanSt`）**：一句话内最高音与最低音的起伏宽度（本 App 用剔除句尾淡出的 P10–P90 半音差计算）。\n  * **常见误区**：误以为“起伏越大越像女声”，故意忽高忽低夸张说话（`spanSt` 超过 `12～14` 半音），听感反而生硬造作。\n  * **日常参考**：普通话日常舒适交谈的调幅通常在 **3.0～6.0 半音**（稍长的故事朗读约 **5.0～8.0 半音**）。自然生动即可，绝不需要刻意夸张起伏。\n\n---","subsections":[{"level":3,"title":"3.1 英语语调与汉语声调的本质差异","anchorId":"3_1"},{"level":3,"title":"3.2 普通话四声“挤卡陷阱”与托底/浅降策略","anchorId":"3_2"},{"level":3,"title":"3.3 普通话三套擦音与送气音（VOT）微调","anchorId":"3_3"},{"level":4,"title":"3.3.1 三套独立擦音严禁混为一谈","anchorId":"3_3_1"},{"level":4,"title":"3.3.2 擦音分档参考、舌叶化改良与防错动作","anchorId":"3_3_2"},{"level":4,"title":"3.3.3 送气音对立（VOT）提升声音明澈度","anchorId":"3_3_3"},{"level":3,"title":"3.4 普通话元音格局（Vowel Space）、单韵母参考与前腔聚焦","anchorId":"3_4"},{"level":4,"title":"3.4.1 普通话六大单韵母共振峰参考基线","anchorId":"3_4_1"},{"level":4,"title":"3.4.2 关键发音要领与常见防破功细节","anchorId":"3_4_2"},{"level":3,"title":"3.5 调域（Register）与调幅（Range）辨析","anchorId":"3_5"}],"charCount":4850,"readMinutes":16},{"id":"ch4","title":"第四章 客观指标与常模对照","group":"正文","content":"## 第四章 客观声学指标、有效测量与自我对照\n\n---\n\n### 4.1 先评估什么：临床三层视角与测量前提\n\n在专业言语病理学（SLP）临床实践中，评估声音改变有**三层先后次序**：\n\n| 评估层级 | 测什么 / 看什么 | 在本工具与日常练习里的位置 | 核心原则 |\n| :--- | :--- | :--- | :--- |\n| **第 1 层：嗓音功能与声学线索** | 有没有紧绷挤卡风险？音高、音重、共鸣落在什么位置？ | **本 App 主要辅助这一层**（提供客观离线读数与风险提醒） | 安全第一，只供参照与自身对比 |\n| **第 2 层：真实环境听者感知** | 在电话里、嘈杂点单时，别人听到的是什么质感？ | 靠**隔天回听真实情境录音**与真实交际反馈补充 | 软件没有人的耳朵，测得出 Hz 测不出“好不好听” |\n| **第 3 层：自我生活体验** | 说话累不累？这声音像不像自己、用不用得出去？ | 靠记录页的**体感印章**与每周主观自评感受 | **最核心的一层**——“在练习室好看但生活里用不出”，不算有效 |\n\n#### 测之前先检查：什么才算一次有效测量？\n1. **硬件环境第一律**：安静房间、**同一台手机、同一麦克风距离（15～20 cm）、接近的说话音量**。换设备或进空旷带回声的浴室，所有数值都会改变，不能直接纵向比较。\n2. **用对测试动作**：\n\n| 想要看的指标 | 最稳妥的测试素材 | 为什么不能乱用别的动作 |\n| :--- | :--- | :--- |\n| **日常音高 $F_0$ 与调幅** | 自然朗读普通话短文 $\\ge 20$ 秒，或连贯日常说话 | 单独一声叹气、笑声或 $<1.5$ 秒单字样本量太少 |\n| **共鸣间距 $\\Delta F$ 与 Twang** | **平稳长发前高元音「衣——（/i/）」3 秒** | 闭口哼鸣、`/u/`、`啊` 或整句混合朗读都会被唇形拉低或混淆，无有效可比性 |\n| **发声轻重 $H_1 - H_2$** | **平稳长发「啊——（/a/）」3 秒**或正常语句 | 在较低音区发 `/i/` 时，$2F_0$ 常撞上低 $F_1$（污染守卫触发），改用 `/a/` 最清晰 |\n| **微扰 Jitter / Shimmer** | 单一元音平稳发 2 秒以上 | 语流中的换气停顿、抑扬顿挫会天然拉高微扰数值，长音与语流不可混用标准 |\n| **擦音清脆度 `/s/`** | **纯漏气蛇音 `[s───]` 2～3 秒**（手摸喉结零震动） | 带上韵母元音、咬紧牙关或混合翘舌字都会污染重心频率 |\n\n> 🍵 **10 秒双单音每日体检法**：每天只需录一次平稳的 **「衣——（3秒）」+「啊——（3秒）」**，即可无痛核对当天的共鸣聚焦度、声带轻重与稳定性，不用每次都做大段测试。\n\n---\n\n### 4.2 核心声学指标解读与 ΔF 深度说明\n\n为了先建立整体地图，本工具将客观声学指标划分为三大观测层：\n\n| 时频 / 基频层 | 声带质感 / 声门状态层 | 声道空间 / 共鸣层 |\n| :--- | :--- | :--- |\n| • $F_0$ 基频中位数<br>• 托底达成率<br>• 语流音高起伏 (`spanSt`) | • $H_1 - H_2$ 声门开商与音重<br>• 倍频弱帧率 (`Halving`)<br>• 周期微扰 (`Jitter`)<br>• 振幅微扰 (`Shimmer`)<br>• 倒谱突出度 (`CPP`，仅内部降噪置信度用) | • $\\Delta F$ 共鸣间距（仅 `/i/` 有效）<br>• $F_1 / F_2 / F_3$ 元音空间重心<br>• 擦音谱重心 (`/s/`)<br>• 咽腔挤压比 (`Twang`，仅 `/i/` 输出)<br>• 线下辅助：`MPT` 与 `s/a` 协调比 |\n\n每项指标均以**客观声学特征为首选描述**，同时以括号注明其在**性别感知与声音表达**上的参考位置：\n\n#### 1. 共鸣间距 $\\Delta F$ 与等效声道长度 $L$（重点澄清）\n* **它测什么**：把口腔和咽腔当作一根共鸣管，$\\Delta F$ 衡量各个共振峰平均间隔有多宽——**数字越高，等效声道越短紧凑，音色越靠前清亮；数字越低，共鸣空间越宽深厚实**。\n* **常用参考区间（基于普通话前高元音 `/i/` 测量）**：\n  - **宽敞后腔区间（成年男声常见共鸣范围）**：约 **$950 \\sim 1080\\text{ Hz}$**（对应等效声道长约 $16.2 \\sim 18.4\\text{ cm}$）；\n  - **中性明朗过渡带**：约 **$1080 \\sim 1180\\text{ Hz}$**（等效声道约 $14.8 \\sim 16.2\\text{ cm}$）；\n  - **紧凑前腔聚焦区（成年女声常见共鸣范围）**：约 **$1180 \\sim 1300\\text{ Hz}$**（等效声道约 $13.5 \\sim 14.8\\text{ cm}$）；\n  - 在本 App 的客观分档中，`< 1050 Hz` 表示共鸣偏向宽敞后置，`1050 ~ 1250 Hz` 表示进入中性偏明亮聚焦带，`> 1250 Hz` 则处于紧凑清亮的前高聚焦区。\n* **怎么往目标靠**：不是死命抬喉结！主要是让**舌面前部像发 `/i/` 一样轻贴上腭、嘴角微微展开不前撅、保持颈肩松软**。很多练习者通过这两步就能把 `/i/` 的 $\\Delta F$ 温和抬高 `80～150 Hz`。\n* **物理原理与反焦虑边界**：按均匀闭-开管声道模型，$\\Delta F = \\frac{c}{2L}$（$c \\approx 35000\\text{ cm/s}$），软件通过 $F_1/0.5, F_2/1.5, F_3/2.5, F_4/3.5$ 综合估测（与合成真值误差约 $-1.3\\% \\sim +1.8\\%$）。圆唇元音（如 `/u/`、`/o/`）会人为拉长管口把数值拉低，因此**本 App 规定只在稳定的 `/i/`（衣）元音上解读 $\\Delta F$**；且每个人原本的头颈骨骼尺寸不同，不必强求冲上 `1300 Hz` 以上，**在同一设备下看自己 `/i/` 的数值比自身历史基线稳步提升，远比跟别人比数字重要**。\n\n#### 2. 基频音高 $F_0$ 与安全托底线（Floor Target）\n* **它测什么**：声带每秒振动多少次，决定了声音听起来高还是低。\n* **常见参考区间**：\n  - **低音区（成年男声日常常见范围）**：**$< 145\\text{ Hz}$**（常见 $95\\sim 140\\text{ Hz}$）；\n  - **中音过渡区（中性表达与柔和偏低女声交汇带）**：**$145 \\sim 175\\text{ Hz}$**（若前腔聚焦良好且音重较轻，常给人温和自然的女性交流感）；\n  - **高音区（$> 175\\text{ Hz}$）**：顺性别女性日常多见 **$180\\sim 230\\text{ Hz}$**，而跨女嗓音训练与临床实测的稳定区间多在 **$165\\sim 210\\text{ Hz}$** 上下。\n  - > **来源注记**：国际综述与文献中英语顺女日常基频多为 `180～220 Hz`（Leung et al., 2018 等），普通话因四声高平/升调牵引通常略高，常见引用可达 `230 Hz`；而国内跨女训练临床研究（Chen et al., 2026）与声带手术后的平均稳定基频实测多落在 `165～210 Hz` 附近——一旦越过 `165～175 Hz` 感知分水岭并配合前腔共鸣与轻音重，听感就已自然柔和，不必强冲 `220 Hz` 以上。\n* **怎么调整与上限提醒**：先找准轻音重和前腔共鸣，再把说话基线托在个人托底线（App 可选 `150 / 155 / 160 / 165 Hz`，默认 `160 Hz`）之上。**不建议追求冲上 `240 Hz` 以上**：音高越高越消耗声带边缘张力，只要保持 **85% 以上的有声帧稳在托底线之上**、不砸出粗沉气泡音，听感就会稳妥自然。\n\n#### 3. 发声轻重 / 声门开商 $H_1 - H_2$\n* **它测什么**：第一谐波（基频）与第二谐波的能量差，反映声带贴合得有多“紧厚”还是“轻柔”。\n* **常见参考区间**：\n  - **厚实偏紧区间（典型男声胸声或压嗓常见）**：**$< -1.2\\text{ dB}$**（未调整的厚重胸声常见于 $-4.0 \\sim -1.2\\text{ dB}$）；\n  - **轻柔流动核心区（常见女声轻盈发声范围）**：**$-0.5 \\sim +3.5\\text{ dB}$**（声带边缘轻柔合拢、声音流动清澈；App 总区间以 $-1.2 \\sim +3.5\\text{ dB}$ 视作平衡轻盈带）；\n  - **偏柔和或渐偏气声区间**：**$+3.5 \\sim +8.0\\text{ dB}$**（部分人在发 `/a/` 或放松语流时也会落在这里，但若音量明显变小、感觉发虚喘气，说明有些漏气了，需回到完整闭合的轻音重）。\n* **怎么调整**：偏紧（$<-1.2\\text{ dB}$）时做静音轻笑或吸管吹泡退回柔松；偏虚（$>+4.5\\text{ dB}$ 且音量小）时，用温和的闭口哼鸣 `m───` 找回前腔饱满微震后再开口说话。\n* **为什么发低音 `/i/` 或闭口哼鸣时容易“未测出 $H_1-H_2$”？**\n  - 发 `/i/` 时第一共振峰 $F_1$ 只有 `280～350 Hz`，在较低音高下会把第二谐波 $2F_0$ 或基频 $F_0$ 人为共振放大，使测出的 $H_1 - H_2$ 失真偏低（实测常比 `/a/` 低 `2～4 dB`）。本 App 内置共振峰防污染守卫（当 $|2F_0 - F_1| < 120\\text{ Hz}$ 或 $|F_0 - F_1| < 120\\text{ Hz}$ 时自动剔除污染帧）；\n  - 此外，闭口哼鸣时口唇封闭、气流由鼻腔旁路分流，会让 $H_1-H_2$ 呈现虚高，本 App 也会在识别到纯闭口哼鸣时主动拒出 $H_1-H_2$ 结论。遇到这两种情况均属正常物理保护——改发一段稳稳的 **「啊（/a/）」** 即可准确测出声带轻重。\n\n#### 4. 咽腔挤压比（Twang / Pharyngeal Strain Index）\n* 在本 App 中，该指标专门测量高频咽腔共鸣带（$2.2\\sim 4.2\\text{ kHz}$）与中频元音核心区（$0.4\\sim 1.5\\text{ kHz}$）的能量比，且**仅在明确发「衣（/i/）」音时输出**（其他元音会因唇形遮挡天然衰减至 $-20\\sim -30\\text{ dB}$，参考意义不大）。\n* **在 `/i/` 上**：`< 0 dB` 为宽敞通透；`0 ~ +2.0 dB` 为适度集中明亮度（有助于清晰明亮的女性感表达）；若 **`> +2.0 dB` 且 $F_0 > 195\\text{ Hz}$**，需留意是否伴随喉咙上抬挤压出的尖扁音色（高音挤嗓倾向），可做半打哈欠舒缓。\n\n#### 5. 稳定性与纯净度指标（Jitter / Shimmer / HNR / 倍频比 / 气息比）\n* **周期微扰（Jitter）与振幅微扰（Shimmer）**：\n  - **稳态长元音参考**：`/a/` 的 Jitter $\\le 1.1\\%$，`/i/` 因低 $F_1$ 耦合略高可放宽至 $\\le 1.7\\%$；稳态长元音 Shimmer $\\le 4.5\\%$。\n  - **连续说话参考**：正常普通话连读有声调高低与重音切换，**语流 Jitter $\\le 2.8\\%$、语流 Shimmer $\\le 8.0\\%$** 均为自然日常波动，不可拿长音标准去吓唬自己。\n  - **算法尺度提醒**：本 App 使用 `25 ms` 离散分帧估测，长音本底微扰噪声约 `0.5%`，测量读数约为专业电脑软件（如 Praat 连续 PointProcess）的 **2～3 倍**（例如本 App 测得 `1.0%`，在 Praat 里大约对应 `0.4%` 的健康水平），**切勿跨工具直接硬套医院报告门限（1.04%）**。\n* **谐噪比（HNR）**：`< 9.0 dB` 提示背景噪声大或气声偏明显；`9.0~14.0 dB` 适中；`≥ 14.0 dB` 表示声带振动相对纯净清澈。\n* **倍频弱帧率（Pitch Halving）**：自相关 $2\\tau$ 异常帧占比。持续发长音 `/i/` 时通常 `< 5%`；若长音出现 `≥ 12%`，提示声带振动可能混入假声破裂或室带挤压，可做轻笑舒缓。\n* **内部置信指标（CPP）与线下手工自测（MPT / `s/a` 比）**：\n  - 倒谱峰值突出度（CPP）仅作底层信噪判断，不直接暴露给用户制造数字焦虑；\n  - 若线下想自测气息是否漏气，可用秒表做 **「`s / a` 协调比」**：分别深吸一口气后持续发最长清擦音 `[s───]` 与最长浊元音 `[a───]` 的秒数之比（注：英语临床文献用的是带声擦音 `s/z` 比 `1.0～1.4`；普通话没有 `/z/`，绝对不可拿英文 `s/z` 标准直接生套普通话 `s/a`）。\n\n---\n\n### 4.3 声学指标参考区间与对照总表\n\n> **全系统口径对齐声明**：本表与代码库 `core/index.js (ALGO_VERSION 0.5.0)`、`metrics/kbNorms.js (KB_VERSION 1.3.0+)` 及 `metrics/gating.js` 保持同步。\n\n| 指标 | 一句话含义 | 偏厚重/低值区（常见男声参考） | 轻亮聚焦/高值区（常见女声参考） | 本 App 测量口径与温和参照带 | 怎么调整（行动线索） |\n| :--- | :--- | :--- | :--- | :--- | :--- |\n| **中位音高 $F_0$** | 说话基础音高 | **低音区**：$< 145\\text{ Hz}$<br>（典型 $95\\sim 140$） | **高音区**：$> 175\\text{ Hz}$<br>（顺女多见 $180\\sim 230$；跨女实测多在 $165\\sim 210$ 上下） | YIN 算法，有声置信度 $\\ge 0.60$；**$145\\sim 175\\text{ Hz}$ 为中音过渡区** | 先稳共鸣与轻音重，再把基线平缓带到托底线（默认 `160 Hz`）之上，不必硬飙超高音 |\n| **托底达成率** | 不掉回低沉音的比例 | 句尾常跌破 `145 Hz` | 多稳定在 `160 Hz` 以上 | 有声帧高于个人托底线（`150/155/160/165 Hz`）的时间比，**推荐 $\\ge 85\\%$** | 练三声与句尾四声/轻声时“轻收不砸底” |\n| **音高起伏 `spanSt`** | 说话高低跨度 | — | 日常 `3～6 ST`<br>（长句朗读 `5～8 ST`） | P10–P90 半音差（剔除句尾淡出）：`<3.0 ST` 较平缓，`3.0～6.0 ST` 自然连贯 | 不必夸张拉大调幅，重在三四声不要突兀摔断 |\n| **开商 $H_1 - H_2$** | 声带贴合轻重 | **厚实音重**：$-4.0 \\sim -1.2\\text{ dB}$<br>（偏厚实/紧） | **轻柔音重**：$-0.5 \\sim +3.5\\text{ dB}$<br>（柔流语流可达 $+6.0\\text{ dB}$） | FFT 差值（带 $F_1$ 防污染守卫）：`<-1.2 dB` 偏紧；`-1.2~+3.5 dB` 轻柔适中；`>+3.5 dB` 渐偏气声 | 偏紧做轻笑/吸管放松；太虚漏气用 `m───` 找回温和闭合 |\n| **共鸣间距 $\\Delta F$** | 等效声道长短（**仅限 `/i/`**） | **宽敞后腔**：$950 \\sim 1080\\text{ Hz}$<br>（长约 $16.2\\sim 18.4\\text{ cm}$） | **紧凑前腔**：$1180 \\sim 1300\\text{ Hz}$<br>（长约 $13.5\\sim 14.8\\text{ cm}$） | **仅在稳态「衣 `/i/`」有效**：`<1050 Hz` 偏宽后，`1050~1250 Hz` 中性偏明亮，`>1250 Hz` 紧凑聚焦 | 舌面微抬贴近硬腭 + 嘴角微笑展开；只和自己的 `/i/` 历史记录比 |\n| **Twang 挤压比** | 咽腔高频集中度（**仅限 `/i/`**） | 随元音而异 | `/i/` 下约 `0 ~ +2.0 dB` 适度集中 | $10\\log_{10}(E_{2.2\\text{k}\\sim 4.2\\text{k}} / E_{0.4\\text{k}\\sim 1.5\\text{k}})$：仅主导元音为 `/i/` 时输出；`> +2.0 dB` 且高音易显紧尖 | 保持上咽温和收拢但下咽和喉头松开，若发尖立即做半打哈欠释放 |\n| **擦音重心 `/s/`** | 清擦音靠前清脆度 | **偏厚靠后**：$4.5 \\sim 6.0\\text{ kHz}$ | **清脆靠前**：$6.0 \\sim 8.5\\text{ kHz}$<br>（核心约 $7.0\\sim 7.8\\text{ kHz}$） | **纯漏气蛇音 `[s───]`** 频谱重心：`<5.5 kHz` 偏厚后，`6.0~8.5 kHz` 清晰靠前 | 舌尖前切缘轻贴近齿背、门牙留微缝吹气、嘴角不撅起 |\n| **倍频弱帧率** | 振动副谐波比例 | — | 长音 `/i/` 通常 `< 5%` | 自相关 $2\\tau$ 异常帧占比（连续语流天然高于长音）；长音 `≥ 12%` 提示边缘不稳或室带介入 | 持续发长音若偏高，做“静音轻笑”退回松弛 |\n| **Jitter / Shimmer** | 周期/振幅稳不稳 | 与声带状态相关 | 长音稳定较低 | 长音 `/a/` Jitter `≤ 1.1%`（`/i/` `≤ 1.7%`），Shimmer `≤ 4.5%`；**语流 `≤ 2.8% / 8.0%`** | 喝温水润喉、保持呼吸平稳支撑；勿用长音标准套连续语流 |\n| **谐噪比 HNR** | 声音清澈度 | — | — | `<9.0 dB` 带气息/环境噪声，`9.0~14.0 dB` 适中，`≥ 14.0 dB` 清澈 | 安静环境下保持适中音量（勿压成耳语） |\n| **气流协调（`MPT` / `s/a`）** | 呼吸支持与声门闭合持续力 | — | — | 线下秒表自测：深吸气最长 `[s───]` 与 `[a───]` 时长；不可用英文 `s/z` 标准硬套中文 `s/a` | 观察自身纵向气量续航是否稳步延长、不憋气不泄气 |\n\n---\n\n### 4.4 最小可检测变化（MDC）与内耳骨传导差异\n\n#### 4.4.1 为什么差了 5 Hz 算“没变”（MDC 保护）\n人每次开口本来就有自然生理波动与麦克风误差。为了避免用户为“今天 $F_0$ 掉了 4 Hz”或“$\\Delta F$ 降了 8 Hz”陷入无意义焦虑，本 App 内置了**最小可检测变化（MDC）门槛**——两次录音差值**小于**下表幅度时，视为波动正常而非进步或退步：\n\n| 指标 | 最小可检测变化门槛（MDC） |\n| :--- | :--- |\n| 中位基频 $F_0$ | $\\pm 12\\text{ Hz}$ |\n| 低位 P10 / 高位 P90 | $\\pm 10\\text{ Hz}$ / $\\pm 12\\text{ Hz}$ |\n| 音高起伏 `spanSt` | $\\pm 1.5\\text{ 半音}$ |\n| 谐噪比 HNR / 轻重 $H_1-H_2$ | $\\pm 1.5\\text{ dB}$ / $\\pm 1.2\\text{ dB}$ |\n| 共鸣间距 $\\Delta F$（同在 `/i/` 下） | $\\pm 25\\text{ Hz}$ |\n\n#### 4.4.2 内耳骨传导带来的感知错觉\n几乎所有探索者遇到的第一道心理关卡，就是**“自己听自己，和录音放出来完全是两个声音”**：\n\n```\n              ┌──────────────────────────────────────────────┐\n              │               骨传导效应 (Bone Conduction)   │\n              │  颅骨、下颌骨对低频 (<300Hz) 具有较强传导放大 │\n              │  自身内耳听到的声音总是更低沉、浑厚、宏大     │\n              └──────────────────────▲───────────────────────┘\n                                     │\n           [人脑的主观自我审判] ─────┴───── [外耳空气传导实测]\n                                           │\n                                           ▼\n              ┌──────────────────────────────────────────────┐\n              │             空气传导 (Air Conduction)         │\n              │  外界他人与麦克风实际接收到的声波             │\n              │  低频衰减，中高频细节、共鸣峰与摩擦音展露无遗│\n              └──────────────────────────────────────────────┘\n```\n\n* **常见落差**：自己听着觉得“好空、好细、不像自己”，回放录音却刚刚好自然清润；或者自己觉得已经很细柔了，回放却仍然带有厚实低频。\n* **应对方法**：不要只靠说话当下的内耳听觉自我评判，改用 **「录完隔半分钟用外放回听 + 观察颈肩喉咙是否轻松」** 做双校准。\n\n---","subsections":[{"level":3,"title":"4.1 先评估什么：临床三层视角与测量前提","anchorId":"4_1"},{"level":4,"title":"测之前先检查：什么才算一次有效测量？","anchorId":"测之前先检查_什么才算一次有效测量_"},{"level":3,"title":"4.2 核心声学指标解读与 ΔF 深度说明","anchorId":"4_2"},{"level":4,"title":"1. 共鸣间距 $\\Delta F$ 与等效声道长度 $L$（重点澄清）","anchorId":"1_"},{"level":4,"title":"2. 基频音高 $F_0$ 与安全托底线（Floor Target）","anchorId":"2_"},{"level":4,"title":"3. 发声轻重 / 声门开商 $H_1 - H_2$","anchorId":"3_"},{"level":4,"title":"4. 咽腔挤压比（Twang / Pharyngeal Strain Index）","anchorId":"4_"},{"level":4,"title":"5. 稳定性与纯净度指标（Jitter / Shimmer / HNR / 倍频比 / 气息比）","anchorId":"5_"},{"level":3,"title":"4.3 声学指标参考区间与对照总表","anchorId":"4_3"},{"level":3,"title":"4.4 最小可检测变化（MDC）与内耳骨传导差异","anchorId":"4_4"},{"level":4,"title":"4.4.1 为什么差了 5 Hz 算“没变”（MDC 保护）","anchorId":"4_4_1"},{"level":4,"title":"4.4.2 内耳骨传导带来的感知错觉","anchorId":"4_4_2"}],"charCount":8025,"readMinutes":27},{"id":"ch5","title":"第五章 疲惫代偿与安全红线","group":"正文","content":"## 第五章 常见疲惫代偿、医学边界与嗓音安全\n\n以下四种情况最容易让人越练越累或走弯路，出现时优先**停下来舒缓**，而不是硬顶着继续练。\n\n---\n\n### 5.1 吞咽肌提喉死锁与“无声半打哈欠”\n\n* **发生原因**：误以为“练共鸣就是手动抬高喉结”，用吞咽发力把喉结死死卡在上方说话。\n* **身体信号**：脖子前侧和下巴底下摸起来发硬，说话几分钟就发酸，头部左右转动不自如。\n* **立刻舒缓动作——无声半打哈欠（Silent Half-yawn）**：停止发声，用鼻子慢慢吸气，做一个嘴不张大、无声的深呼吸打哈欠动作，感受喉头清凉自然回落，轻轻左右摇头松开颈肌。\n\n---\n\n### 5.2 室带挤压（夹嗓）与“静音轻笑”\n\n* **发生原因**：拔高音高时真声带还没适应变薄，假声带本能往中间挤过来撑场面。\n* **声学与体感线索**：嗓子眼有明显卡顿紧缩感，听起来干硬发扁，$H_1 - H_2$ 常跌到 **$-1.2\\text{ dB}$ 以下**。\n* **立刻舒缓动作——静音轻笑（Silent Giggle）**：极轻柔地做无声笑口型，心里默想微笑的“呵呵呵”，感受喉咙内部向四周温和撑开、变宽凉爽的那一瞬间——保持这个喉内展宽感去发短音节。\n\n---\n\n### 5.3 纯假声代偿与过度提气的局限\n\n* **纯假声（M2 / Falsetto）代偿**：应急可以上去，但日常说话一加快语速或情绪起伏就容易“破音、断声”，长久使用也会让发声控制变得脱节。\n* **过度提气（气声替代轻音重）**：早期常见的“女声就是加气”误区，会导致越说越气短、声带黏膜被干燥气流反复吹干，且在马路或餐厅里别人根本听不见，一急之下反而被迫再次吼嗓子代偿。\n\n---\n\n### 5.4 嗓音手术边界、日常护嗓与临床转诊红线\n\n#### 日常温润呵护（嗓音卫生三原则）\n* **充分饮水润膜**：声带每秒高速振动上百次，黏膜弹性高度依赖内部水分补给，练声前后建议少量多次饮用温水；\n* **温和蒸汽舒缓**：干燥季节或空调房内可借助温热蒸汽轻吸湿润喉腔（饮水本身不直接流经声带表面，水蒸气才能直接润泽声带表面黏膜）；\n* **主动嗓音休息（Vocal Rest）**：一旦感到脖子发酸、嗓音干痒发毛，立即停练休息 15～30 分钟，绝不“带疲硬冲”。\n\n#### 嗓音手术的真实定位\n声带女性化手术（如声带前连合缩短、声带激光调整等）在医学上确实存在，但临床 SLP 的普遍共识是：**手术通常排在规范行为训练之后评估，而且术后依然需要配合发声康复训练来调整共鸣、音重与说话习惯——目前不存在“做完手术就完全不用练”的方案。**\n\n#### ⚠️ 临床转诊红线（Red Flags）——命中立即停练并就医\n嗓音练习的第一原则永远是**舒适、无痛、不嘶哑**。出现以下任何一条，立即停止所有练习，尽早前往**三甲医院耳鼻咽喉科 / 嗓音门诊**做电子喉镜或频闪喉镜检查：\n1. **声音嘶哑（Hoarseness）或明显沙哑感持续超过 2 周**（不论喉咙疼不疼，必须排查声带小结、声带息肉、声带囊肿、接触性肉芽肿或黏膜水肿）；\n2. 发声时出现针刺样锐痛、烧灼感或吞咽剧烈疼痛；\n3. 咳痰带血丝、无故突然完全失声或发声持续中断。\n\n> **国内就诊实用沟通提示**：国内许多三甲医院的耳鼻喉科嗓音门诊与康复科言语治疗室都能检查声带健康状况。就诊时无需担心医生是否熟悉跨性别训练，直接表达：**“我在做嗓音调整练习，想请医生帮我查一下声带形态与闭合状况，排除器质性问题。”** 一次基础检查就能让你安心很多。\n\n*免责声明：本文档与本 App 仅供自我语音感知训练与声学参考，不构成医疗诊断，也不能替代专业医生或言语治疗师的面对面评估。*\n\n---","subsections":[{"level":3,"title":"5.1 吞咽肌提喉死锁与“无声半打哈欠”","anchorId":"5_1"},{"level":3,"title":"5.2 室带挤压（夹嗓）与“静音轻笑”","anchorId":"5_2"},{"level":3,"title":"5.3 纯假声代偿与过度提气的局限","anchorId":"5_3"},{"level":3,"title":"5.4 嗓音手术边界、日常护嗓与临床转诊红线","anchorId":"5_4"},{"level":4,"title":"日常温润呵护（嗓音卫生三原则）","anchorId":"日常温润呵护_嗓音卫生三原则_"},{"level":4,"title":"嗓音手术的真实定位","anchorId":"嗓音手术的真实定位"},{"level":4,"title":"⚠️ 临床转诊红线（Red Flags）——命中立即停练并就医","anchorId":"__"}],"charCount":1478,"readMinutes":5},{"id":"ch6","title":"第六章 普通话渐进训练处方","group":"正文","content":"## 第六章 普通话渐进训练处方与“第二语言”日常迁移\n\n> **训练优先顺序**：\n> 呼吸放松与身体释放 $\\longrightarrow$ 共鸣前置与轻音重寻回 $\\longrightarrow$ 音高与语调平移 $\\longrightarrow$ 日常生活情境泛化。  \n> **给初学者的黄金忠告**：首周练习请彻底放下对音高（Hz）的执念，专注于观察身体放松、轻音重与前腔聚焦感。\n\n```\n【阶段零】身体释放与喉部悬浮（2~3 分钟） ──► 松开下颌与肩颈，找回自由弹性\n    │\n【阶段一】SOVTE 半遮蔽声道               ──► 借温和背压找回“轻音重”与流动气流\n    │\n【阶段二】闭唇微麻音桥接 (m → i)         ──► 顺滑过渡到“衣”位，建立前腔聚焦\n    │\n【阶段三】普通话四声与变调实战           ──► 攻克半上托底与软去声、羽毛轻声\n    │\n【阶段四】情境迁移与生活微行为           ──► 电话/点单泛化，打磨笑、叹、语气词\n```\n\n---\n\n### 6.1 训练前的四件准备：安全、生活目标与学习观\n\n在开始练词句之前，先花 1 分钟理清四件事，能少走 80% 的弯路：\n1. **先做安全摸底**：你目前喉咙疼、哑、干吗？有慢性咽炎、反流或做过嗓音相关治疗吗？有不适先休息或看医生；\n2. **先想生活场合，再想参数**：你最想先在哪些地方用上喜欢的声音？（比如接外卖电话、游戏语音、线下面对面点单、和朋友聊天）。目标清楚，才不会为了冰冷的指标数值焦头烂额；\n3. **每次只改一个变量**：同一周里不要同时狂拉音高、猛收共鸣又加速说话——**每次只练稳一件事（例如本周只关注轻音重，或只练半上声托底）**；\n4. **把新声音当成“第二语言 / 新口音”来学**：为什么练习时很好听，一遇到生气、赶时间、打电话接起第一句就瞬间退回原声？这不是你“失败了”，而是**一边想技术一边应对压力，大脑认知负荷超载**。就像学一门新外语或新口音一样，先在低压力小场景里练到不假思索，再允许自己根据不同场合切换不同状态，完全不必强迫自己 24 小时死守同一个模板。\n\n---\n\n### 6.2 阶段零：身体释放与喉部自由悬浮（亚历山大感知）\n\n* **时长**：每次练习前 `2～3 分钟`。\n* **动作 1 · 下颌自然微垂（Jaw Drop）**：双手轻扶耳垂下方的下颌关节，让下巴靠重力微微垂松，感受两颊咬肌软化松弛。\n* **动作 2 · 轻柔叹息与软腭微展**：鼻吸口呼，轻轻发出一声无声的长叹，感受喉咙深处像含着一口温水一样开阔温润。\n\n---\n\n### 6.3 阶段一：SOVTE 半遮蔽声道练习与轻音重寻回\n\n半遮蔽声道练习（SOVTE）通过在嘴唇前端制造温和声波阻抗，使声波反射并在声门上方建立保护性的**微背压（Supraglottal Back-pressure）**，自然引导声带边缘轻柔合拢，消除 TA 肌厚重碰撞：\n\n* **三种实操方式（任选其一或交替进行）**：\n  1. **闭唇微麻音 `[m───]`（含水轻哼）**：从头到尾双唇自然轻闭（绝不张口发“恩～”，也不要鼻孔猛喷气叹“哼～”）；像刚喝了一口好喝的热汤，闭着嘴平稳发出 `m───`，直到上下嘴唇与鼻梁前端出现微微发麻的痒感；\n  2. **唇颤音（Lip Trill / 嘟唇吹泡）**：双唇放松，用平稳气流带动嘴唇轻柔颤动并做小跨度滑音；\n  3. **细吸管吹水泡（Water Bubbling）**：细吸管插入浅水杯（水深 2～3 厘米），温和吹出均匀小水泡并伴随轻哼滑音。\n* **核心感知重点**：做轻柔的小幅度滑音，**感受胸口震动的明显减弱与鼻梁、唇周前震感的增加**，体会声带像羽毛般轻盈触碰的状态。\n\n---\n\n### 6.4 阶段二：前鼻音桥接（m→i）与前高元音“衣位”聚焦\n\n闭口 `/m/` 哼鸣天然自带半遮蔽背压，是滑入前高元音 `/i/` 最安全不挤嗓的桥梁：\n\n1. **第一步**：双唇轻闭，先发稳 2 秒温和的闭唇微麻音 `m───`，锁定鼻梁前与上牙龈后方的集中微震感；\n2. **第二步**：保持面部微震位置完全不变，嘴角像浅笑一样向两侧平展打开，双唇自然分开一条微缝，声音不断线地无缝滑入长音 **「衣——（/i/）」** 持续 3 秒；\n3. **第三步（前腔泛化）**：找稳「衣」音那股清透且喉咙轻松的口腔前感后，尝试保持同样的口腔前聚位置，轻轻做 **“衣—啊—衣—啊”** 的交替过渡，把前腔感带向开元音。\n* **物理边界提醒**：如 4.2 节所述，低音区发 `/i/` 时常触发 $F_1$ 防污染守卫而暂时不显示 $H_1-H_2$ 数值，属正常物理保护，此时只需单录一段平稳长音 **「啊（/a/）」** 即可观察声带轻重。\n\n---\n\n### 6.5 阶段三：普通话字词四声滑翔与变调实战\n\n带着前面找好的前腔感与轻音重，把注意力专门放在汉语最容易坠音、卡喉的声调组合上：\n\n1. **模块 A · 平滑气流入门（阴平 + 阴平 / 阳平）**：\n   - 词表：*今天、春天、分清、依稀、资源、鲜明、飘扬、光芒*\n   - 要领：气流如微风不断线，字头轻起不磕碰。\n2. **模块 B · 三声“半上（211）高位托底”专项**：\n   - 音系说明：两个三声相连时前字会自动变为阳平（35），且单字三声放在词尾容易顺势砸入谷底；因此专门选用**前字三声 + 后字非三声**的高频词，练习日常最常见的半上（211）轨道；\n   - 词表：*美丽、雨滴、海洋、温暖、雪花、姐姐、早安、喜欢、抹茶、晚风、暖阳*\n   - 要领：遇到第一个三声字时**绝不用力往低处砸**，稍微减小一点音量，在你的托底线（约 `150～165 Hz`）上方轻巧掠过即回弹。\n3. **模块 C · 四声“软去声浅降”与“羽毛轻声”专项**：\n   - 四声浅降词表：*就是、见面、灿烂、半夏、漂亮、细腻*\n   - 四声 + 轻声词表：*去吧、是的、喜欢、月亮、明白*\n   - 要领：去声字开头预先带出一丝轻气流（软起音不硬撞），做 **53 / 52** 的温和浅降到舒适中音位置即可；尾字轻声像羽毛轻点水面，**音短气柔、位置不坍塌**。\n\n---\n\n### 6.6 阶段四：持久性攻坚、情境泛化与日常自评\n\n当字词顺畅后，重点不再是继续背指标，而是把能力迁移进真实生活：\n\n* **微任务 1 · 模拟社交情境跟读**：\n  - 点餐：*“你好，麻烦帮我做一杯温燕麦拿铁，少冰，谢谢~”*\n  - 拿外卖/快递：*“喂，您好，麻烦帮我放在门口鞋柜上就好，辛苦了~”*\n  - 日常问路/打招呼：*“不好意思请问一下，最近的地铁口是往前走对吗？”*\n* **微任务 2 · 隔天回听与情境标记**：\n  - 录下这几段模拟对话并标记环境（如“安静室内”、“嘈杂街道”、“电话通话”）；\n  - **隔天再回听**（避开当下的心理偏见），不挑剔微小瑕疵，重点感受整体听感是否温和舒展、有无挤嗓痕迹。\n* **微行为 3 · 非言语微习惯的自然软化**：\n  - **叹气**：告别深沉往下掉的“唉……”，改为短促轻盈、由中高位滑落的小气声微呼；\n  - **轻笑**：改由面颊与前腔带出轻巧小连笑（“嘻嘻 / 呵呵”），微小的笑声往往比单独元音更决定第一印象；\n  - **清嗓**：坚决改掉“咳吭”猛撞声带的习惯，改为喝一小口温水，或无声轻轻哈一口气并做吞咽动作。\n* **每周温柔自问（不计分版的 TVQ-MtF 自我觉察思维）**：\n  不需要打分求和，每周只需轻声自问这四个问题：\n  1. 这周在现实沟通或电话里，被称呼和交流时感觉自在吗？\n  2. 在想开口点单、说话时，是否还会因担心声音而回避？\n  3. 连续聊天超过半小时后，脖子和嗓子累不累、干不干？\n  4. 隔天回听录音时，这声音听起来像你喜欢且接纳的自己吗？\n* **风格只是选项，不是标准答案**：清甜、温润、知性或清爽中性，各自都有独特魅力；只要喉咙舒适、自己喜欢、日常沟通自在，就是最适合你的好声音。\n\n---","subsections":[{"level":3,"title":"6.1 训练前的四件准备：安全、生活目标与学习观","anchorId":"6_1"},{"level":3,"title":"6.2 阶段零：身体释放与喉部自由悬浮（亚历山大感知）","anchorId":"6_2"},{"level":3,"title":"6.3 阶段一：SOVTE 半遮蔽声道练习与轻音重寻回","anchorId":"6_3"},{"level":3,"title":"6.4 阶段二：前鼻音桥接（m→i）与前高元音“衣位”聚焦","anchorId":"6_4"},{"level":3,"title":"6.5 阶段三：普通话字词四声滑翔与变调实战","anchorId":"6_5"},{"level":3,"title":"6.6 阶段四：持久性攻坚、情境泛化与日常自评","anchorId":"6_6"}],"charCount":3032,"readMinutes":10},{"id":"ack","title":"致谢与参考开源项目","group":"附录","content":"## 致谢与参考开源项目\n\n本知识库及配套声学分析工程凝聚了国内外跨性别社群与言语康复领域先驱者的无私探索与分享，谨致以最诚挚的谢意：\n\n1. **Aoi 的跨性别嗓音训练指南（Aoi 手册）**（[https://mtf-voice-training.vercel.app/](https://mtf-voice-training.vercel.app/)）：为中文跨性别社群系统阐释了源-滤波器理论、三步提喉与水球舌头力学安全边界、以及普通话单韵母男女共振峰对照基线，为无数练习者推开了科学认识声音的大门。\n2. **TransVoice-Wiki 中文翻译项目**（[https://transvoice-wiki.pages.dev/translate/zh_Hans/](https://transvoice-wiki.pages.dev/translate/zh_Hans/)，原开源仓 [SumianVoice/TransVoice-Wiki](https://github.com/SumianVoice/TransVoice-Wiki)）：将现代音重（Weight）与声道空间（Size）双支柱模型、四象限充实度网格、去病理化与微行为框架引入中文语境，彻底走出了“唯音高论”的僵化格局。\n3. **Koenami**（[https://github.com/transnavi/koenami](https://github.com/transnavi/koenami)）：开创了现代前端实时音频 DSP 门控体系与“以真实声音为锚点、温和无恐吓”的去焦虑交互哲学。\n4. **Simple Voice Tools for Trans**（[https://github.com/theforeveriris/simple-voice-tools-for-trans](https://github.com/theforeveriris/simple-voice-tools-for-trans)）：开源了前端 YIN 基频提取、Levinson-Durbin LPC 与 Durand-Kerner 共振峰求根的规范算法实现。\n\n---","subsections":[],"charCount":898,"readMinutes":3},{"id":"app1","title":"附录一：核心术语中英双解","group":"附录","content":"## 附录一：核心术语中英双解对照表\n\n| 中文术语 | 英文术语 | 一句话定义与含义 |\n| :--- | :--- | :--- |\n| **音重** | Vocal Weight | 声带闭合相占比与振动参与厚度。重=厚实有力；轻=薄而舒展流动。 |\n| **声道空间 / 共鸣** | Vocal Size / Resonance | 声门上方咽腔、口腔容积与前腔聚焦度，主要体现在 $\\Delta F$ 与 $F_1/F_2/F_3$ 上。 |\n| **共鸣间距** | Formant Dispersion ($\\Delta F$) | 多个共振峰按闭-开管模型折算出的平均频率间隔，与等效声道长度成反比（仅限 `/i/` 测定）。 |\n| **基频** | Fundamental Frequency ($F_0$) | 声带每秒完整振动次数（Hz），主管音高高低感受。 |\n| **声门开商与 $H_1-H_2$** | Open Quotient (OQ) | 单周期内声门张开的时间比例，与基波/二倍频分贝差 $H_1-H_2$ 强正相关。 |\n| **喉咽挤压比** | Twang / Pharyngeal Strain | $2.2\\sim 4.2\\text{ kHz}$ 与 $0.4\\sim 1.5\\text{ kHz}$ 能量比（仅限 `/i/`），观测集中度或高音挤尖倾向。 |\n| **流动发声** | Flow Phonation | 温和气流与适中声带闭合达到最佳平衡、省力通透的发声模式。 |\n| **偏紧 / 夹嗓发声** | Pressed Voice | 声带及室带过度用力内收撞击的干硬疲惫发声状态。 |\n| **室带（假声带）** | False Vocal Folds (FVF) | 真声带上方的保护性褶襞，舒适发声时应保持向两侧自然展宽退开（Retraction）。 |\n| **环甲肌 / 甲杓肌** | CT / TA Muscles | CT 拉长变薄声带（提音高、减音重）；TA 增厚缩短声带（降音高、增厚实感）。 |\n| **半遮蔽声道练习** | SOVTE | 闭唇哼鸣、唇颤、吸管吹泡等通过声门上微背压帮声带温和闭合的科学练习法。 |\n| **微行为** | Microbehaviours | 语言交流中深植于潜意识的起音、尾音、拟声与语气衔接微习惯。 |\n| **软上声高位托底** | Tone Floating | 汉语三声降调时靠微张力保持在托底线（150～165 Hz）之上、轻掠不砸进粗沉气泡音的技术。 |\n| **舌叶化发音** | Laminal Articulation | 用舌叶替代过度后卷的舌尖发翘舌音，防止舌根后倒压窄下咽空间。 |\n| **口咽轻拢** | Oropharyngeal Narrowing | 舌根适度前移与软腭微抬带来的上咽腔聚焦改良，坚决反对主动向内死夹下咽壁。 |\n| **羽毛悬停法** | Feather Hovering | 普通话轻声不塌位置、依附前字尾音短促轻柔带过的调节要领。 |\n| **纯漏气蛇音** | Unvoiced Snake Hiss | 测试 `/s/` 重心专用动作：只吹纯气流 `[s───]`，门牙留微缝，手摸喉结零震动。 |\n| **闭唇微麻音** | Closed-Lip Hum | 闭口哼鸣 `[m───]`：双唇自然轻闭，直至鼻梁唇周微麻再顺滑开口过渡。 |\n| **调域 vs 调幅** | Register vs Range | 调域为全段说话基频整体基线水平；调幅为单句内高低起伏跨度（`spanSt`）。 |\n| **s/a 协调比** | s/a Ratio | 普通话本土化气流协调测试：持续清音 `/s/` 与浊音 `/a/` 时长之比，不可硬套英文 `s/z` 常模。 |\n| **最小可检测变化** | MDC | 区分“真实改变”与“设备/生理正常波动”的差值保护门槛。 |\n| **性别肯定言语治疗** | Gender-Affirming Voice Care | 由练习者自主定义目标、优先保障声带安全并支持生活多场合落地的现代康复理念。 |\n\n---","subsections":[],"charCount":1529,"readMinutes":5},{"id":"app2","title":"附录二：知识库版本演进记录","group":"附录","content":"## 附录二：知识库版本演进记录\n\n> 注：原历史归档本 [37-跨性别女性嗓音训练解剖与声学常模知识库(普通话版).md](./37-跨性别女性嗓音训练解剖与声学常模知识库(普通话版).md) 完整保留作为参考对照。\n\n| 知识库版本 | 对应 `ALGO_VERSION` | 修订日期 | 核心变更要领 |\n| :--- | :--- | :--- | :--- |\n| **v1.0.0** | `0.1.0` | 2026-11-09 | 建立普通话解剖与声学常模框架，定义五指标体系初版。 |\n| **v1.1.0** | `0.8.0` | 2026-11-11 | 去病理化措辞全面审查；确立普通话四声滑翔与软上声高位托底；引入 YIN 与 LPC 共振峰提取。 |\n| **v1.2.0** | `1.0.9` | 2026-11-12 | 对齐合成真值与实测口径；补齐汉语音系细节与门诊视角；增设开源致谢。 |\n| **v1.3.0** | `1.0.9` | 2026-11-12 | 确立全系统常模对齐表；增补防呆动作描写与 10 秒双单音体检；规范舌尖元音与半上训练词表。 |\n| **v1.4.0** | `0.4.1` | 2026-11-15 | 1. **确立“客观指标首选 + 性别感知二级括号解释”折中范式**：避免激进抹除性别感知对应，兼顾科学客观与可读性；<br>2. **融入性别肯定言语治疗（GAVT）临床视角**：增设三次认知转身、三层评估视角、喉科就诊话术、第二语言学习观与 MDC 波动保护；<br>3. **对齐 $F_3$ 圆唇解耦与单韵母参考**：增补普通话六元音男女基线参考（含 Huang et al., 2024）与 `/i/`/`/ü/` 物理判别；<br>4. **结构去重与补遗润色**：恢复源-滤波器/软骨/舌骨悬吊/音重/骨传导框图，补全舌头水球原理、口咽轻拢、后鼻音 `-ng` 防破功、擦音四行分档、日常护嗓三原则，并将第六章舒展拆分为独立阶段与双附录。 |\n| **v1.4.1** | `0.5.0` | 2026-11-16 | 编辑校对与 `0.5.0` 代码口径同步：更新 `F1_GUARD_HZ` 为 `120 Hz` 并补充闭口哼鸣 `H1-H2` 拒出保护说明；补充 2.4 节原版四象限与 App 内置象限朝向的阅读对照提示；统一中文术语与测量时长细节。 |","subsections":[],"charCount":911,"readMinutes":3}];
 
     // State
     let currentSectionId = 'preamble';
@@ -785,7 +1063,7 @@
     ];
     let currentFontIndex = 1;
 
-    // Render Navigation Tree
+    // Render Navigation Tree with Subsections
     function renderNavigation() {
       const groups = ['导引', '正文', '附录'];
       let html = '';
@@ -804,6 +1082,20 @@
           html += '<button class="nav-item-btn ' + (isActive ? 'active' : '') + '" onclick="navigate(\'' + s.id + '\')">';
           html += '<span style="overflow:hidden; text-overflow:ellipsis; white-space:nowrap;">' + s.title + '</span>';
           html += '</button>';
+
+          // If active and has subsections, render sub-list
+          if (isActive && s.subsections && s.subsections.length > 0) {
+            html += '<ul class="nav-sub-list">';
+            s.subsections.forEach(sub => {
+              html += '<li>';
+              html += '<button class="nav-sub-btn" onclick="scrollToAnchor(\'' + sub.anchorId + '\', \'' + sub.title + '\')">';
+              html += '• ' + sub.title;
+              html += '</button>';
+              html += '</li>';
+            });
+            html += '</ul>';
+          }
+
           html += '</li>';
         });
 
@@ -812,6 +1104,21 @@
 
       document.getElementById('desktop-nav-container').innerHTML = html;
       document.getElementById('mobile-nav-container').innerHTML = html;
+    }
+
+    // Scroll to sub-heading anchor
+    function scrollToAnchor(anchorId, title) {
+      const headings = document.querySelectorAll('#content-body h2, #content-body h3, #content-body h4');
+      for (let h of headings) {
+        if (h.innerText.includes(title) || h.id.includes(anchorId)) {
+          h.scrollIntoView({ behavior: 'smooth' });
+          h.style.transition = 'background-color 0.4s ease';
+          h.style.backgroundColor = 'rgba(108, 92, 231, 0.15)';
+          setTimeout(() => { h.style.backgroundColor = 'transparent'; }, 1200);
+          toggleDrawer(false);
+          return;
+        }
+      }
     }
 
     // Navigate to a section
@@ -823,9 +1130,19 @@
 
       const sec = SECTIONS.find(s => s.id === sectionId) || SECTIONS[0];
       document.getElementById('breadcrumb-current').textContent = sec.title;
+      document.getElementById('read-stats-pill').textContent = '⏱️ 约 ' + sec.readMinutes + ' 分钟阅读 (' + sec.charCount + ' 字)';
+
+      // Show/Hide App Banner (Only show prominently on preamble)
+      const banner = document.getElementById('companion-banner');
+      if (banner) {
+        banner.style.display = sectionId === 'preamble' ? 'block' : 'none';
+      }
 
       // Render Markdown
       document.getElementById('content-body').innerHTML = markedParser.parse(sec.content);
+
+      // Add Copy Buttons to code snippets
+      addCopyButtons();
 
       // Render KaTeX math if loaded
       renderMathIfAvailable();
@@ -863,10 +1180,15 @@
         btn.classList.add('active');
         label.textContent = '单章';
         document.getElementById('breadcrumb-current').textContent = '全文连读模式';
+        document.getElementById('read-stats-pill').textContent = '📖 全文全景阅读';
+
+        const banner = document.getElementById('companion-banner');
+        if (banner) banner.style.display = 'block';
 
         // Concatenate all sections
         const allContent = SECTIONS.map(s => s.content).join('\n\n---\n\n');
         document.getElementById('content-body').innerHTML = markedParser.parse(allContent);
+        addCopyButtons();
         renderMathIfAvailable();
         document.getElementById('chapter-nav-footer').innerHTML = '';
         window.scrollTo({ top: 0, behavior: 'smooth' });
@@ -902,7 +1224,40 @@
       document.getElementById('chapter-nav-footer').innerHTML = html;
     }
 
-    // Search filter with match snippet
+    // Add Copy Button to Code Blocks & Word Lists
+    function addCopyButtons() {
+      const pres = document.querySelectorAll('.markdown-body pre');
+      pres.forEach(pre => {
+        if (pre.querySelector('.copy-code-btn')) return;
+        const btn = document.createElement('button');
+        btn.className = 'copy-code-btn';
+        btn.textContent = '复制';
+        btn.title = '复制内容';
+        btn.onclick = () => {
+          const code = pre.querySelector('code');
+          const text = code ? code.innerText : pre.innerText;
+          navigator.clipboard.writeText(text).then(() => {
+            btn.textContent = '已复制 ✓';
+            btn.classList.add('copied');
+            setTimeout(() => {
+              btn.textContent = '复制';
+              btn.classList.remove('copied');
+            }, 1800);
+          }).catch(() => {});
+        };
+        pre.appendChild(btn);
+      });
+    }
+
+    // Helper functions for search
+    function escapeHtml(text) {
+      return text.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
+    }
+    function escapeRegex(text) {
+      return text.replace(/[-[\]{}()*+?.,\\^$|#\s]/g, '\\$&');
+    }
+
+    // Enhanced search filter with match snippet previews
     function handleSearch(query) {
       const q = (query || '').trim().toLowerCase();
       if (!q) {
@@ -912,20 +1267,34 @@
 
       let matches = [];
       SECTIONS.forEach(s => {
-        if (s.title.toLowerCase().includes(q) || s.content.toLowerCase().includes(q)) {
-          matches.push(s);
+        const titleMatch = s.title.toLowerCase().includes(q);
+        const lowerContent = s.content.toLowerCase();
+        const contentIdx = lowerContent.indexOf(q);
+        if (titleMatch || contentIdx !== -1) {
+          let snippet = '';
+          if (contentIdx !== -1) {
+            const start = Math.max(0, contentIdx - 25);
+            const end = Math.min(s.content.length, contentIdx + q.length + 35);
+            snippet = (start > 0 ? '...' : '') + s.content.slice(start, end).replace(/\n/g, ' ') + (end < s.content.length ? '...' : '');
+          }
+          matches.push({ section: s, titleMatch, snippet });
         }
       });
 
       const renderSearchList = () => {
         if (matches.length === 0) {
-          return '<div style="padding:14px; font-size:12.5px; color:var(--text-muted); text-align:center;">未找到匹配 “' + query + '” 的内容</div>';
+          return '<div style="padding:14px; font-size:12.5px; color:var(--text-muted); text-align:center;">未找到匹配 “' + escapeHtml(query) + '” 的内容</div>';
         }
-        let h = '<div class="nav-tree-group"><div class="nav-group-title">搜索结果 (' + matches.length + ')</div><ul class="nav-tree-list">';
+        let h = '<div class="nav-tree-group"><div class="nav-group-title">检索结果 (' + matches.length + ')</div><ul class="nav-tree-list">';
         matches.forEach(m => {
-          const highlighted = m.title.replace(new RegExp('(' + q + ')', 'gi'), '<mark class="highlight">$1</mark>');
-          h += '<li><button class="nav-item-btn" onclick="navigate(\'' + m.id + '\')">';
-          h += '<span style="overflow:hidden; text-overflow:ellipsis; white-space:nowrap;">' + highlighted + '</span>';
+          const titleHighlighted = escapeHtml(m.section.title).replace(new RegExp('(' + escapeRegex(q) + ')', 'gi'), '<mark class="highlight">$1</mark>');
+          let snippetHtml = '';
+          if (m.snippet) {
+            const snippetHighlighted = escapeHtml(m.snippet).replace(new RegExp('(' + escapeRegex(q) + ')', 'gi'), '<mark class="highlight">$1</mark>');
+            snippetHtml = '<div style="font-size:11.5px; color:var(--text-muted); margin-top:2px; line-height:1.35; overflow:hidden; text-overflow:ellipsis; white-space:nowrap;">' + snippetHighlighted + '</div>';
+          }
+          h += '<li><button class="nav-item-btn" style="flex-direction:column; align-items:flex-start;" onclick="navigate(\'' + m.section.id + '\')">';
+          h += '<div style="font-weight:600; font-size:13px; color:var(--text-primary);">' + titleHighlighted + '</div>' + snippetHtml;
           h += '</button></li>';
         });
         h += '</ul></div>';

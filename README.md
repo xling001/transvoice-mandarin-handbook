@@ -8,11 +8,13 @@
   <img src="https://img.shields.io/badge/Community-Trans%20Affirming-5BCEFA.svg" alt="Trans Affirming" />
   <img src="https://img.shields.io/badge/Made%20with-%F0%9F%92%95%20Love-f5a9b8.svg" alt="Made with Love" />
   <a href="https://xling001.github.io/transvoice-mandarin-handbook/"><img src="https://img.shields.io/badge/docs-GitHub%20Pages-blue.svg" alt="Online Documentation" /></a>
+  <a href="https://github.com/xling001/radio-diary"><img src="https://img.shields.io/badge/Companion%20App-Radio%20Diary%20%28%E7%94%B5%E6%B3%A2%E6%97%A5%E8%AE%B0%29-6C5CE7.svg" alt="Radio Diary App" /></a>
   <img src="https://img.shields.io/badge/Phonetics-Mandarin%20Chinese-6C5CE7.svg" alt="Mandarin Phonetics" />
 </p>
 
-> **在线交互阅读主站**：👉 **[https://xling001.github.io/transvoice-mandarin-handbook/](https://xling001.github.io/transvoice-mandarin-handbook/)** （支持移动端适配、暗黑模式、目录树索引与公式渲染）  
-> **文档发布说明**：📢 本知识库先行作为独立开源理论与常模文档发布，欢迎社群同行阅读、校对与交流反馈。
+> **在线交互阅读主站**：👉 **[https://xling001.github.io/transvoice-mandarin-handbook/](https://xling001.github.io/transvoice-mandarin-handbook/)** （支持移动端适配、暗黑模式、目录树索引、实时检索与公式渲染）  
+> **配套实践软件**：📻 **[电波日记 MtF 版 (Radio Diary)](https://github.com/xling001/radio-diary)**（面向跨性别女性的纯本地嗓音练习手账 · 零联网离线声学分析 + 外部 AI 导出）  
+> **知识库 GitHub 仓库**：📚 **[xling001/transvoice-mandarin-handbook](https://github.com/xling001/transvoice-mandarin-handbook)**
 
 ---
 

@@ -8,13 +8,15 @@
   <img src="https://img.shields.io/badge/Community-Trans%20Affirming-5BCEFA.svg" alt="Trans Affirming" />
   <img src="https://img.shields.io/badge/Made%20with-%F0%9F%92%95%20Love-f5a9b8.svg" alt="Made with Love" />
   <a href="https://xling001.github.io/transvoice-mandarin-handbook/"><img src="https://img.shields.io/badge/docs-GitHub%20Pages-blue.svg" alt="Online Documentation" /></a>
+  <a href="https://github.com/xling001/radio-diary"><img src="https://img.shields.io/badge/Companion%20App-Radio%20Diary-6C5CE7.svg" alt="Radio Diary App" /></a>
   <img src="https://img.shields.io/badge/Phonetics-Mandarin%20Chinese-6C5CE7.svg" alt="Mandarin Phonetics" />
 </p>
 
 # Transfeminine Voice Training Anatomy and Acoustic Norms Knowledgebase (Mandarin Edition)
 
 > **Online Reading Portal**: 👉 **[https://xling001.github.io/transvoice-mandarin-handbook/](https://xling001.github.io/transvoice-mandarin-handbook/)** *(Features clean typography, dark sanctuary theme, chapter indexing, full-text search, and mobile optimization)*  
-> **Release Notice**: 📢 This knowledgebase is published as a standalone, open-source theoretical and acoustic norm reference documentation. Community feedback and contributions are warmly welcome.
+> **Companion Practice App**: 📻 **[Radio Diary MtF Edition (电波日记)](https://github.com/xling001/radio-diary)** *(A pure local, privacy-first voice training journal for transfeminine individuals · On-device offline DSP acoustics + External AI export)*  
+> **Knowledgebase Source Repo**: 📚 **[xling001/transvoice-mandarin-handbook](https://github.com/xling001/transvoice-mandarin-handbook)**
 
 > [!NOTE] About This Knowledgebase
 > This knowledgebase is a comprehensive, open-source clinical and community reference manual designed for transfeminine individuals, speech-language pathologists (SLPs), voice coaches, and acoustic explorers navigating Mandarin Chinese vocal transition.  

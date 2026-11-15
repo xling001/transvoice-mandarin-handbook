@@ -1,5 +1,9 @@
 # 跨性别女性嗓音训练解剖与声学常模知识库（普通话版）
 
+> **在线交互阅读主站**：👉 **[https://xling001.github.io/transvoice-mandarin-handbook/](https://xling001.github.io/transvoice-mandarin-handbook/)** （支持移动端适配、暗黑模式、目录树索引、实时检索与公式渲染）  
+> **配套实践软件**：📻 **[电波日记 MtF 版 (Radio Diary)](https://github.com/xling001/radio-diary)**（面向跨性别女性的纯本地嗓音练习手账 · 零联网离线声学分析 + 外部 AI 导出）  
+> **知识库 GitHub 仓库**：📚 **[xling001/transvoice-mandarin-handbook](https://github.com/xling001/transvoice-mandarin-handbook)**
+
 > **理论基石与参考来源**：
 > 1. **解剖学生理学与生物力学**：西奥多·戴蒙（Theodore Dimon）著，钱倩、陈臻 译《嗓音解剖：供歌手、声乐教练和言语治疗师使用的解剖图册》（*Anatomy of the Voice*）及亚历山大姿态力学体系。
 > 2. **跨性别嗓音现代范式**：SumianVoice / TransVoice-Wiki 开源知识库（Voice Resource Project，基于声学感知与去病理化微行为框架）。
