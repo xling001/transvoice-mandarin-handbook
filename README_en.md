@@ -14,7 +14,7 @@
 # Transfeminine Voice Training Anatomy and Acoustic Norms Knowledgebase (Mandarin Edition)
 
 > **Online Reading Portal**: 👉 **[https://xling001.github.io/transvoice-mandarin-handbook/](https://xling001.github.io/transvoice-mandarin-handbook/)** *(Features clean typography, dark sanctuary theme, chapter indexing, full-text search, and mobile optimization)*  
-> **Companion Open-Source App**: 🌸 **[Qinglai MtF Voice (青籁)](https://github.com/xling001/qinglai-mtfvoice)** *(A gentle voice training journal and real-time biofeedback tool for transfeminine individuals and voice explorers)*
+> **Release Notice**: 📢 This knowledgebase is published as a standalone, open-source theoretical and acoustic norm reference documentation. Community feedback and contributions are warmly welcome.
 
 > [!NOTE] About This Knowledgebase
 > This knowledgebase is a comprehensive, open-source clinical and community reference manual designed for transfeminine individuals, speech-language pathologists (SLPs), voice coaches, and acoustic explorers navigating Mandarin Chinese vocal transition.  
@@ -149,7 +149,7 @@ Exposes the common pitfall where learners force fundamental frequency ($F_0$) ab
 
 ## Acknowledgements & Open Source Ecosystem
 
-This repository and its companion biofeedback application are built upon the collective wisdom and open-source contributions of the global and Chinese transfeminine communities:
+This repository and knowledgebase are built upon the collective wisdom and open-source contributions of the global and Chinese transfeminine communities:
 
 1. **Aoi's MtF Voice Training Manual** ([https://mtf-voice-training.vercel.app/](https://mtf-voice-training.vercel.app/))
 2. **TransVoice-Wiki Chinese Translation Project** ([https://transvoice-wiki.pages.dev/translate/zh_Hans/](https://transvoice-wiki.pages.dev/translate/zh_Hans/))

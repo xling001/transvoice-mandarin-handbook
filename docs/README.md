@@ -744,7 +744,7 @@
 
 ## 致谢与参考开源项目
 
-本知识库及配套声学分析工程凝聚了国内外跨性别社群与言语康复领域先驱者的无私探索与分享，谨致以最诚挚的谢意：
+本知识库凝聚了国内外跨性别社群与言语康复领域先驱者的无私探索与分享，谨致以最诚挚的谢意：
 
 1. **Aoi 的跨性别嗓音训练指南（Aoi 手册）**（[https://mtf-voice-training.vercel.app/](https://mtf-voice-training.vercel.app/)）：为中文跨性别社群系统阐释了源-滤波器理论、三步提喉与水球舌头力学安全边界、以及普通话单韵母男女共振峰对照基线，为无数练习者推开了科学认识声音的大门。
 2. **TransVoice-Wiki 中文翻译项目**（[https://transvoice-wiki.pages.dev/translate/zh_Hans/](https://transvoice-wiki.pages.dev/translate/zh_Hans/)，原开源仓 [SumianVoice/TransVoice-Wiki](https://github.com/SumianVoice/TransVoice-Wiki)）：将现代音重（Weight）与声道空间（Size）双支柱模型、四象限充实度网格、去病理化与微行为框架引入中文语境，彻底走出了“唯音高论”的僵化格局。
