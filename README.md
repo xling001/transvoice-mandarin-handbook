@@ -3,6 +3,10 @@
 </p>
 
 <p align="center">
+  <img src="./github_social_preview_1280x640.png" alt="跨性别女性嗓音训练解剖与声学常模知识库（普通话版）" width="100%" />
+</p>
+
+<p align="center">
   <a href="LICENSE"><img src="https://img.shields.io/badge/License-CC%20BY--NC--SA%204.0-lightgrey.svg" alt="License: CC BY-NC-SA 4.0" /></a>
   <a href="https://github.com/xling001/transvoice-mandarin-handbook/issues"><img src="https://img.shields.io/badge/PRs-welcome-brightgreen.svg" alt="PRs Welcome" /></a>
   <img src="https://img.shields.io/badge/Community-Trans%20Affirming-5BCEFA.svg" alt="Trans Affirming" />
