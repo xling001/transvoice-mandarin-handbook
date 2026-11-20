@@ -13,13 +13,15 @@
   <img src="https://img.shields.io/badge/Made%20with-%F0%9F%92%95%20Love-f5a9b8.svg" alt="Made with Love" />
   <a href="https://xling001.github.io/transvoice-mandarin-handbook/"><img src="https://img.shields.io/badge/docs-GitHub%20Pages-blue.svg" alt="Online Documentation" /></a>
   <a href="https://github.com/xling001/radio-diary"><img src="https://img.shields.io/badge/Companion%20App-Radio%20Diary-6C5CE7.svg" alt="Radio Diary App" /></a>
+  <a href="https://xling001.github.io/radio-diary/"><img src="https://img.shields.io/badge/Web%20PWA-iOS%20%26%20Desktop-7BC2BC.svg" alt="Radio Diary Web PWA" /></a>
   <img src="https://img.shields.io/badge/Phonetics-Mandarin%20Chinese-6C5CE7.svg" alt="Mandarin Phonetics" />
 </p>
 
 # Transfeminine Voice Training Anatomy and Acoustic Norms Knowledgebase (Mandarin Edition)
 
 > **Online Reading Portal**: 👉 **[https://xling001.github.io/transvoice-mandarin-handbook/](https://xling001.github.io/transvoice-mandarin-handbook/)** *(Features clean typography, dark sanctuary theme, chapter indexing, full-text search, and mobile optimization)*  
-> **Companion Practice App**: 📻 **[Radio Diary MtF Edition (电波日记)](https://github.com/xling001/radio-diary)** *(A pure local, privacy-first voice training journal for transfeminine individuals · On-device offline DSP acoustics + External AI export)*  
+> **Companion Practice App**: 📻 **[Radio Diary MtF Edition (电波日记)](https://github.com/xling001/radio-diary)** *(Android APK & Source · On-device offline DSP acoustics + External AI export)*  
+> **Online Web Edition (iOS Safari / Desktop Trial & PWA)**: 🌐 **[https://xling001.github.io/radio-diary/](https://xling001.github.io/radio-diary/)** *(Runs 100% locally in your browser; add to iOS Home Screen via Safari)*  
 > **Knowledgebase Source Repo**: 📚 **[xling001/transvoice-mandarin-handbook](https://github.com/xling001/transvoice-mandarin-handbook)**
 
 > [!NOTE] About This Knowledgebase

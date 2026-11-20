@@ -1,7 +1,8 @@
 # 跨性别女性嗓音训练解剖与声学常模知识库（普通话版）
 
 > **在线交互阅读主站**：👉 **[https://xling001.github.io/transvoice-mandarin-handbook/](https://xling001.github.io/transvoice-mandarin-handbook/)** （支持移动端适配、暗黑模式、目录树索引、实时检索与公式渲染）  
-> **配套实践软件**：📻 **[电波日记 MtF 版 (Radio Diary)](https://github.com/xling001/radio-diary)**（面向跨性别女性的纯本地嗓音练习手账 · 零联网离线声学分析 + 外部 AI 导出）  
+> **配套实践软件**：📻 **[电波日记 MtF 版 (Radio Diary)](https://github.com/xling001/radio-diary)**（Android 安装包 · 零联网离线声学分析 + 外部 AI 导出）  
+> **在线网页版（兼容 iOS / 桌面免安装试用）**：🌐 **[https://xling001.github.io/radio-diary/](https://xling001.github.io/radio-diary/)**（同样纯本地浏览器计算，iOS Safari 可「添加到主屏幕」作为 PWA 使用）  
 > **知识库 GitHub 仓库**：📚 **[xling001/transvoice-mandarin-handbook](https://github.com/xling001/transvoice-mandarin-handbook)**
 
 > **理论基石与参考来源**：

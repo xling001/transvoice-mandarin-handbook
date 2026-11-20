@@ -13,11 +13,13 @@
   <img src="https://img.shields.io/badge/Made%20with-%F0%9F%92%95%20Love-f5a9b8.svg" alt="Made with Love" />
   <a href="https://xling001.github.io/transvoice-mandarin-handbook/"><img src="https://img.shields.io/badge/docs-GitHub%20Pages-blue.svg" alt="Online Documentation" /></a>
   <a href="https://github.com/xling001/radio-diary"><img src="https://img.shields.io/badge/Companion%20App-Radio%20Diary%20%28%E7%94%B5%E6%B3%A2%E6%97%A5%E8%AE%B0%29-6C5CE7.svg" alt="Radio Diary App" /></a>
+  <a href="https://xling001.github.io/radio-diary/"><img src="https://img.shields.io/badge/Web%20App-iOS%20%26%20Desktop%20PWA-7BC2BC.svg" alt="Radio Diary Web Edition" /></a>
   <img src="https://img.shields.io/badge/Phonetics-Mandarin%20Chinese-6C5CE7.svg" alt="Mandarin Phonetics" />
 </p>
 
 > **在线交互阅读主站**：👉 **[https://xling001.github.io/transvoice-mandarin-handbook/](https://xling001.github.io/transvoice-mandarin-handbook/)** （支持移动端适配、暗黑模式、目录树索引、实时检索与公式渲染）  
-> **配套实践软件**：📻 **[电波日记 MtF 版 (Radio Diary)](https://github.com/xling001/radio-diary)**（面向跨性别女性的纯本地嗓音练习手账 · 零联网离线声学分析 + 外部 AI 导出）  
+> **配套实践软件**：📻 **[电波日记 MtF 版 (Radio Diary)](https://github.com/xling001/radio-diary)**（Android 安装包 · 零联网离线声学分析 + 外部 AI 导出）  
+> **在线网页版（兼容 iOS / 桌面免安装试用）**：🌐 **[https://xling001.github.io/radio-diary/](https://xling001.github.io/radio-diary/)**（同样纯本地浏览器计算，iOS Safari 可「添加到主屏幕」作为 PWA 使用）  
 > **知识库 GitHub 仓库**：📚 **[xling001/transvoice-mandarin-handbook](https://github.com/xling001/transvoice-mandarin-handbook)**
 
 ---
