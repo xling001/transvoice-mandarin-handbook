@@ -19,7 +19,8 @@
 
 # Transfeminine Voice Training Anatomy and Acoustic Norms Knowledgebase (Mandarin Edition)
 
-> **Online Reading Portal**: 👉 **[https://xling001.github.io/transvoice-mandarin-handbook/](https://xling001.github.io/transvoice-mandarin-handbook/)** *(Features clean typography, dark sanctuary theme, chapter indexing, full-text search, and mobile optimization)*  
+> **Online Reading Portal**: 👉 **[https://xling001.github.io/transvoice-mandarin-handbook/](https://xling001.github.io/transvoice-mandarin-handbook/)** *(GitHub Pages)*  
+> **Global / Mainland Fast CDN Mirror**: ⚡ **[https://mandarin-tone-formant.pages.dev/](https://mandarin-tone-formant.pages.dev/)** *(Cloudflare Pages worldwide edge CDN)*  
 > **Companion Practice App**: 📻 **[Radio Diary MtF Edition (电波日记)](https://github.com/xling001/radio-diary)** *(Android APK & Source · On-device offline DSP acoustics + External AI export)*  
 > **Online Web Edition (iOS Safari / Desktop Trial & PWA)**: 🌐 **[https://xling001.github.io/radio-diary/](https://xling001.github.io/radio-diary/)** *(Runs 100% locally in your browser; add to iOS Home Screen via Safari)*  
 > **Domestic Fast Download Mirror (Mainland China)**: ⚡ **[Lanzou Cloud Mirror (Passcode: 1cvt)](https://wwbhg.lanzouv.com/b0o0ji4bc)** *(Direct APK download without login)*  

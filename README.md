@@ -17,7 +17,8 @@
   <img src="https://img.shields.io/badge/Phonetics-Mandarin%20Chinese-6C5CE7.svg" alt="Mandarin Phonetics" />
 </p>
 
-> **在线交互阅读主站**：👉 **[https://xling001.github.io/transvoice-mandarin-handbook/](https://xling001.github.io/transvoice-mandarin-handbook/)** （支持移动端适配、暗黑模式、目录树索引、实时检索与公式渲染）  
+> **在线交互阅读主站**：👉 **[https://xling001.github.io/transvoice-mandarin-handbook/](https://xling001.github.io/transvoice-mandarin-handbook/)** （GitHub Pages）  
+> **国内/全球高速镜像站**：⚡ **[https://mandarin-tone-formant.pages.dev/](https://mandarin-tone-formant.pages.dev/)** （Cloudflare 全球 CDN 加速，支持免代理直连）  
 > **配套实践软件**：📻 **[电波日记 MtF 版 (Radio Diary)](https://github.com/xling001/radio-diary)**（Android 安装包 · 零联网离线声学分析 + 外部 AI 导出）  
 > **在线网页版（兼容 iOS / 桌面免安装即用）**：🌐 **[https://xling001.github.io/radio-diary/](https://xling001.github.io/radio-diary/)**（同样纯本地浏览器计算，iOS Safari 可「添加到主屏幕」作为 PWA 使用）  
 > **国内网盘分流下载（免登录不限速）**：⚡ **[蓝奏云高速分流 (密码: 1cvt)](https://wwbhg.lanzouv.com/b0o0ji4bc)**（APK 安装包快速下载）  
