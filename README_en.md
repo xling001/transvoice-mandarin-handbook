@@ -22,6 +22,7 @@
 > **Online Reading Portal**: 👉 **[https://xling001.github.io/transvoice-mandarin-handbook/](https://xling001.github.io/transvoice-mandarin-handbook/)** *(Features clean typography, dark sanctuary theme, chapter indexing, full-text search, and mobile optimization)*  
 > **Companion Practice App**: 📻 **[Radio Diary MtF Edition (电波日记)](https://github.com/xling001/radio-diary)** *(Android APK & Source · On-device offline DSP acoustics + External AI export)*  
 > **Online Web Edition (iOS Safari / Desktop Trial & PWA)**: 🌐 **[https://xling001.github.io/radio-diary/](https://xling001.github.io/radio-diary/)** *(Runs 100% locally in your browser; add to iOS Home Screen via Safari)*  
+> **Domestic Fast Download Mirror (Mainland China)**: ⚡ **[Lanzou Cloud Mirror (Passcode: 1cvt)](https://wwbhg.lanzouv.com/b0o0ji4bc)** *(Direct APK download without login)*  
 > **Knowledgebase Source Repo**: 📚 **[xling001/transvoice-mandarin-handbook](https://github.com/xling001/transvoice-mandarin-handbook)**
 
 > [!NOTE] About This Knowledgebase
