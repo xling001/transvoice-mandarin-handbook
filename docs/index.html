@@ -148,12 +148,16 @@
       display: flex;
       align-items: center;
       justify-content: space-between;
+      gap: 12px;
     }
 
     .header-left {
       display: flex;
       align-items: center;
       gap: 14px;
+      min-width: 0;
+      flex: 1 1 auto;
+      overflow: hidden;
     }
 
     .menu-toggle {
@@ -168,6 +172,8 @@
       color: var(--text-primary);
       font-size: 13.5px;
       font-weight: 500;
+      white-space: nowrap;
+      flex-shrink: 0;
     }
 
     .brand-link {
@@ -179,6 +185,17 @@
       font-weight: 700;
       font-size: 16px;
       letter-spacing: -0.2px;
+      min-width: 0;
+      overflow: hidden;
+      white-space: nowrap;
+    }
+
+    .brand-title {
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      flex-shrink: 1;
+      min-width: 0;
     }
 
     /* Audio wave visualizer animation */
@@ -188,6 +205,7 @@
       gap: 2px;
       height: 14px;
       margin-left: 2px;
+      flex-shrink: 0;
     }
     .wave-bar {
       width: 2.5px;
@@ -214,12 +232,15 @@
       padding: 2px 7px;
       border-radius: var(--radius-full);
       margin-left: 4px;
+      white-space: nowrap;
+      flex-shrink: 0;
     }
 
     .header-right {
       display: flex;
       align-items: center;
       gap: 8px;
+      flex-shrink: 0;
     }
 
     .action-btn {
@@ -856,6 +877,22 @@
       border-color: var(--color-primary);
     }
 
+    /* Mobile & Responsive Enhancements */
+    html, body {
+      max-width: 100vw;
+      overflow-x: hidden;
+    }
+
+    .drawer-version-badge {
+      font-size: 10.5px;
+      font-weight: 600;
+      background: var(--color-primary-soft);
+      color: var(--color-primary);
+      padding: 1px 7px;
+      border-radius: var(--radius-full);
+      display: inline-block;
+    }
+
     /* Responsive Breakpoints */
     @media (max-width: 960px) {
       .menu-toggle {
@@ -870,11 +907,123 @@
       .article-card {
         padding: 24px 20px;
       }
-      .brand-title {
-        font-size: 14.5px;
-      }
       .app-btn-text {
         display: none;
+      }
+    }
+
+    @media (max-width: 768px) {
+      header {
+        height: 54px;
+      }
+      .header-inner {
+        padding: 0 12px;
+        gap: 8px;
+      }
+      .header-left {
+        gap: 8px;
+        min-width: 0;
+      }
+      .menu-toggle {
+        padding: 5px 8px;
+        font-size: 13px;
+        gap: 4px;
+        flex-shrink: 0;
+      }
+      .brand-link {
+        gap: 6px;
+      }
+      .brand-title {
+        font-size: 14px;
+      }
+      .brand-badge {
+        display: none !important;
+      }
+      .wave-bars {
+        display: none !important;
+      }
+      .header-right {
+        gap: 6px;
+      }
+      .action-btn {
+        height: 32px;
+        padding: 0 8px;
+        font-size: 12px;
+      }
+      .main-wrapper {
+        padding: 14px 12px 60px;
+      }
+      .article-card {
+        padding: 20px 14px;
+        border-radius: 12px;
+      }
+      .article-meta-header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 8px;
+      }
+      .breadcrumbs {
+        flex-wrap: wrap;
+        gap: 4px 6px;
+      }
+      .companion-banner {
+        padding: 16px 14px;
+      }
+      .cb-actions {
+        flex-direction: column;
+      }
+      .cb-btn {
+        width: 100%;
+        justify-content: center;
+      }
+      .markdown-body table {
+        display: block;
+        max-width: 100%;
+        overflow-x: auto;
+        -webkit-overflow-scrolling: touch;
+      }
+      .markdown-body pre {
+        max-width: 100%;
+        overflow-x: auto;
+      }
+    }
+
+    @media (max-width: 520px) {
+      .header-inner {
+        padding: 0 8px;
+        gap: 6px;
+      }
+      .brand-title {
+        font-size: 13.5px;
+        max-width: 125px;
+      }
+      #full-mode-label {
+        display: none;
+      }
+      #full-mode-btn {
+        padding: 0;
+        width: 32px;
+        justify-content: center;
+      }
+      .app-link-btn {
+        padding: 0;
+        width: 32px;
+        justify-content: center;
+      }
+      .action-btn {
+        width: 32px;
+        padding: 0;
+        gap: 0;
+        justify-content: center;
+      }
+    }
+
+    @media (max-width: 390px) {
+      .header-right a[title*="GitHub"] {
+        display: none;
+      }
+      .brand-title {
+        max-width: 100px;
       }
     }
   </style>
@@ -940,7 +1089,10 @@
   <!-- Mobile Drawer -->
   <aside class="mobile-drawer" id="mobile-drawer">
     <div style="display:flex; justify-content:space-between; align-items:center;">
-      <span style="font-weight:700; font-size:15px; color:var(--text-primary);">知识库导航</span>
+      <div style="display:flex; align-items:center; gap:8px;">
+        <span style="font-weight:700; font-size:15px; color:var(--text-primary);">知识库导航</span>
+        <span class="drawer-version-badge">普通话版 v1.4.1</span>
+      </div>
       <button onclick="toggleDrawer(false)" style="background:none; border:none; font-size:18px; color:var(--text-muted); cursor:pointer;">✕</button>
     </div>
     <!-- Companion App Card for Mobile -->
